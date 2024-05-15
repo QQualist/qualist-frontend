@@ -2,10 +2,18 @@ import { Button } from "@/components/ui/button";
 import FormHeader from "./form-header";
 import TextField from "@/components/Inputs/TextField";
 import { Label } from "@/components/ui/label";
-import TextFieldContent from "@/components/Inputs/TextField/InputContent";
-import TextFieldInput from "@/components/Inputs/TextField/TextFieldInput";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useState } from "react";
 
 const Form = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
+
+  const togglePassword = () => setShowPassword((state) => !state);
+
+  const toggleConfirmPassword = () => setShowConfirmPassword((state) => !state);
+
   return (
     <div className="flex flex-col w-full h-max gap-5">
       <FormHeader />
@@ -14,48 +22,64 @@ const Form = () => {
           <div className="flex w-full gap-2">
             <TextField.Root>
               <Label htmlFor="name">Name</Label>
-              <TextFieldContent>
-                <TextFieldInput id="name" type="text" placeholder="Ex.: John" />
-              </TextFieldContent>
+              <TextField.Content>
+                <TextField.Input
+                  id="name"
+                  type="text"
+                  placeholder="Ex.: John"
+                />
+              </TextField.Content>
             </TextField.Root>
 
             <TextField.Root>
               <Label htmlFor="surname">Surname</Label>
-              <TextFieldContent>
-                <TextFieldInput
+              <TextField.Content>
+                <TextField.Input
                   id="surname"
                   type="text"
                   placeholder="Ex.: Doe"
                 />
-              </TextFieldContent>
+              </TextField.Content>
             </TextField.Root>
           </div>
           <TextField.Root>
             <Label htmlFor="email">Email</Label>
-            <TextFieldContent>
-              <TextFieldInput
+            <TextField.Content>
+              <TextField.Input
                 id="email"
                 type="email"
                 placeholder="Ex.: john.doe@example.com"
               />
-            </TextFieldContent>
+            </TextField.Content>
           </TextField.Root>
 
           <TextField.Root>
             <Label htmlFor="password">Password</Label>
-            <TextFieldContent>
-              <TextFieldInput
+            <TextField.Content>
+              <TextField.Input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 placeholder="Ex.: Enter your password"
               />
-            </TextFieldContent>
+              <TextField.Icon
+                icon={showPassword ? FiEye : FiEyeOff}
+                onClick={togglePassword}
+              />
+            </TextField.Content>
           </TextField.Root>
           <TextField.Root>
             <Label htmlFor="confirm-password">Confirm password</Label>
-            <TextFieldContent>
-              <TextFieldInput id="confirm-password" type="password" placeholder="Ex.: Confirm your password" />
-            </TextFieldContent>
+            <TextField.Content>
+              <TextField.Input
+                id="confirm-password"
+                type={showConfirmPassword ? 'text' : 'password'}
+                placeholder="Ex.: Confirm your password"
+              />
+              <TextField.Icon
+                icon={showConfirmPassword ? FiEye : FiEyeOff}
+                onClick={toggleConfirmPassword}
+              />
+            </TextField.Content>
           </TextField.Root>
 
           <Button type="submit" variant="default">
