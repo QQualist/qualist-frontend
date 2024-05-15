@@ -16,7 +16,18 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    colors: {
+      transparent: 'transparent',
+      'dark-blue': '#0E0E2C',
+      'light-blue': '#0088F1',
+      'dark-gray': '#4A4A68',
+      'light-gray': '#F4F4F4',
+      'white': '#FFFFFF'
+    },
     extend: {
+      backgroundImage: {
+        'waves-pattern': "url('./src/assets/images/waves.png')"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
