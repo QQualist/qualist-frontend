@@ -1,14 +1,14 @@
 import { ElementType } from 'react'
 
 
-interface ITextfieldIcon {
+interface ITextFieldIcon {
   icon: ElementType;
   size?: number;
   onClick?: () => void
 }
 
 
-const TextfieldIcon = ({icon: Icon, size=24, onClick}: ITextfieldIcon) => {
+const TextFieldIcon = ({icon: Icon, size=24, onClick}: ITextFieldIcon) => {
   return (
     <Icon 
         className="text-dark-gray cursor-pointer"
@@ -18,4 +18,4 @@ const TextfieldIcon = ({icon: Icon, size=24, onClick}: ITextfieldIcon) => {
   )
 }
 
-export default TextfieldIcon
+export default TextFieldIcon
