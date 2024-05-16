@@ -23,7 +23,8 @@ module.exports = {
       'dark-gray': '#4A4A68',
       'light-gray': '#F4F4F4',
       'white': '#FFFFFF',
-      'red': '#9D0208'
+      'red': '#9D0208',
+      'success': '#008000'
     },
     extend: {
       backgroundImage: {

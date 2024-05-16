@@ -6,12 +6,18 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { createAdministratorSchema } from "@/schemas/users/createAdministrator";
-
-type CreateAdministratorData = z.infer<typeof createAdministratorSchema>;
+import { CreateAdministratorData } from "@/types/CreateAdministratorData";
+import { signUpAdministrator } from "@/utils/signUpAdministrator";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@/components/ui/use-toast";
+import { isAxiosError } from "axios";
 
 const Form = () => {
+  const queryClient = useQueryClient();
+
+  const { toast } = useToast();
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
@@ -28,8 +34,45 @@ const Form = () => {
 
   const toggleConfirmPassword = () => setShowConfirmPassword((state) => !state);
 
+  const mutation = useMutation({
+    mutationFn: signUpAdministrator,
+    onSuccess: (response) => {
+      toast({
+        variant: "success",
+        title: `Hello ${response.data.name}!`,
+        description: "User created successfully!",
+      });
+      queryClient.invalidateQueries({ queryKey: ["SignUpAdministrator"] });
+    },
+    onError: (error) => {
+      if (
+        isAxiosError(error) &&
+        error.response &&
+        error.response.status === 409
+      ) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `User already exists!`,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
   const sendForm = (data: CreateAdministratorData) => {
-    console.log(data);
+    mutation.mutateAsync({
+      name: data.name,
+      surname: data.surname,
+      email: data.email,
+      password: data.password,
+      confirmPassword: data.confirmPassword,
+    });
   };
 
   return (
@@ -92,14 +135,16 @@ const Form = () => {
               />
             </TextField.Content>
           </TextField.Root>
-          <TextField.Root error={errors.confirmPassword && errors.confirmPassword.message}>
+          <TextField.Root
+            error={errors.confirmPassword && errors.confirmPassword.message}
+          >
             <Label htmlFor="confirm-password">Confirm password</Label>
             <TextField.Content>
               <TextField.Input
                 id="confirm-password"
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Ex.: Confirm your password"
-                register={register('confirmPassword')}
+                register={register("confirmPassword")}
               />
               <TextField.Icon
                 icon={showConfirmPassword ? FiEye : FiEyeOff}
@@ -108,7 +153,11 @@ const Form = () => {
             </TextField.Content>
           </TextField.Root>
 
-          <Button type="submit" variant="default">
+          <Button
+            type="submit"
+            variant={mutation.isPending ? "disabled" : "default"}
+            isPanding={mutation.isPending}
+          >
             Sign Up
           </Button>
         </form>
