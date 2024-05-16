@@ -1,9 +1,9 @@
-import { SignUp } from "./views";
+import { SignIn } from "./views";
 
 const App = () => {
   return (
     <>
-      <SignUp />
+      <SignIn />
     </>
   );
 };
