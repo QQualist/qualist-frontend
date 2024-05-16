@@ -12,6 +12,7 @@ import { signUpAdministrator } from "@/utils/signUpAdministrator";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { isAxiosError } from "axios";
+import FormFooter from "./form-footer";
 
 const Form = () => {
   const queryClient = useQueryClient();
@@ -161,16 +162,7 @@ const Form = () => {
             Sign Up
           </Button>
         </form>
-        <span className="w-full text-center font-medium text-sm">
-          Ao se registrar na plataforma, você concorda com os{" "}
-          <Button variant="link" className="m-0 p-0 text-sm">
-            termos de uso
-          </Button>{" "}
-          e{" "}
-          <Button variant="link" className="m-0 p-0 text-sm">
-            políticas de privacidade
-          </Button>
-        </span>
+        <FormFooter />
       </div>
     </div>
   );
