@@ -81,7 +81,7 @@ const PrivacyPolicies = () => {
             To comply with legal obligations or respond to valid legal requests.
           </ListItem>
           <ListItem>
-            To protect the rights, property, or safety of [Name of Platform],
+            To protect the rights, property, or safety of Qualist,
             our users, or the general public.
           </ListItem>
         </List>
