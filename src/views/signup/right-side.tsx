@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import Form from "./form";
+import { Link } from "react-router-dom";
 
 const RightSideSignUp = () => {
   return (
     <div className="w-full max-h-full p-3">
       <div className="flex w-full justify-end">
-        <Button variant="link" className="font-bold">
-          Login
+        <Button variant="link" className="font-bold" asChild>
+          <Link to="/signin">Login</Link>
         </Button>
       </div>
       <div className="flex w-full max-h-full justify-center items-center overflow-y-auto">
