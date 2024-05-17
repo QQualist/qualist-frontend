@@ -8,8 +8,16 @@ import { useForm } from "react-hook-form";
 import { SignInUserData } from "@/types/SignInUserData";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInUserSchema } from "@/schemas/users/signInUser";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { signInUsers } from "@/utils/signInUsers";
+import { useToast } from "@/components/ui/use-toast";
+import { isAxiosError } from "axios";
 
 const Form = () => {
+  const queryClient = useQueryClient();
+
+  const { toast } = useToast();
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const togglePassword = () => {
@@ -24,9 +32,35 @@ const Form = () => {
     resolver: zodResolver(signInUserSchema),
   });
 
+  const mutation = useMutation({
+    mutationFn: signInUsers,
+    onSuccess: (response) => {
+      console.log(response);
+      queryClient.invalidateQueries({ queryKey: ["signInUsers"] });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
   const sendForm = (data: SignInUserData) => {
-    console.log(data);
-  }
+    mutation.mutateAsync({
+      email: data.email,
+      password: data.password,
+    });
+  };
 
   return (
     <div className="w-3/4 flex flex-col h-max gap-5">
@@ -43,7 +77,7 @@ const Form = () => {
                 id="email"
                 type="email"
                 placeholder="Ex.: john.doe@gmail.com"
-                register={register('email')}
+                register={register("email")}
               />
             </TextField.Content>
           </TextField.Root>
@@ -55,7 +89,7 @@ const Form = () => {
                 id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Ex.: Enter your password"
-                register={register('password')}
+                register={register("password")}
               />
               <TextField.Icon
                 icon={showPassword ? FiEye : FiEyeOff}
@@ -65,9 +99,10 @@ const Form = () => {
           </TextField.Root>
           <Button
             type="submit"
-            variant='default'
+            variant={mutation.isPending ? "disabled" : "default"}
+            isPanding={mutation.isPending}
           >
-            Sign Up
+            Sign In
           </Button>
         </form>
       </div>
