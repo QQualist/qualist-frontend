@@ -8,7 +8,7 @@ const LinkTermsOfUse = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="link" className="m-0 p-0 text-sm">
+        <Button variant="link" className="m-0 p-0 text-sm dark:text-light-blue">
           terms of use
         </Button>
       </DialogTrigger>
@@ -21,7 +21,7 @@ const LinkPolicyAndPrivace = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="link" className="m-0 p-0 text-sm">
+        <Button variant="link" className="m-0 p-0 text-sm dark:text-light-blue">
           privacy policies
         </Button>
       </DialogTrigger>
