@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const RightSideSignUp = () => {
   return (
-    <div className="w-full max-h-full p-3">
-      <div className="flex w-full justify-end">
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="flex justify-end items-center absolute top-3 right-3">
         <Button variant="link" className="font-bold" asChild>
           <Link to="/signin">Login</Link>
         </Button>
       </div>
-      <div className="flex w-full max-h-full justify-center items-center overflow-y-auto">
+      <div className="w-full flex flex-col justify-center items-center">
         <Form />
       </div>
     </div>

@@ -73,7 +73,7 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col w-full h-max gap-5">
+    <div className="w-3/4 flex flex-col h-max gap-5">
       <FormHeader />
       <div className="flex flex-col gap-4">
         <form
