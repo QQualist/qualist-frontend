@@ -1,9 +1,16 @@
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
-  return (
-    <Navbar />
-  )
-}
 
-export default Dashboard
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <Navbar />
+      <span>{t('I want')}</span>
+    </>
+  );
+};
+
+export default Dashboard;

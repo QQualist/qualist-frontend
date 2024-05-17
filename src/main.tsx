@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { UserProvider } from "./contexts/user.tsx";
 import { ThemeProvider } from "./contexts/theme.tsx";
+import '@/i18n';
 
 const queryClient = new QueryClient();
 
