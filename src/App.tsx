@@ -1,9 +1,9 @@
-import { SignIn } from "./views";
+import RouteNavigators from "./routes";
 
 const App = () => {
   return (
     <>
-      <SignIn />
+      <RouteNavigators />
     </>
   );
 };

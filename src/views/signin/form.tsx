@@ -1,7 +1,7 @@
 import TextField from "@/components/Inputs/TextField";
 import FormHeader from "./form-header";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
@@ -9,14 +9,17 @@ import { SignInUserData } from "@/types/SignInUserData";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInUserSchema } from "@/schemas/users/signInUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { signInUsers } from "@/utils/signInUsers";
 import { useToast } from "@/components/ui/use-toast";
 import { isAxiosError } from "axios";
+import { UserContext } from "@/contexts/user";
+import { ContextUser } from "@/types/ContextUser";
+import { Navigate } from "react-router-dom";
 
 const Form = () => {
   const queryClient = useQueryClient();
 
   const { toast } = useToast();
+  const { SignIn, signed } = useContext(UserContext) as ContextUser
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -33,9 +36,8 @@ const Form = () => {
   });
 
   const mutation = useMutation({
-    mutationFn: signInUsers,
+    mutationFn: SignIn,
     onSuccess: (response) => {
-      console.log(response);
       queryClient.invalidateQueries({ queryKey: ["signInUsers"] });
     },
     onError: (error) => {
@@ -58,9 +60,13 @@ const Form = () => {
   const sendForm = (data: SignInUserData) => {
     mutation.mutateAsync({
       email: data.email,
-      password: data.password,
+      password: data.password
     });
   };
+
+  if (signed){
+    return <Navigate to='/dashboard' />
+}
 
   return (
     <div className="w-3/4 flex flex-col h-max gap-5">
