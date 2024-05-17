@@ -20,8 +20,8 @@ module.exports = {
       transparent: 'transparent',
       'dark-blue': '#0E0E2C',
       'light-blue': '#0088F1',
-      'dark-gray': '#4A4A68',
-      'light-gray': '#F4F4F4',
+      'dark-gray': '#18181B',
+      'light-gray': '#A1A1AA',
       'white': '#FFFFFF',
       'red': '#9D0208',
       'success': '#008000'

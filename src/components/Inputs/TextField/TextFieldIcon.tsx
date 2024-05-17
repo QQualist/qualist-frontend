@@ -11,7 +11,7 @@ interface ITextFieldIcon {
 const TextFieldIcon = ({icon: Icon, size=24, onClick}: ITextFieldIcon) => {
   return (
     <Icon 
-        className="text-dark-gray cursor-pointer"
+        className="text-light-gray cursor-pointer"
         size={size}
         onClick={onClick}
     />
