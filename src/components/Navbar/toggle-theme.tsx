@@ -11,9 +11,9 @@ const ToggleTheme = () => {
   return (
     <button type="button" onClick={toggleTheme}>
       {theme === "dark" ? (
-        <MdLightMode className="text-white text-3xl" />
+        <MdLightMode className="text-white" size={24} />
       ) : (
-        <MdDarkMode className="text-white text-3xl" />
+        <MdDarkMode className="text-white" size={24} />
       )}
     </button>
   );
