@@ -3,26 +3,27 @@ import {
   DialogHeader,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Paragraph } from "./paragraph";
 import { Title } from "./title";
 import List from "./List";
 import ListItem from "./ListItem";
+import { useTranslation } from "react-i18next";
+import LastUpdated from "./last-updated";
 
 const TermsOfUse = () => {
+  const { t } = useTranslation();
+
   return (
     <DialogContent className="h-4/5">
       <DialogHeader>
-        <DialogTitle>Qualist terms of use </DialogTitle>
-        <DialogDescription asChild>
-          <span className="font-medium">Last Updated: May 16,2024</span>
-        </DialogDescription>
+        <DialogTitle>Qualist terms of use</DialogTitle>
+        <LastUpdated day={17} month={4} year={2024} />
       </DialogHeader>
       <div className="flex flex-col space-y-2 overflow-auto px-2">
         <Paragraph>
-          These Terms of Use ("Terms") govern the use of the website Qualist
+          These Terms of Use ("Terms") govern the use of the platform Qualist
           ("we," "our," or "the Company") located at [www.qualist.com.br] (the
           "Service").
         </Paragraph>
@@ -100,7 +101,7 @@ const TermsOfUse = () => {
         </Paragraph>
       </div>
       <DialogFooter>
-        <DialogClose>Close</DialogClose>
+        <DialogClose>{t("Close")}</DialogClose>
       </DialogFooter>
     </DialogContent>
   );

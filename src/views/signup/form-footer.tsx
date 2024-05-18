@@ -3,6 +3,7 @@ import TermsOfUse from "./dialogs/terms-of-use";
 import { Dialog } from "@/components/ui/dialog";
 import { DialogTrigger } from "@radix-ui/react-dialog";
 import PrivacyPolicies from "./dialogs/privacy-policies";
+import { useTranslation } from "react-i18next";
 
 const LinkTermsOfUse = () => {
   return (
@@ -31,10 +32,13 @@ const LinkPolicyAndPrivace = () => {
 };
 
 const FormFooter = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full text-center font-medium text-sm">
       <span>
-        By registering on the platform, you agree to the <LinkTermsOfUse /> and
+        {t("By registering on the platform, you agree to the")}{" "}
+        <LinkTermsOfUse /> {t("and")}
       </span>{" "}
       <LinkPolicyAndPrivace />
     </div>

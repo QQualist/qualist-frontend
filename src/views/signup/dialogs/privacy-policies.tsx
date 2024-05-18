@@ -3,22 +3,23 @@ import {
   DialogHeader,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Paragraph } from "./paragraph";
 import { Title } from "./title";
 import ListItem from "./ListItem";
 import List from "./List";
+import LastUpdated from "./last-updated";
+import { useTranslation } from "react-i18next";
 
 const PrivacyPolicies = () => {
+  const { t } = useTranslation();
+
   return (
     <DialogContent className="h-4/5">
       <DialogHeader>
-        <DialogTitle>Privacy Policy</DialogTitle>
-        <DialogDescription asChild>
-          <span className="font-medium">Last Updated: May 16,2024</span>
-        </DialogDescription>
+        <DialogTitle>Qualist privacy policies</DialogTitle>
+        <LastUpdated day={17} month={4} year={2024} />
       </DialogHeader>
       <div className="flex flex-col space-y-2 overflow-auto px-2">
         <Paragraph>
@@ -34,20 +35,20 @@ const PrivacyPolicies = () => {
         </Paragraph>
         <List>
           <ListItem>
-            <strong>Personal Identification Information:</strong> This may
-            include your name, email address, phone number, and other contact
-            information you voluntarily provide to us when registering or
-            interacting with the Service.
+            Personal Identification Information: This may include your name,
+            email address, phone number, and other contact information you
+            voluntarily provide to us when registering or interacting with the
+            Service.
           </ListItem>
           <ListItem>
-            <strong>Browsing Information:</strong> We may collect information
-            about how you access and use our Service, including your IP address,
-            browser type, visited pages, and access times.
+            Browsing Information: We may collect information about how you
+            access and use our Service, including your IP address, browser type,
+            visited pages, and access times.
           </ListItem>
           <ListItem>
-            <strong>Location Information:</strong> If you provide us with
-            permission, we may collect information about your geographic
-            location using technologies such as GPS or Wi-Fi.
+            Location Information: If you provide us with permission, we may
+            collect information about your geographic location using
+            technologies such as GPS or Wi-Fi.
           </ListItem>
         </List>
         <Title>How We Use Your Information</Title>
@@ -81,30 +82,53 @@ const PrivacyPolicies = () => {
             To comply with legal obligations or respond to valid legal requests.
           </ListItem>
           <ListItem>
-            To protect the rights, property, or safety of Qualist,
-            our users, or the general public.
+            To protect the rights, property, or safety of Qualist, our users, or
+            the general public.
           </ListItem>
         </List>
         <Title>Cookies and Similar Technologies</Title>
-        <Paragraph>Our Service may use cookies and other tracking technologies to collect and store information. You can control the use of cookies through your browser settings.</Paragraph>
+        <Paragraph>
+          Our Service may use cookies and other tracking technologies to collect
+          and store information. You can control the use of cookies through your
+          browser settings.
+        </Paragraph>
 
         <Title>Links to Third-Party Sites</Title>
-        <Paragraph>Our Service may contain links to third-party websites that are not operated by us. We are not responsible for the privacy practices of these sites and recommend you review their privacy policies.</Paragraph>
+        <Paragraph>
+          Our Service may contain links to third-party websites that are not
+          operated by us. We are not responsible for the privacy practices of
+          these sites and recommend you review their privacy policies.
+        </Paragraph>
 
         <Title>Security of Information</Title>
-        <Paragraph>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</Paragraph>
+        <Paragraph>
+          We implement appropriate security measures to protect your personal
+          information against unauthorized access, alteration, disclosure, or
+          destruction.
+        </Paragraph>
 
         <Title>Your Privacy Rights</Title>
-        <Paragraph>You have the right to access, correct, or delete your personal information. To exercise these rights, please contact us using the details provided below.</Paragraph>
+        <Paragraph>
+          You have the right to access, correct, or delete your personal
+          information. To exercise these rights, please contact us using the
+          details provided below.
+        </Paragraph>
 
         <Title>Changes to this Privacy Policy</Title>
-        <Paragraph>We may update our Privacy Policy from time to time. The most recent version will always be available on our website, indicating the date of its last update.</Paragraph>
-      
+        <Paragraph>
+          We may update our Privacy Policy from time to time. The most recent
+          version will always be available on our platform, indicating the date
+          of its last update.
+        </Paragraph>
+
         <Title>Contact</Title>
-        <Paragraph>If you have any questions or concerns about our Privacy Policy, please contact us at [qualist.contact@gmail.com].</Paragraph>
+        <Paragraph>
+          If you have any questions or concerns about our Privacy Policy, please
+          contact us at [qualist.contact@gmail.com].
+        </Paragraph>
       </div>
       <DialogFooter>
-        <DialogClose>Close</DialogClose>
+        <DialogClose>{t("Close")}</DialogClose>
       </DialogFooter>
     </DialogContent>
   );
