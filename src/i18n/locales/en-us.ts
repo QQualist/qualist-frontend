@@ -117,5 +117,15 @@ export default {
       "We may update our Privacy Policy from time to time. The most recent version will always be available on our platform, indicating the date of its last update.",
     "If you have any questions or concerns about our Privacy Policy, please contact us at [qualist.contact@gmail.com].":
       "If you have any questions or concerns about our Privacy Policy, please contact us at [qualist.contact@gmail.com].",
+    Register: "Register",
+    "Welcome back": "Welcome back",
+    "Enter your credentials to log in to the platform":
+      "Enter your credentials to log in to the platform",
+    "Sign In": "Sign In",
+    Loading: "Loading",
+    Unauthorized: "Unauthorized",
+    "Email address or password provided is incorrect":
+      "Email address or password provided is incorrect",
+    "An error occurred:": "An error occurred:",
   },
 };

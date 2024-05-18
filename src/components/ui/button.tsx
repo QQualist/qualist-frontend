@@ -63,7 +63,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {isPanding ? (
           <>
             <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-            Loading...
+            {t("Loading")}...
           </>
         ) : (
           translatedChildren

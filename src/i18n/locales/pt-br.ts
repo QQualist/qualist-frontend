@@ -118,5 +118,15 @@ export default {
       "Podemos atualizar nossa Política de Privacidade de tempos em tempos. A versão mais recente estará sempre disponível em nossa plataforma, indicando a data de sua última atualização.",
     "If you have any questions or concerns about our Privacy Policy, please contact us at [qualist.contact@gmail.com].":
       "Se tiver dúvidas ou preocupações sobre nossa Política de Privacidade, entre em contato conosco pelo e-mail [qualist.contact@gmail.com].",
+    Register: "Cadastro",
+    "Welcome back": "Bem-vindo novamente!",
+    "Enter your credentials to log in to the platform":
+      "Insira suas credenciais para fazer login na plataforma",
+    "Sign In": "Entrar",
+    Loading: "Carregando",
+    Unauthorized: "Não autorizado",
+    "Email address or password provided is incorrect":
+      "O endereço de e-mail ou a senha fornecidos estão incorretos",
+    "An error occurred:": "Ocorreu um erro:",
   },
 };
