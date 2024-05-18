@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 interface IParagraph {
-    children: string;
-  }
+  children: string;
+}
 
 export const Paragraph = ({ children }: IParagraph) => {
-  return <p className="text-justify text-sm">{children}</p>;
+  const { t } = useTranslation();
+
+  return <p className="text-justify text-sm">{t(children)}</p>;
 };

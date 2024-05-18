@@ -123,7 +123,7 @@ const Form = () => {
               <TextField.Input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="Ex.: Enter your password"
+                placeholder="Enter your password"
                 register={register("password")}
               />
               <TextField.Icon
@@ -140,7 +140,7 @@ const Form = () => {
               <TextField.Input
                 id="confirm-password"
                 type={showConfirmPassword ? "text" : "password"}
-                placeholder="Ex.: Confirm your password"
+                placeholder="Confirm your password"
                 register={register("confirmPassword")}
               />
               <TextField.Icon

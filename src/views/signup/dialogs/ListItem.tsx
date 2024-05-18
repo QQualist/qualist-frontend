@@ -1,15 +1,13 @@
-import { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 interface IListItem {
-    children: ReactNode;
+  children: string;
 }
 
-const ListItem = ({children}: IListItem) => {
-  return (
-    <li className="pl-5 text-sm text-justify">
-        {children}
-    </li>
-  )
-}
+const ListItem = ({ children }: IListItem) => {
+  const { t } = useTranslation();
 
-export default ListItem
+  return <li className="pl-5 text-sm text-justify">{t(children)}</li>;
+};
+
+export default ListItem;
