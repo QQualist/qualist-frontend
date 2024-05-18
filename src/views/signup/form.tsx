@@ -13,15 +13,18 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { isAxiosError } from "axios";
 import FormFooter from "./form-footer";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
+
   const queryClient = useQueryClient();
 
   const { toast } = useToast();
 
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState<boolean>(false);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -40,10 +43,12 @@ const Form = () => {
     onSuccess: () => {
       toast({
         variant: "success",
-        title: 'Success!',
+        title: "Success!",
         description: "User created successfully!",
       });
       queryClient.invalidateQueries({ queryKey: ["SignUpAdministrator"] });
+
+      navigate("/signin");
     },
     onError: (error) => {
       if (isAxiosError(error) && error.response) {

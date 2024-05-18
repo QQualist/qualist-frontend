@@ -13,7 +13,6 @@ import { useToast } from "@/components/ui/use-toast";
 import { isAxiosError } from "axios";
 import { UserContext } from "@/contexts/user";
 import { ContextUser } from "@/types/ContextUser";
-import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Form = () => {
@@ -22,7 +21,7 @@ const Form = () => {
   const { t } = useTranslation();
 
   const { toast } = useToast();
-  const { SignIn, signed } = useContext(UserContext) as ContextUser;
+  const { SignIn } = useContext(UserContext) as ContextUser;
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -67,9 +66,7 @@ const Form = () => {
     });
   };
 
-  if (signed) {
-    return <Navigate to="/dashboard" />;
-  }
+  
 
   return (
     <div className="w-3/4 flex flex-col h-max gap-5">
