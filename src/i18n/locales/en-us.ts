@@ -127,5 +127,8 @@ export default {
     "Email address or password provided is incorrect":
       "Email address or password provided is incorrect",
     "An error occurred:": "An error occurred:",
+    "User already exists": "User already exists",
+    "Success!": "Success!",
+    "User created successfully!": "User created successfully!",
   },
 };

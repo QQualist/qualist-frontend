@@ -37,10 +37,10 @@ const Form = () => {
 
   const mutation = useMutation({
     mutationFn: signUpAdministrator,
-    onSuccess: (response) => {
+    onSuccess: () => {
       toast({
         variant: "success",
-        title: `Hello ${response.data.name}!`,
+        title: 'Success!',
         description: "User created successfully!",
       });
       queryClient.invalidateQueries({ queryKey: ["SignUpAdministrator"] });
