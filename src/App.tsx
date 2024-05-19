@@ -4,7 +4,8 @@ import { Dashboard } from "./views";
 const App = () => {
   return (
     <>
-      <RouteNavigators />
+      {/* <RouteNavigators /> */}
+      <Dashboard></Dashboard>
     </>
   );
 };
