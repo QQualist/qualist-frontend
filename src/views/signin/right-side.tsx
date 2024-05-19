@@ -11,7 +11,7 @@ const RightSideSignIn = () => {
       <div className="flex justify-end items-center absolute top-3 right-3">
         <Button
           variant="link"
-          className="font-bold dark:text-light-blue"
+          className="font-bold dark:text-light-blue m-[20px] mx-[30px] no-underline no-underline transition ease-out duration-500 hover:bg-[#e9f2ff] hover:no-underline p-5"
           asChild
         >
           <Link to="/signup">{t("Register")}</Link>

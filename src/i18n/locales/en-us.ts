@@ -130,5 +130,6 @@ export default {
     "User already exists": "User already exists",
     "Success!": "Success!",
     "User created successfully!": "User created successfully!",
+    Dashboard: "Dashboard", 
   },
 };

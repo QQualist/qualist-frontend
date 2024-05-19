@@ -130,6 +130,7 @@ export default {
     "An error occurred:": "Ocorreu um erro:",
     "User already exists": "Usuário já existente",
     "Success!": "Sucesso!",
-    "User created successfully!": "Usuário criado com sucesso!"
+    "User created successfully!": "Usuário criado com sucesso!",
+    "Dashboard": 'Painel', 
   },
 };
