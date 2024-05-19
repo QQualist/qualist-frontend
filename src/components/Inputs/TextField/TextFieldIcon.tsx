@@ -8,10 +8,10 @@ interface ITextFieldIcon {
 }
 
 
-const TextFieldIcon = ({icon: Icon, size=24, onClick}: ITextFieldIcon) => {
+const TextFieldIcon = ({icon: Icon, size=16, onClick}: ITextFieldIcon) => {
   return (
     <Icon 
-        className="text-light-gray cursor-pointer w-[17px]"
+        className="text-light-gray cursor-pointer"
         size={size}
         onClick={onClick}
     />

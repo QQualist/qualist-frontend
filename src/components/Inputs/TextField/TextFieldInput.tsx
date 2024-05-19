@@ -20,7 +20,7 @@ const TextFieldInput = ({
 
   return (
     <input
-      className="w-full h-9 pr-3 placeholder:text-muted-foreground placeholder:font-medium text-sm shadow-sm bg-transparent focus-visible:outline-none h-[40px]"
+      className="w-full h-10 pr-3 placeholder:text-muted-foreground placeholder:font-medium text-sm shadow-sm bg-transparent focus-visible:outline-none"
       id={id}
       type={type}
       placeholder={t(placeholder)}

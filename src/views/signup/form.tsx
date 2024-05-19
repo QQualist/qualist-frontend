@@ -82,7 +82,7 @@ const Form = () => {
       <FormHeader />
       <div className="flex flex-col gap-4">
         <form
-          className="w-full flex flex-col space-y-8"
+          className="w-full flex flex-col space-y-4"
           onSubmit={handleSubmit(sendForm)}
         >
           <div className="flex w-full gap-2">
@@ -156,8 +156,8 @@ const Form = () => {
           </TextField.Root>
 
           <Button
-            className="h-[40px]"
             type="submit"
+            size='lg'
             variant={mutation.isPending ? "disabled" : "default"}
             isPanding={mutation.isPending}
           >
