@@ -132,5 +132,12 @@ export default {
     "Success!": "Sucesso!",
     "User created successfully!": "Usuário criado com sucesso!",
     "Dashboard": 'Painel', 
+    "Checklist": 'Checklist',
+    "Audits": 'Auditorias',
+    "Nonconformities": 'Não Conformidades',
+    "Departments": 'Departamentos',
+    "Position": 'Cargo',
+    "Priority": 'Prioridade',
+    "Settings": 'Configurações',
   },
 };
