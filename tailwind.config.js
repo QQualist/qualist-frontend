@@ -28,6 +28,9 @@ module.exports = {
       'success': '#008000'
     },
     extend: {
+      boxShadow: {
+        'externo': '0px 0px 6px 0px #3c84f9a6',
+      },
       backgroundImage: {
         'waves-pattern': "url('./src/assets/images/waves.png')"
       },
