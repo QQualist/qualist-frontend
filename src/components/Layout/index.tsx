@@ -12,7 +12,7 @@ const Layout = ({ children }: ILayout) => {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Navbar />
-        <main className="flex-1 p-4">{children}</main>
+        <main className="flex-1 pt-14 px-10">{children}</main>
       </div>
     </div>
   );

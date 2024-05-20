@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Header from "@/components/Layout/header";
 import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
@@ -6,7 +7,7 @@ const Dashboard = () => {
   const {t} = useTranslation();
   return (
     <Layout>
-      <h1>{t('Dashboard')}</h1>
+      <Header title={t("Dashboard")} subtitle={t("Lorem ipsum, or lipsum as it is sometimes known")} buttonText={t("Teste")} hasButton={true} onClick={() => {}} />
     </Layout>
   );
 };
