@@ -1,5 +1,7 @@
 import { SidebarContext } from "@/contexts/sidebar";
+import { UserContext } from "@/contexts/user";
 import { ContextSidebar } from "@/types/ContextSidebar";
+import { ContextUser } from "@/types/ContextUser";
 import { ElementType, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
@@ -15,15 +17,25 @@ const SidebarItem = ({ text, icon: Icon, to }: ISidebarItem) => {
   const [isActive] = useState<boolean>(location.pathname === to);
 
   const { isOpen } = useContext(SidebarContext) as ContextSidebar;
+
+  const { SignOut } = useContext(UserContext) as ContextUser;
   const { t } = useTranslation();
-  
+
+  const handleExitClick = () => {
+    if (to === "/signin") {
+      SignOut();
+    }
+  };
 
   return (
     <Link
       to={to}
       className={`flex w-full h-10 px-2 py-1 gap-2 items-center ${
         isOpen ? "justify-start" : "justify-center"
-      } rounded-md transition-all duration-200 text-white ${isActive && 'bg-light-blue'} hover:bg-light-blue`}
+      } rounded-md transition-all duration-200 text-white ${
+        isActive && "bg-light-blue"
+      } hover:bg-light-blue`}
+      onClick={handleExitClick}
     >
       <Icon size={24} className="transition-transform duration-200" />
       <span
