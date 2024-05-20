@@ -20,13 +20,23 @@ module.exports = {
       transparent: 'transparent',
       'dark-blue': '#0E0E2C',
       'light-blue': '#0088F1',
+      'layout': '#1D1D24',
+<<<<<<< HEAD
       'dark-gray': '#18181B',
+=======
+      'menu-hover': '#D9D9D936',
+      'dark-gray': '#4A4A68',
+      'medium-gray': '#34343f',
+>>>>>>> e25b47faadba1c400e9563761f47a59af04a3acf
       'light-gray': '#A1A1AA',
       'white': '#FFFFFF',
       'red': '#9D0208',
       'success': '#008000'
     },
     extend: {
+      boxShadow: {
+        'externo': '0px 0px 6px 0px #3c84f9a6',
+      },
       backgroundImage: {
         'waves-pattern': "url('./src/assets/images/waves.png')"
       },

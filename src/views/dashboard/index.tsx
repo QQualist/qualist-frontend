@@ -1,10 +1,9 @@
-import Layout from "@/components/Layout";
+import Layout from '@/components/Layout'
 
 const Dashboard = () => {
-
   return (
     <Layout>
-      <h1>Dashboard</h1>
+      <h1>Teste</h1>
     </Layout>
   );
 };

@@ -9,7 +9,7 @@ const RightSideSignUp = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <div className="flex justify-end items-center absolute top-3 right-3">
-        <Button variant="link" className="font-bold dark:text-light-blue" asChild>
+        <Button variant="link" className="font-bold dark:text-light-blue no-underline transition ease-out duration-500 hover:bg-light-blue/10 hover:no-underline p-5" asChild>
           <Link to="/signin">{t('Login')}</Link>
         </Button>
       </div>
