@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { 
+  Checklists,
     Dashboard,
   SignIn,
   SignUp
@@ -17,6 +18,7 @@ const RouteNavigators = () => {
 
             <Route path='/' element={<PrivateRoutes />}>
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/checklists' element={<Checklists />} />
             </Route>
 
             {/* <Route path='*' element={<NotFound />} /> */}
