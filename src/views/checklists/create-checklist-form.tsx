@@ -1,3 +1,4 @@
+import { api } from "@/api/api";
 import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -8,16 +9,26 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useToast } from "@/components/ui/use-toast";
+import { UserContext } from "@/contexts/user";
 import { CreateChecklistSchema } from "@/schemas/checklists/create-checklist";
+import { ContextUser } from "@/types/ContextUser";
 import { CreateChecklistData } from "@/types/create-checklist";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 interface ICreateChecklistForm {
-  onClose: () => void
+  onClose: () => void;
 }
 
 const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
+  const { user, SignOut } = useContext(UserContext) as ContextUser;
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
   const {
     register,
     handleSubmit,
@@ -27,10 +38,52 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
     resolver: zodResolver(CreateChecklistSchema),
   });
 
+  const createChecklist = async (data: CreateChecklistData) => {
+    return await api.post("/checklists", {
+      name: data.name,
+      user_uuid: user?.uuid
+    }, {
+      headers: {
+        Authorization: `Bearer ${user?.token}`,
+      },
+    });
+  };
+
+  const mutation = useMutation({
+    mutationFn: createChecklist,
+    onSuccess: () => {
+      toast({
+        variant: "success",
+        title: "Success!",
+        description: "Checklist successfully created",
+      });
+      queryClient.invalidateQueries({ queryKey: ["create-checklist"] });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
   const sendForm = (data: CreateChecklistData) => {
-    alert(data.name);
+    if (user && user.uuid) {
+      mutation.mutateAsync(data);
+    }else {
+      SignOut()
+    }
     reset();
-    onClose()
+    onClose();
   };
 
   return (
@@ -54,8 +107,8 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
           </TextField.Content>
         </TextField.Root>
 
-        <SheetFooter >
-            <Button type="submit">Save</Button>
+        <SheetFooter>
+          <Button type="submit">Save</Button>
         </SheetFooter>
       </form>
     </SheetContent>

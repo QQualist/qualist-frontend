@@ -16,6 +16,7 @@ export const UserSchema = z.object({
     .email("Invalid email")
     .min(1, "Email is required")
     .max(60, "The email must contain a maximum of 60 characters"),
+  token: z.string(),
   createdAt: z.date(),
   updatedAt: z.date(),
   deletedAt: z.date().nullable(),

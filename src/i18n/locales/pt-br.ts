@@ -144,6 +144,7 @@ export default {
     "Create your checklist here. Click save when you're finished.":
       "Crie seu checklist aqui. Clique em salvar quando terminar.",
       "Eg: Project plan": "Ex: Plano de projeto",
-      "Save": "Salvar"
+      "Save": "Salvar",
+      "Checklist successfully created": "Checklist criado com sucesso"
   },
 };
