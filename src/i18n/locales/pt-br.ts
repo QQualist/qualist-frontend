@@ -140,6 +140,10 @@ export default {
     Priorities: "Prioridades",
     Settings: "Configurações",
     "Access and manage checklists": "Acesse e gerencie seus checklists",
-    "Create checklist": "Criar checklist"
+    "Create checklist": "Criar checklist",
+    "Create your checklist here. Click save when you're finished.":
+      "Crie seu checklist aqui. Clique em salvar quando terminar.",
+      "Eg: Project plan": "Ex: Plano de projeto",
+      "Save": "Salvar"
   },
 };

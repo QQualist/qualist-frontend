@@ -1,17 +1,14 @@
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout";
+import ChecklistHeader from "./checklist-header";
 
 const Checklists = () => {
   return (
-    <Layout 
-      title="Checklists"
-      subtitle="Access and manage checklists"
-      hasButton={true}
-      textButton="Create checklist"
-      onClick={() => alert("CRIA CHECKLIST")}
-    >
-        <h1>Checklists</h1>
-    </Layout>
-  )
-}
+    <Layout>
+      <ChecklistHeader />
 
-export default Checklists
+      <h1>Checklists</h1>
+    </Layout>
+  );
+};
+
+export default Checklists;
