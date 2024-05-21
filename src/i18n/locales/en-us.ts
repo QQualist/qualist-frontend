@@ -138,5 +138,7 @@ export default {
     Roles: "Roles",
     Priorities: "Priorities",
     Settings: "Settings",
+    "Access and manage checklists": "Access and manage checklists",
+    "Create checklist": "Create checklist"
   },
 };
