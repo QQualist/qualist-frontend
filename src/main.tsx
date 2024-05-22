@@ -8,6 +8,7 @@ import { UserProvider } from "./contexts/user.tsx";
 import { ThemeProvider } from "./contexts/theme.tsx";
 import "@/i18n";
 import { SidebarProvider } from "./contexts/sidebar.tsx";
+import { TooltipProvider } from "./components/ui/tooltip.tsx";
 
 const queryClient = new QueryClient();
 
@@ -16,10 +17,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <UserProvider>
       <ThemeProvider defaultTheme="light" storageKey="@User:Theme">
         <SidebarProvider>
-          <QueryClientProvider client={queryClient}>
-            <Toaster />
-            <App />
-          </QueryClientProvider>
+          <TooltipProvider>
+            <QueryClientProvider client={queryClient}>
+              <Toaster />
+              <App />
+            </QueryClientProvider>
+          </TooltipProvider>
         </SidebarProvider>
       </ThemeProvider>
     </UserProvider>

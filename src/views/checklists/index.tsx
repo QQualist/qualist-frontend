@@ -1,17 +1,41 @@
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout";
+import ChecklistHeader from "./checklist-header";
+import DataTable from "@/components/DataTable";
+import { columns } from "./TableChecklist/columns";
+import { api } from "@/api/api";
+import { useContext } from "react";
+import { UserContext } from "@/contexts/user";
+import { ContextUser } from "@/types/ContextUser";
+import { ChecklistData } from "@/types/Checklist";
+import { useQuery } from "@tanstack/react-query";
 
 const Checklists = () => {
-  return (
-    <Layout 
-      title="Checklists"
-      subtitle="Access and manage checklists"
-      hasButton={true}
-      textButton="Create checklist"
-      onClick={() => alert("CRIA CHECKLIST")}
-    >
-        <h1>Checklists</h1>
-    </Layout>
-  )
-}
+  const { user } = useContext(UserContext) as ContextUser;
 
-export default Checklists
+  const getChecklists = async (): Promise<ChecklistData[]> => {
+    const checklists = await api.get(`/checklists/user/${user?.uuid}`, {
+      headers: {
+        Authorization: `Bearer ${user?.token}`,
+      },
+    });
+    return checklists.data;
+  };
+
+  const {
+    data = [],
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["checklists"],
+    queryFn: getChecklists,
+  });
+
+  return (
+    <Layout>
+      <ChecklistHeader />
+      <DataTable columns={columns} data={data} />
+    </Layout>
+  );
+};
+
+export default Checklists;

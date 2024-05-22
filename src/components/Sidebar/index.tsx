@@ -13,7 +13,7 @@ const Sidebar = () => {
     <div className={`${isOpen ? 'w-72': 'w-24'} h-screen flex flex-col bg-layout transition-all duration-300`}>
       <SidebarHeader />
       <SidebarDivider />
-      <div className="flex-1 overflow-y-auto pt-12">
+      <div className="flex-1 overflow-y-auto pt-5">
         <SidebarBody />
       </div>
     </div>

@@ -48,10 +48,10 @@ export const UserProvider = ({ children }: IUserProvider) => {
             },
           })
           .then((response) => {
-            setUser({ ...response.data });
+            setUser({ ...response.data, token: data.access_token });
             localStorage.setItem(
               "@AuthUser:user",
-              JSON.stringify({ ...response.data })
+              JSON.stringify({ ...response.data, token: data.access_token })
             );
           });
       })

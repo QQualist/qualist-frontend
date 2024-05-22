@@ -1,12 +1,10 @@
 import Layout from "@/components/Layout";
+import { Header } from "@/components/Layout/Header";
 
 const Dashboard = () => {
   return (
-    <Layout
-      title="Dashboard"
-      subtitle="Look at your metrics and track performance"
-      hasButton={false}
-    >
+    <Layout>
+      
       <h1>Teste</h1>
     </Layout>
   );

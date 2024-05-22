@@ -139,6 +139,11 @@ export default {
     Priorities: "Priorities",
     Settings: "Settings",
     "Access and manage checklists": "Access and manage checklists",
-    "Create checklist": "Create checklist"
+    "Create checklist": "Create checklist",
+    "Create your checklist here. Click save when you're finished.":
+      "Create your checklist here. Click save when you're finished.",
+    "Eg: Project plan": "Eg: Project plan",
+    "Save": "Save",
+    "Checklist successfully created": "Checklist successfully created",
   },
 };
