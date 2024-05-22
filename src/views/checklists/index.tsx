@@ -2,31 +2,38 @@ import Layout from "@/components/Layout";
 import ChecklistHeader from "./checklist-header";
 import DataTable from "@/components/DataTable";
 import { columns } from "./TableChecklist/columns";
+import { api } from "@/api/api";
+import { useContext } from "react";
+import { UserContext } from "@/contexts/user";
+import { ContextUser } from "@/types/ContextUser";
+import { ChecklistData } from "@/types/Checklist";
+import { useQuery } from "@tanstack/react-query";
 
 const Checklists = () => {
+  const { user } = useContext(UserContext) as ContextUser;
+
+  const getChecklists = async (): Promise<ChecklistData[]> => {
+    const checklists = await api.get(`/checklists/user/${user?.uuid}`, {
+      headers: {
+        Authorization: `Bearer ${user?.token}`,
+      },
+    });
+    return checklists.data;
+  };
+
+  const {
+    data = [],
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["checklists"],
+    queryFn: getChecklists,
+  });
 
   return (
     <Layout>
       <ChecklistHeader />
-
-      <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={[
-    {
-      uuid: "checklist_aaaaa",
-      name: "Plano de validação",
-      active: true,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      deletedAt: null,
-      user: {
-        user_uuid: "user_aaaaa",
-        sendNonConformitiesToEmail: true,
-        roleCanDispenseNoConformity: false,
-      },
-      version: 1,
-    },
-  ]} />
-      </div>
+      <DataTable columns={columns} data={data} />
     </Layout>
   );
 };

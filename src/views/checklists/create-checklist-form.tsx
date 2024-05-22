@@ -39,25 +39,32 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
   });
 
   const createChecklist = async (data: CreateChecklistData) => {
-    return await api.post("/checklists", {
-      name: data.name,
-      user_uuid: user?.uuid
-    }, {
-      headers: {
-        Authorization: `Bearer ${user?.token}`,
+    return await api.post(
+      "/checklists",
+      {
+        name: data.name,
+        user_uuid: user?.uuid,
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
+    );
   };
 
   const mutation = useMutation({
     mutationFn: createChecklist,
-    onSuccess: () => {
+    onSuccess: ({data}) => {
+      queryClient.setQueryData<CreateChecklistData[]>(
+        ["checklists"],
+        (oldData = []) => [data, ...oldData]
+      );
       toast({
         variant: "success",
         title: "Success!",
         description: "Checklist successfully created",
       });
-      queryClient.invalidateQueries({ queryKey: ["create-checklist"] });
     },
     onError: (error) => {
       if (isAxiosError(error) && error.response) {
@@ -79,8 +86,8 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
   const sendForm = (data: CreateChecklistData) => {
     if (user && user.uuid) {
       mutation.mutateAsync(data);
-    }else {
-      SignOut()
+    } else {
+      SignOut();
     }
     reset();
     onClose();

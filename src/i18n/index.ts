@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 import translations from './locales' // Translations
 
+
 const i18nConfig = {
   resources: translations,
   fallbackLng: 'en-US',
@@ -13,5 +14,6 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init(i18nConfig)
+
 
 export default i18n
