@@ -5,7 +5,8 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
+import i18n from "@/i18n";
 
 export const columns: ColumnDef<ChecklistData>[] = [
   {
@@ -25,23 +26,26 @@ export const columns: ColumnDef<ChecklistData>[] = [
                 <div className="w-3 h-3  rounded-full bg-success cursor-pointer" />
               </div>
             </TooltipTrigger>
-            <TooltipContent >
-              <p className="dark:text-white">Active</p>
-            </TooltipContent>
+            <TooltipContent className="text-white">Active</TooltipContent>
           </Tooltip>
         );
       } else {
         return (
-          <div className="flex justify-center ">
-            <div className="w-3 h-3  rounded-full bg-red cursor-pointer" />
-          </div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="w-full flex justify-center">
+                <div className="w-3 h-3  rounded-full bg-red cursor-pointer" />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className="text-white">Deprecated</TooltipContent>
+          </Tooltip>
         );
       }
     },
   },
   {
     accessorKey: "version",
-    header: () => <div className="text-center">Version</div>,
+    header: () => <div className="text-center">{i18n.t("Version")}</div>,
     cell: ({ row }) => {
       const version: number = parseInt(row.getValue("version"));
       return <div className="flex justify-center">{version}</div>;

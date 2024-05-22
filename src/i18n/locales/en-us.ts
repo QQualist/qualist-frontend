@@ -143,7 +143,12 @@ export default {
     "Create your checklist here. Click save when you're finished.":
       "Create your checklist here. Click save when you're finished.",
     "Eg: Project plan": "Eg: Project plan",
-    "Save": "Save",
+    Save: "Save",
     "Checklist successfully created": "Checklist successfully created",
+    Active: "Active",
+    Deprecated: "Deprecated",
+    Version: "Version",
+    "Created At": "Created At",
+    "Updated At": "Updated At",
   },
 };
