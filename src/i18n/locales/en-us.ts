@@ -150,5 +150,8 @@ export default {
     Version: "Version",
     "Created At": "Created At",
     "Updated At": "Updated At",
+    Actions: "Actions",
+    "Done!": "Done!",
+    "Checklist active again!": "Checklist active again!"
   },
 };

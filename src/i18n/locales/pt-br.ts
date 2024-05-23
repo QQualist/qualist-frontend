@@ -150,6 +150,9 @@ export default {
     Deprecated: "Depreciado",
     "Version": "Versão",
     "Created At": "Criado",
-    "Updated At": "Modificado"
+    "Updated At": "Modificado",
+    Actions: "Ações",
+    "Done!": "Feito!",
+    "Checklist active again!": "Checklist ativo novamente!"
   },
 };
