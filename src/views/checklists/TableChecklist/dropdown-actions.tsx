@@ -18,6 +18,7 @@ import { ContextUser } from "@/types/ContextUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { api } from "@/api/api";
+import { useNavigate } from "react-router-dom";
 
 interface IDropdownActions {
   row: Row<ChecklistData>;
@@ -29,6 +30,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const deprecateChecklist = async () => {
     return await api.delete(`/checklists/${row.getValue("uuid")}`, {
@@ -118,7 +120,11 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
     },
   });
 
-  
+  const handleViewItems = () => {
+    const uuid = row.getValue("uuid");
+    navigate(`/items?checklist_uuid=${uuid}`);
+  };
+
   return (
     <>
       <DropdownMenu>
@@ -141,7 +147,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
             Copy checklist code
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem className="cursor-pointer" onClick={handleViewItems}>
             View items
           </DropdownMenuItem>
 
