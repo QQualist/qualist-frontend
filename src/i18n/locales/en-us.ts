@@ -151,7 +151,15 @@ export default {
     "Created At": "Created At",
     "Updated At": "Updated At",
     Actions: "Actions",
+    "Copy checklist code": "Copy checklist code",
+    "View items": "View items",
+    "Update": "Update",
+    "Deprecate checklist": "Deprecate checklist",
     "Done!": "Done!",
-    "Checklist active again!": "Checklist active again!"
+    "Checklist active again!": "Checklist active again!",
+    "Undo": "Undo",
+    "Checklist successfully deprecated!": "Checklist successfully deprecated!",
+    "Update checklist": "Update checklist",
+    
   },
 };

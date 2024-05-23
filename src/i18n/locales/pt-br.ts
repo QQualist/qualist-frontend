@@ -148,11 +148,20 @@ export default {
     "Checklist successfully created": "Checklist criado com sucesso",
     Active: "Ativo",
     Deprecated: "Depreciado",
-    "Version": "Versão",
+    Version: "Versão",
     "Created At": "Criado",
     "Updated At": "Modificado",
     Actions: "Ações",
+    "Copy checklist code": "Copiar código do checklist",
+    "View items": "Ver items",
+    Update: "Atualizar",
+    "Deprecate checklist": "Depreciar checklist",
     "Done!": "Feito!",
-    "Checklist active again!": "Checklist ativo novamente!"
+    "Checklist active again!": "Checklist ativo novamente!",
+    Undo: "Desfazer",
+    "Checklist successfully deprecated!": "Checklist depreciado com sucesso!",
+    "Update checklist": "Atualizar checklist",
+    "Update your checklist here. Click save when you're finished.":
+      "Atualize o seu checklist aqui. Clique em salvar quando terminar.",
   },
 };
