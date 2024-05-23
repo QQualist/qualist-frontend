@@ -156,6 +156,7 @@ export default {
     "View items": "Ver items",
     Update: "Atualizar",
     "Deprecate checklist": "Depreciar checklist",
+    "Enable checklist": "Ativar checklist",
     "Done!": "Feito!",
     "Checklist active again!": "Checklist ativo novamente!",
     Undo: "Desfazer",
@@ -163,5 +164,8 @@ export default {
     "Update checklist": "Atualizar checklist",
     "Update your checklist here. Click save when you're finished.":
       "Atualize o seu checklist aqui. Clique em salvar quando terminar.",
-  },
+      "Number must be greater than 0": "Número deve ser maior que 0",
+      "The checklist version must be longer than the previous one": "A versão do checklist deve ser maior do que a anterior"
+   
+    },
 };

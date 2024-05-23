@@ -155,11 +155,16 @@ export default {
     "View items": "View items",
     "Update": "Update",
     "Deprecate checklist": "Deprecate checklist",
+    "Enable checklist": "Enable checklist",
     "Done!": "Done!",
     "Checklist active again!": "Checklist active again!",
     "Undo": "Undo",
     "Checklist successfully deprecated!": "Checklist successfully deprecated!",
     "Update checklist": "Update checklist",
+    "Number must be greater than 0": "Number must be greater than 0",
+    "The checklist version must be longer than the previous one": "The checklist version must be longer than the previous one",
+
+    
     
   },
 };
