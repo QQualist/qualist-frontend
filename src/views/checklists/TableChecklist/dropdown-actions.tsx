@@ -53,7 +53,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
             Update
           </DropdownMenuItem>
 
-          {row.getValue("active") === 1 && ( // Checklist = 1 (Checklist active)
+          {(row.getValue("active") === 1 || row.getValue("active") === true)  && ( // Checklist = 1 (Checklist active)
             <DropdownMenuItem className="cursor-pointer bg-red text-white hover:bg-red/90 dark:hover:bg-red/90">
               Deprecate checklist
             </DropdownMenuItem>

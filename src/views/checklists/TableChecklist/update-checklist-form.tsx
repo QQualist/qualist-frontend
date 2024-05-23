@@ -15,6 +15,13 @@ import {
 } from "@/components/ui/sheet";
 import { ChecklistData } from "@/types/Checklist";
 import { Row } from "@tanstack/react-table";
+import { api } from "@/api/api";
+import { useContext } from "react";
+import { UserContext } from "@/contexts/user";
+import { ContextUser } from "@/types/ContextUser";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@/components/ui/use-toast";
+import { isAxiosError } from "axios";
 
 interface IUpdateChecklist {
   row: Row<ChecklistData>;
@@ -23,6 +30,10 @@ interface IUpdateChecklist {
 }
 
 const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
+  const { user, SignOut } = useContext(UserContext) as ContextUser;
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -36,9 +47,58 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
     },
   });
 
+  const updateChecklist = async (data: UpdateChecklistData) => {
+    return await api.patch(
+      `/checklists/${row.getValue("uuid")}`,
+      {
+        name: data.name,
+        version: data.version,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
+    );
+  };
+
+  const mutation = useMutation({
+    mutationFn: updateChecklist,
+    onSuccess: ({ data }) => {
+      // Update data row tables
+      row.original = { ...row.original, ...data };
+      queryClient.invalidateQueries();
+      toast({
+        variant: "success",
+        title: "Success!",
+        description: "Checklist successfully updated",
+      });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
   const sendForm = (data: UpdateChecklistData) => {
-    alert(data);
+    if (user && user.uuid) {
+      mutation.mutateAsync(data);
+    } else {
+      SignOut();
+    }
     reset();
+    onClose();
   };
 
   return (
