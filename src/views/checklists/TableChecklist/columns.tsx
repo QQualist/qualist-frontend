@@ -70,7 +70,7 @@ export const columns: ColumnDef<ChecklistData>[] = [
     accessorKey: "updatedAt",
     header: "Updated At",
     cell: ({ row }) => {
-      const date: string = row.getValue("createdAt");
+      const date: string = row.getValue("updatedAt");
 
       return <span>{formatDate(date)}</span>;
     },
