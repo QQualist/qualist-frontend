@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 interface ITextFieldInput extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  type: "text" | "password" | "email";
+  type: "text" | "password" | "email" | "number";
   placeholder: string;
   register?: UseFormRegisterReturn;
 }

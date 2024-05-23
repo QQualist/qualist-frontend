@@ -7,8 +7,14 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import i18n from "@/i18n";
+import Actions from "./actions";
 
 export const columns: ColumnDef<ChecklistData>[] = [
+  {
+    accessorKey: "uuid",
+    header: () => null,
+    cell: () => null,
+  },
   {
     accessorKey: "name",
     header: "Name",
@@ -67,6 +73,13 @@ export const columns: ColumnDef<ChecklistData>[] = [
       const date: string = row.getValue("createdAt");
 
       return <span>{formatDate(date)}</span>;
+    },
+  },
+  {
+    id: "Actions",
+    header: () => <div className="text-center">{i18n.t("Actions")}</div>,
+    cell: ({ row }) => {
+      return <Actions row={row} />;
     },
   },
 ];

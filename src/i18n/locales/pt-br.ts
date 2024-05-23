@@ -150,6 +150,7 @@ export default {
     Deprecated: "Depreciado",
     "Version": "Versão",
     "Created At": "Criado",
-    "Updated At": "Modificado"
+    "Updated At": "Modificado",
+    Actions: "Ações"
   },
 };

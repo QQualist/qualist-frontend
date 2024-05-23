@@ -150,5 +150,6 @@ export default {
     Version: "Version",
     "Created At": "Created At",
     "Updated At": "Updated At",
+    Actions: "Actions",
   },
 };
