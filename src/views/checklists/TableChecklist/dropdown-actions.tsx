@@ -11,14 +11,109 @@ import { ChecklistData } from "@/types/Checklist";
 import { MdOutlineMoreHoriz } from "react-icons/md";
 import { Row } from "@tanstack/react-table";
 import { useTranslation } from "react-i18next";
+import { isAxiosError } from "axios";
+import { useContext } from "react";
+import { UserContext } from "@/contexts/user";
+import { ContextUser } from "@/types/ContextUser";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@/components/ui/use-toast";
+import { api } from "@/api/api";
 
 interface IDropdownActions {
   row: Row<ChecklistData>;
-  onOpen: () => void
+  onOpen: () => void;
 }
 
 const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
+  const { user } = useContext(UserContext) as ContextUser;
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
   const { t } = useTranslation();
+
+  const deprecateChecklist = async () => {
+    return await api.delete(`/checklists/${row.getValue("uuid")}`, {
+      headers: {
+        Authorization: `Bearer ${user?.token}`,
+      },
+    });
+  };
+
+  const undoDeprecatedChecklist = async () => {
+    return await api.patch(
+      `/checklists/${row.getValue("uuid")}`,
+      {
+        active: true,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+        },
+      }
+    );
+  };
+
+  const mutationUndoDeprecatedChecklist = useMutation({
+    mutationFn: undoDeprecatedChecklist,
+    onSuccess: ({ data }) => {
+      // Update data row tables
+      row.original = { ...row.original, ...data };
+      queryClient.invalidateQueries({ queryKey: ["checklists"] });
+      toast({
+        variant: "success",
+        title: "Done!",
+        description: "Checklist active again!",
+      });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
+  const mutationDeprecatedChecklist = useMutation({
+    mutationFn: deprecateChecklist,
+    onSuccess: ({ data }) => {
+      // Update data row tables
+      row.original = { ...row.original, ...data };
+      queryClient.invalidateQueries({ queryKey: ["checklists"] });
+      toast({
+        variant: "default",
+        title: "Success!",
+        description: "Checklist successfully deprecated!",
+        action: (
+          <Button size="sm" onClick={() => mutationUndoDeprecatedChecklist.mutateAsync()} >
+            Undo
+          </Button>
+        ),
+      });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
 
   return (
     <>
@@ -46,15 +141,16 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
             View items
           </DropdownMenuItem>
 
-          <DropdownMenuItem
-            className="cursor-pointer"
-            onClick={onOpen}
-          >
+          <DropdownMenuItem className="cursor-pointer" onClick={onOpen}>
             Update
           </DropdownMenuItem>
 
-          {(row.getValue("active") === 1 || row.getValue("active") === true)  && ( // Checklist = 1 (Checklist active)
-            <DropdownMenuItem className="cursor-pointer bg-red text-white hover:bg-red/90 dark:hover:bg-red/90">
+          {(row.getValue("active") === 1 ||
+            row.getValue("active") === true) && ( // Checklist = 1 (Checklist active)
+            <DropdownMenuItem
+              className="cursor-pointer bg-red text-white hover:bg-red/90 dark:hover:bg-red/90"
+              onClick={() => mutationDeprecatedChecklist.mutateAsync()}
+            >
               Deprecate checklist
             </DropdownMenuItem>
           )}

@@ -67,7 +67,7 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
     onSuccess: ({ data }) => {
       // Update data row tables
       row.original = { ...row.original, ...data };
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries({ queryKey: ["checklists"] });
       toast({
         variant: "success",
         title: "Success!",
