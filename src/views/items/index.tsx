@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout"
 import { Header } from "@/components/Layout/Header";
+import ItemHeader from "./item-header";
 
 
 const Items = () => {
@@ -9,11 +10,7 @@ const Items = () => {
 
     return (
     <Layout>
-        <Header.Root>
-            <Header.Texts title="Project plan" subtitle="Manage the items on the checklist" />
-        </Header.Root>
-
-        <h1 className="text-2xl">{checklist_uuid}</h1>
+        <ItemHeader />
     </Layout>
   )
 }
