@@ -1,7 +1,12 @@
-import * as React from "react";
-
+import React, { useState } from "react";
+import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Command,
   CommandEmpty,
@@ -10,33 +15,26 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { TiArrowUnsorted } from "react-icons/ti";
-import { MdCheck } from "react-icons/md";
 
-export type ComboboxOptions = {
+interface Option {
   value: string;
-  label: string;
-};
-
-interface ICombobox {
-  options: ComboboxOptions[];
+  label: React.ReactNode;
 }
 
-export const Combobox = ({ options }: ICombobox) => {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+interface Props {
+  data: Option[];
+  placeholder: string;
+  onSelect: (selectedValue: string) => void;
+}
 
-  const handleSelect = (currentLabel: string) => {
-    const selectedOption = options.find(option => option.label === currentLabel);
-    const newValue = selectedOption ? selectedOption.value : "";
-    setValue(newValue);
-    alert(newValue);
+function Combobox({ data = [], placeholder, onSelect }: Props) {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState("");
+
+  const handleSelect = (selectedValue: string) => {
+    setValue(selectedValue);
     setOpen(false);
+    onSelect(selectedValue);
   };
 
   return (
@@ -46,42 +44,43 @@ export const Combobox = ({ options }: ICombobox) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between"
+          className="w-full justify-between"
         >
           {value
-            ? options.find((option) => option.value === value)?.label
-            : "Select option..."}
-          <TiArrowUnsorted className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            ? data.find((item) => item.value === value)?.label
+            : `${placeholder}...`}
+          <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput placeholder="Search option..." />
-          <CommandEmpty>No option found.</CommandEmpty>
-          <CommandGroup>
-            <CommandList>
-              {options.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.label}
-                  onSelect={handleSelect}
-                >
-                  <MdCheck
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      value === option.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                  {option.label}
-                </CommandItem>
-              ))}
-            </CommandList>
-          </CommandGroup>
+      <PopoverContent className="min-w-full p-0" align="start">
+        <Command className="w-full">
+          <CommandInput placeholder="Search..." className="h-9" />
+          <CommandList>
+            <CommandEmpty>No item found.</CommandEmpty>
+            <CommandGroup>
+              <CommandList>
+                {data.map((item) => (
+                  <CommandItem
+                    key={item.value}
+                    onSelect={() => handleSelect(item.value)}
+                    disabled={item.value === value}
+                  >
+                    {item.label}
+                    <CheckIcon
+                      className={cn(
+                        "ml-auto h-4 w-4",
+                        value === item.value ? "opacity-100" : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
+              </CommandList>
+            </CommandGroup>
+          </CommandList>
         </Command>
       </PopoverContent>
-        <input type="hidden" value={value} />
     </Popover>
   );
-};
+}
 
 export default Combobox;
