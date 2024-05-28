@@ -6,7 +6,7 @@ interface INotificationRoot {
 
 const NotificationRoot = ({children}: INotificationRoot) => {
   return (
-    <div className='flex w-full items-center px-8 py-4 gap-3 dark:bg-dark-gray border-light-gray/30 border-b last:border-b-0'>
+    <div className='flex w-full items-center p-5  gap-3 dark:bg-dark-gray border-light-gray/30 border-b last:border-b-0'>
         {children}
     </div>
   )
