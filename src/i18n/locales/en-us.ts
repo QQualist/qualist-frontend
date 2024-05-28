@@ -153,18 +153,28 @@ export default {
     Actions: "Actions",
     "Copy checklist code": "Copy checklist code",
     "View items": "View items",
-    "Update": "Update",
+    Update: "Update",
     "Deprecate checklist": "Deprecate checklist",
     "Enable checklist": "Enable checklist",
     "Done!": "Done!",
     "Checklist active again!": "Checklist active again!",
-    "Undo": "Undo",
+    Undo: "Undo",
     "Checklist successfully deprecated!": "Checklist successfully deprecated!",
     "Update checklist": "Update checklist",
     "Number must be greater than 0": "Number must be greater than 0",
-    "The checklist version must be longer than the previous one": "The checklist version must be longer than the previous one",
-
-    
-    
+    "The checklist version must be longer than the previous one":
+      "The checklist version must be longer than the previous one",
+    "Create item": "Create item",
+    "Create your item here. Click save when you're finished.":
+      "Create your item here. Click save when you're finished.",
+    Description: "Description",
+    "Eg: The document has a timeline section?":
+      "Eg: The document has a timeline section?",
+    Risk: "Risk",
+    Optional: "Optional",
+    "Eg: The lack of a schedule can compromise organization and deadlines.":
+      "Eg: The lack of a schedule can compromise organization and deadlines.",
+      "Priority": "Priority",
+    "Select a item priority": "Select a item priority",
   },
 };

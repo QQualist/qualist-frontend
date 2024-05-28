@@ -15,6 +15,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { useTranslation } from "react-i18next";
 
 interface Option {
   value: string;
@@ -30,6 +31,8 @@ interface Props {
 export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
+
+  const { t } = useTranslation();
 
   const handleSelect = (selectedValue: string) => {
     setValue(selectedValue);
@@ -48,7 +51,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
         >
           {value
             ? data.find((item) => item.value === value)?.label
-            : `${placeholder}...`}
+            : `${t(placeholder)}...`}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

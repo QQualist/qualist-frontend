@@ -1,5 +1,8 @@
 import { Combobox } from "@/components/Inputs/Combobox";
+import { TextArea } from "@/components/Inputs/TextArea";
+import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 import {
   SheetContent,
   SheetDescription,
@@ -9,24 +12,22 @@ import {
 } from "@/components/ui/sheet";
 import { createItemSchema } from "@/schemas/items/create-item";
 import { CreateItemData } from "@/types/create-item";
+import { getPriorities } from "@/utils/getPriorities";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 
 interface ICreateItemForm {
   onClose: () => void;
 }
 
-const priorities = [
-  { value: "2a347288-6bc8-4731-a189-178ff43f365a", label: "Low" },
-  { value: "3fa407f9-3c71-48bd-9969-5fe2653c1bf8", label: "Medium" },
-  { value: "5c51d8c3-ec6a-4032-95d0-fbe28f45fdb0", label: "High" },
-];
-
 const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   const {
     handleSubmit,
     setValue,
     reset,
+    register,
+    trigger,
     formState: { errors },
   } = useForm<CreateItemData>({
     resolver: zodResolver(createItemSchema),
@@ -38,20 +39,54 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
     onClose();
   };
 
+  //Search and format priorities
+  const { data: priorities = [] } = useQuery({
+    queryKey: ["priorities"],
+    queryFn: getPriorities,
+    select: (data) =>
+      data.map((priority) => ({
+        value: priority.uuid,
+        label: priority.name,
+      })),
+  });
+
   return (
-    <SheetContent>
+    <SheetContent className="overflow-y-auto">
       <SheetHeader>
-        <SheetTitle>Create checklist</SheetTitle>
+        <SheetTitle>Create item</SheetTitle>
         <SheetDescription>
-          Create your checklist here. Click save when you're finished.
+          Create your item here. Click save when you're finished.
         </SheetDescription>
       </SheetHeader>
       <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
-        
-        <Combobox.Root error={errors.priority_uuid && errors.priority_uuid.message}>
+        <TextArea.Root error={errors.description && errors.description.message}>
+          <Label htmlFor="description">Description</Label>
+          <TextArea.Input
+            id="description"
+            placeholder="Eg: The document has a timeline section?"
+            register={register("description")}
+          />
+        </TextArea.Root>
+
+        <TextArea.Root error={errors.risk && errors.risk.message}>
+          <Label htmlFor="risk" isOptional>Risk</Label>
+          <TextArea.Input
+            id="risk"
+            placeholder="Eg: The lack of a schedule can compromise organization and deadlines."
+            register={register("risk")}
+          />
+        </TextArea.Root>
+
+        <Combobox.Root
+          error={errors.priority_uuid && errors.priority_uuid.message}
+        >
+          <Label>Priority</Label>
           <Combobox.Input
             data={priorities}
-            onSelect={(e) => setValue("priority_uuid", e)}
+            onSelect={(e) => {
+              setValue("priority_uuid", e);
+              trigger('priority_uuid')
+            }}
             placeholder="Select a item priority"
           />
         </Combobox.Root>

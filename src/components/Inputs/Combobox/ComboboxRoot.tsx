@@ -6,7 +6,7 @@ interface IComboboxRoot {
     error?: string;
 }
 
-const ComboboxRoot = ({ children, error = undefined }: IComboboxRoot) => {
+const ComboboxRoot = ({ children, error }: IComboboxRoot) => {
   return (
     <div className='w-full h-max'>
         {children}

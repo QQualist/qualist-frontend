@@ -164,8 +164,20 @@ export default {
     "Update checklist": "Atualizar checklist",
     "Update your checklist here. Click save when you're finished.":
       "Atualize o seu checklist aqui. Clique em salvar quando terminar.",
-      "Number must be greater than 0": "Número deve ser maior que 0",
-      "The checklist version must be longer than the previous one": "A versão do checklist deve ser maior do que a anterior"
-   
-    },
+    "Number must be greater than 0": "Número deve ser maior que 0",
+    "The checklist version must be longer than the previous one":
+      "A versão do checklist deve ser maior do que a anterior",
+    "Create item": "Criar item",
+    "Create your item here. Click save when you're finished.":
+      "Crie seu item aqui. Clique em salvar quando terminar.",
+    Description: "Descrição",
+    "Eg: The document has a timeline section?":
+      "Ex: O documento possui uma seção de cronograma?",
+    Risk: "Risco",
+    Optional: "Opcional",
+    "Eg: The lack of a schedule can compromise organization and deadlines.":
+      "Ex: A falta de um cronograma pode comprometer a organização e os prazos.",
+      "Priority": "Prioridade",
+      "Select a item priority": "Selecione a prioridade do item"
+  },
 };

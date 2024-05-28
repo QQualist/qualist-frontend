@@ -2,7 +2,6 @@ import { z } from "zod";
 
 export const UserSchema = z.object({
   uuid: z.string().uuid(),
-  isAdmin: z.boolean(),
   name: z
     .string()
     .min(1, "The name is required")
