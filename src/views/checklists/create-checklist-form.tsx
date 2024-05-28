@@ -101,7 +101,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
           Create your checklist here. Click save when you're finished.
         </SheetDescription>
       </SheetHeader>
-      <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
+      <form className="grid gap-4 py-8" onSubmit={handleSubmit(sendForm)}>
         <TextField.Root error={errors.name && errors.name.message}>
           <Label htmlFor="checklist-name">Name</Label>
           <TextField.Content>

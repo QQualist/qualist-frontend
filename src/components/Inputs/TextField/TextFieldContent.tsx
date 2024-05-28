@@ -6,7 +6,7 @@ interface ITextFieldContent {
 
 const TextFieldContent = ({ children }: ITextFieldContent) => {
   return (
-    <div className='flex items-center gap-1 border border-input rounded-md bg-transparent px-3'>
+    <div className='flex items-center gap-1 border border-input rounded bg-transparent px-3'>
         {children}
     </div>
   )

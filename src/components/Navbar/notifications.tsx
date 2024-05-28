@@ -17,7 +17,7 @@ const Notifications = () => {
         </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-96 p-0 border-none">
-        <div className="flex w-full px-4 py-2 justify-between dark:bg-dark-gray border-b border-light-blue/40">
+        <div className="flex w-full p-3 justify-between dark:bg-dark-gray border-b border-light-blue/40">
           <span className="text-sm font-bold">Notifications</span>
           <button type="button" className="text-xs font-bold text-light-blue">
             Mark all as read

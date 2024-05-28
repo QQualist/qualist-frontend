@@ -32,11 +32,11 @@ export const DataTable = <TData, TValue>({
   const { t } = useTranslation();
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded border">
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow className="hover:bg-transparent" key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead key={header.id}>

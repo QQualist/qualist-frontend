@@ -13,7 +13,7 @@ const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
->(({ className, ...props }, ref) => {
+>(({ className="mb-2", ...props }, ref) => {
   const { t } = useTranslation();
 
   // Translate the children text if it is a string

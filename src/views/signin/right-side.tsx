@@ -8,7 +8,7 @@ const RightSideSignIn = () => {
 
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="flex justify-end items-center absolute top-3 right-3">
+      <div className="flex justify-end items-center absolute top-3 right-3 pr-9 pt-11">
         <Button
           variant="link"
           className="font-bold dark:text-light-blue no-underline transition ease-out duration-500 hover:bg-light-blue/10 hover:no-underline p-5"
