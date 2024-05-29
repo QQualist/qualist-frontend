@@ -57,6 +57,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
 
   const mutation = useMutation({
     mutationFn: createChecklist,
+    mutationKey: ['create-checklist'],
     onSuccess: ({data}) => {
       queryClient.setQueryData<CreateChecklistData[]>(
         ["checklists"],
