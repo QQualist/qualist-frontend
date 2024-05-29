@@ -17,7 +17,7 @@ const TextAreaInput = ({
 }: ITextAreaInput) => {
   const { t } = useTranslation();
   return (
-    <Textarea id={id} placeholder={t(placeholder)} {...register} {...props} />
+    <Textarea id={id} className="h-auto" placeholder={t(placeholder)} {...register} {...props} />
   );
 };
 

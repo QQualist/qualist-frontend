@@ -18,23 +18,23 @@ import {
 import { useTranslation } from "react-i18next";
 
 interface Option {
-  value: string;
+  value: string | number;
   label: React.ReactNode;
 }
 
 interface Props {
   data: Option[];
   placeholder: string;
-  onSelect: (selectedValue: string) => void;
+  onSelect: (selectedValue: string | number) => void;
 }
 
 export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string | number>("");
 
   const { t } = useTranslation();
 
-  const handleSelect = (selectedValue: string) => {
+  const handleSelect = (selectedValue: string | number) => {
     setValue(selectedValue);
     setOpen(false);
     onSelect(selectedValue);
@@ -58,32 +58,31 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
       <PopoverContent className="min-w-full p-0" align="start">
         <Command className="w-full">
           <CommandInput placeholder="Search..." className="h-9" />
+          <CommandEmpty>No item found.</CommandEmpty>
           <CommandList>
-            <CommandEmpty>No item found.</CommandEmpty>
             <CommandGroup>
-              <CommandList>
-                {data.map((item) => (
-                  <CommandItem
-                    key={item.value}
-                    onSelect={() => handleSelect(item.value)}
-                    disabled={item.value === value}
-                  >
-                    {item.label}
-                    <CheckIcon
-                      className={cn(
-                        "ml-auto h-4 w-4",
-                        value === item.value ? "opacity-100" : "opacity-0"
-                      )}
-                    />
-                  </CommandItem>
-                ))}
-              </CommandList>
+              {data.map((item) => (
+                <CommandItem
+                  key={item.value}
+                  className="cursor-pointer mb-1"
+                  onSelect={() => handleSelect(item.value)}
+                  disabled={item.value === value}
+                >
+                  {item.label}
+                  <CheckIcon
+                    className={cn(
+                      "ml-auto h-4 w-4",
+                      value === item.value ? "opacity-100" : "opacity-0"
+                    )}
+                  />
+                </CommandItem>
+              ))}
             </CommandGroup>
           </CommandList>
         </Command>
       </PopoverContent>
     </Popover>
   );
-}
+};
 
 export default ComboboxInput;

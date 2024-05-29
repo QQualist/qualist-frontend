@@ -177,7 +177,9 @@ export default {
     Optional: "Opcional",
     "Eg: The lack of a schedule can compromise organization and deadlines.":
       "Ex: A falta de um cronograma pode comprometer a organização e os prazos.",
-      "Priority": "Prioridade",
-      "Select a item priority": "Selecione a prioridade do item"
+    Priority: "Prioridade",
+    "Select a item priority": "Selecione a prioridade do item",
+    "Risk type": "Tipo do risco",
+    "Select a risk type": "Selecione um tipo de risco",
   },
 };

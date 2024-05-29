@@ -12,6 +12,7 @@ import {
 import { createItemSchema } from "@/schemas/items/create-item";
 import { CreateItemData } from "@/types/create-item";
 import { getPriorities } from "@/utils/getPriorities";
+import { getRiskTypes } from "@/utils/getRiskTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
@@ -49,6 +50,19 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
       })),
   });
 
+  //Search and format risk types
+  const { data: risk_types_data = [] } = useQuery({
+    queryKey: ["risk-types"],
+    queryFn: getRiskTypes,
+    select: (data) =>
+      data.map((risk_type) => ({
+        value: risk_type.id,
+        label: risk_type.name
+          .toLowerCase()
+          .replace(/\b\w/g, (char) => char.toUpperCase()),
+      })),
+  });
+
   return (
     <SheetContent className="overflow-y-auto">
       <SheetHeader>
@@ -67,8 +81,24 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
           />
         </TextArea.Root>
 
+        <Combobox.Root
+          error={errors.priority_uuid && errors.priority_uuid.message}
+        >
+          <Label>Priority</Label>
+          <Combobox.Input
+            data={priorities}
+            onSelect={(e) => {
+              setValue("priority_uuid", e as string);
+              trigger("priority_uuid");
+            }}
+            placeholder="Select a item priority"
+          />
+        </Combobox.Root>
+
         <TextArea.Root error={errors.risk && errors.risk.message}>
-          <Label htmlFor="risk" isOptional>Risk</Label>
+          <Label htmlFor="risk" isOptional>
+            Risk
+          </Label>
           <TextArea.Input
             id="risk"
             placeholder="Eg: The lack of a schedule can compromise organization and deadlines."
@@ -77,16 +107,16 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
         </TextArea.Root>
 
         <Combobox.Root
-          error={errors.priority_uuid && errors.priority_uuid.message}
+          error={errors.risk_type_id && errors.risk_type_id.message}
         >
-          <Label>Priority</Label>
+          <Label isOptional>Risk type</Label>
           <Combobox.Input
-            data={priorities}
+            data={risk_types_data}
             onSelect={(e) => {
-              setValue("priority_uuid", e);
-              trigger('priority_uuid')
+              setValue("risk_type_id", e as number);
+              trigger("risk_type_id");
             }}
-            placeholder="Select a item priority"
+            placeholder="Select a risk type"
           />
         </Combobox.Root>
 
