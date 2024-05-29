@@ -30,7 +30,7 @@ const ToggleLanguage = () => {
     <Select
       onValueChange={(language: string) => handleChangeLanguage(language)}
     >
-      <SelectTrigger style={{ border: "none", boxShadow: "none", padding: "8px 0px"}}>
+      <SelectTrigger className="border-none shadow-none p-2">
         <Flag
           code={languageToCountryCode[selectedLanguage]}
           className="w-5 h-5 mr-2"

@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
+import { twMerge } from "tailwind-merge";
 
 const Sheet = SheetPrimitive.Root;
 
@@ -57,12 +58,12 @@ interface SheetContentProps
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
->(({ side = "right", className="pt-10", children, onClose, ...props }, ref) => (
+>(({ side = "right", className, children, onClose, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
     <SheetPrimitive.Content
       ref={ref}
-      className={cn(sheetVariants({ side }), className)}
+      className={twMerge(cn(sheetVariants({ side }), className), 'pt-10')}
       {...props}
     >
       {children}

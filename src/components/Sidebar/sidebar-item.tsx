@@ -27,22 +27,23 @@ const SidebarItem = ({ text, icon: Icon, to }: ISidebarItem) => {
     }
   };
 
-  const linkClass = `flex w-full h-12 px-2 py-1 items-center my-3 ${
-    isOpen ? "justify-start gap-2" : "justify-center"
-  } rounded-md transition-all duration-200 text-white ${
-    isActive ? "bg-light-blue hover:bg-light-blue" : "hover:bg-light-gray hover:bg-opacity-30"
-  }`;
-
   return (
     <Link
       to={to}
-      className={linkClass}
+      className={`flex w-full h-12 px-2 py-1 items-center my-3 ${
+        isOpen ? "justify-start gap-2" : "justify-center"
+      } rounded-md transition-all duration-200 text-white ${
+        isActive
+          ? "bg-light-blue hover:bg-light-blue"
+          : "hover:bg-light-gray hover:bg-opacity-30"
+      }`}
       onClick={handleExitClick}
     >
       <Icon size={24} className="transition-transform duration-200" />
       <span
-        className={`transition-opacity duration-200 ${isOpen ? "opacity-100" : "opacity-0"
-          } ${isOpen ? "w-auto" : "w-0"} overflow-hidden`}
+        className={`transition-opacity duration-200 ${
+          isOpen ? "opacity-100" : "opacity-0"
+        } ${isOpen ? "w-auto" : "w-0"} overflow-hidden`}
       >
         {t(text)}
       </span>
