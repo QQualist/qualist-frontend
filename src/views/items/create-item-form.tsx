@@ -34,7 +34,7 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   });
 
   const sendForm = (data: CreateItemData) => {
-    alert(data.priority_uuid);
+    alert("ENVIANDO DADOS");
     reset();
     onClose();
   };

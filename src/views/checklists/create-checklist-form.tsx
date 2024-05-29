@@ -19,6 +19,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 interface ICreateChecklistForm {
   onClose: () => void;
@@ -28,6 +29,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
   const { user, SignOut } = useContext(UserContext) as ContextUser;
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -65,6 +67,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
         title: "Success!",
         description: "Checklist successfully created",
       });
+      navigate(`/items?checklist_uuid=${data.uuid}`);
     },
     onError: (error) => {
       if (isAxiosError(error) && error.response) {
