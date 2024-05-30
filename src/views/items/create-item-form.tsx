@@ -9,19 +9,31 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import { useToast } from "@/components/ui/use-toast";
+import { UserContext } from "@/contexts/user";
 import { createItemSchema } from "@/schemas/items/create-item";
+import { ContextUser } from "@/types/ContextUser";
 import { CreateItemData } from "@/types/create-item";
+import { createItem } from "@/utils/createItem";
 import { getPriorities } from "@/utils/getPriorities";
 import { getRiskTypes } from "@/utils/getRiskTypes";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 
 interface ICreateItemForm {
   onClose: () => void;
 }
 
 const CreateItemForm = ({ onClose }: ICreateItemForm) => {
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const { user, SignOut } = useContext(UserContext) as ContextUser
+  const { checklistUuid } = useParams()
+
   const {
     handleSubmit,
     setValue,
@@ -31,10 +43,48 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
     formState: { errors },
   } = useForm<CreateItemData>({
     resolver: zodResolver(createItemSchema),
+    defaultValues: {
+      checklist_uuid: checklistUuid
+    }
+  });
+
+  const mutation = useMutation({
+    mutationKey: ["items"],
+    mutationFn: createItem,
+    onSuccess: ({ data }) => {
+      queryClient.setQueryData<CreateItemData[]>(
+        ["items"],
+        (oldData = []) => [data, ...oldData]
+      );
+      toast({
+        variant: "success",
+        title: "Success!",
+        description: "Item successfully created",
+      });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
   });
 
   const sendForm = (data: CreateItemData) => {
-    alert("ENVIANDO DADOS");
+    if (user) { // If you don't have a user, sign out
+      mutation.mutateAsync(data);
+    } else {
+      SignOut();
+    }
     reset();
     onClose();
   };
@@ -59,7 +109,7 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
         value: risk_type.id,
         label: risk_type.name
           .toLowerCase()
-          .replace(/\b\w/g, (char) => char.toUpperCase()),
+          .replace(/\b\w/g, (char: string) => char.toUpperCase()),
       })),
   });
 

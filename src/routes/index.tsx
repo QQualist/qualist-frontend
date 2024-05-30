@@ -13,7 +13,7 @@ const RouteNavigators = () => {
         <Route path="/" element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/checklists" element={<Checklists />} />
-          <Route path="/items" element={<Items />} />
+          <Route path="/checklist/:checklistUuid/items" element={<Items />} />
         </Route>
 
         {/* <Route path='*' element={<NotFound />} /> */}

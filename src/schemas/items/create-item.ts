@@ -11,5 +11,8 @@ export const createItemSchema = z.object({
   priority_uuid: z.string({
     required_error: "Priority is required"
   }).uuid().min(1, "Priority is required"),
+  checklist_uuid: z.string({
+    required_error: "Checklist is required"
+  }).uuid().min(1, "Checklist is required"),
   risk_type_id: z.number().optional()
 });

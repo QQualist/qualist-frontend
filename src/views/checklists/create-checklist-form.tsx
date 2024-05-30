@@ -68,7 +68,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
         title: "Success!",
         description: "Checklist successfully created",
       });
-      navigate(`/items?checklist_uuid=${data.uuid}`);
+      navigate(`/checklist/${data.uuid}/items`);
     },
     onError: (error) => {
       if (isAxiosError(error) && error.response) {
