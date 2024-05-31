@@ -122,7 +122,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
 
   const handleViewItems = () => {
     const uuid = row.getValue("uuid");
-    navigate(`/items?checklist_uuid=${uuid}`);
+    navigate(`/checklist/${uuid}/items`);
   };
 
   return (

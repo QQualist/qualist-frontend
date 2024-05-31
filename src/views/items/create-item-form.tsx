@@ -22,7 +22,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface ICreateItemForm {
   onClose: () => void;
@@ -32,7 +32,8 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const { user, SignOut } = useContext(UserContext) as ContextUser
-  const { checklistUuid } = useParams()
+  const { checklistUuid } = useParams();
+  const navigate = useNavigate();
 
   const {
     handleSubmit,
@@ -49,7 +50,7 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   });
 
   const mutation = useMutation({
-    mutationKey: ["items"],
+    mutationKey: ["items", checklistUuid],
     mutationFn: createItem,
     onSuccess: ({ data }) => {
       queryClient.setQueryData<CreateItemData[]>(
@@ -112,6 +113,11 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
           .replace(/\b\w/g, (char: string) => char.toUpperCase()),
       })),
   });
+
+  if (!checklistUuid) {
+    navigate("/checklists");
+    return null;
+  }
 
   return (
     <SheetContent className="overflow-y-auto">
