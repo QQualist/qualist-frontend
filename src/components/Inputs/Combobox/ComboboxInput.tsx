@@ -19,7 +19,7 @@ import { useTranslation } from "react-i18next";
 
 interface Option {
   value: string | number;
-  label: React.ReactNode;
+  label: string;
 }
 
 interface Props {
@@ -68,7 +68,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
                   onSelect={() => handleSelect(item.value)}
                   disabled={item.value === value}
                 >
-                  {item.label}
+                  {t(item.label)}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
