@@ -6,14 +6,16 @@ import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 
 const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  "text-sm mb-2 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 );
 
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
-    VariantProps<typeof labelVariants>
->(({ className, ...props }, ref) => {
+    VariantProps<typeof labelVariants> & {
+      isOptional?: boolean;
+    }
+>(({ className, isOptional, ...props }, ref) => {
   const { t } = useTranslation();
 
   // Translate the children text if it is a string
@@ -26,7 +28,8 @@ const Label = React.forwardRef<
       className={cn(labelVariants(), className)}
       {...props}
     >
-      {translatedChildren}
+      {translatedChildren}{" "}
+      {isOptional && <span className="text-light-gray text-xs">({t("Optional")})</span>}
     </LabelPrimitive.Root>
   );
 });

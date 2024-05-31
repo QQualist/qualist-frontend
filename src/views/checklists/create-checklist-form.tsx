@@ -19,6 +19,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 interface ICreateChecklistForm {
   onClose: () => void;
@@ -28,6 +29,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
   const { user, SignOut } = useContext(UserContext) as ContextUser;
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -55,6 +57,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
 
   const mutation = useMutation({
     mutationFn: createChecklist,
+    mutationKey: ['create-checklist'],
     onSuccess: ({data}) => {
       queryClient.setQueryData<CreateChecklistData[]>(
         ["checklists"],
@@ -65,6 +68,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
         title: "Success!",
         description: "Checklist successfully created",
       });
+      navigate(`/checklist/${data.uuid}/items`);
     },
     onError: (error) => {
       if (isAxiosError(error) && error.response) {
@@ -101,7 +105,7 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
           Create your checklist here. Click save when you're finished.
         </SheetDescription>
       </SheetHeader>
-      <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
+      <form className="grid gap-4 py-8" onSubmit={handleSubmit(sendForm)}>
         <TextField.Root error={errors.name && errors.name.message}>
           <Label htmlFor="checklist-name">Name</Label>
           <TextField.Content>

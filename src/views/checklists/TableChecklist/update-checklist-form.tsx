@@ -16,7 +16,7 @@ import {
 import { ChecklistData } from "@/types/Checklist";
 import { Row } from "@tanstack/react-table";
 import { api } from "@/api/api";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "@/contexts/user";
 import { ContextUser } from "@/types/ContextUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -38,6 +38,7 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<UpdateChecklistData>({
     resolver: zodResolver(UpdateChecklistSchema),
@@ -90,6 +91,13 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
       }
     },
   });
+
+  useEffect(() => {
+    if (row) {
+      setValue("name", row.getValue("name"));
+      setValue("version", row.getValue("version"));
+    }
+  }, [row, setValue]);
 
   const sendForm = (data: UpdateChecklistData) => {
     if (user && user.uuid) {

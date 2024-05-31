@@ -11,7 +11,7 @@ const SidebarHeader = () => {
       <img src={LogoImage} alt="Qualist logo made up of the letters Q and A" />
       <button
         onClick={toggleIsOpen}
-        className={`text-white duration-300 ${isOpen && "rotate-180"}`}
+        className={`text-white duration-300 relative left-2.5 ${isOpen && "rotate-180"}`}
       >
         <MdOutlineKeyboardArrowRight size={24} />
       </button>

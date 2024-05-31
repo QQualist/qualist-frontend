@@ -18,6 +18,7 @@ import { ContextUser } from "@/types/ContextUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { api } from "@/api/api";
+import { useNavigate } from "react-router-dom";
 
 interface IDropdownActions {
   row: Row<ChecklistData>;
@@ -29,6 +30,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const deprecateChecklist = async () => {
     return await api.delete(`/checklists/${row.getValue("uuid")}`, {
@@ -38,7 +40,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
     });
   };
 
-  const undoDeprecatedChecklist = async () => {
+  const enableChecklist = async () => {
     return await api.patch(
       `/checklists/${row.getValue("uuid")}`,
       {
@@ -52,8 +54,8 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
     );
   };
 
-  const mutationUndoDeprecatedChecklist = useMutation({
-    mutationFn: undoDeprecatedChecklist,
+  const mutationEnableChecklist = useMutation({
+    mutationFn: enableChecklist,
     onSuccess: ({ data }) => {
       // Update data row tables
       row.original = { ...row.original, ...data };
@@ -92,7 +94,10 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
         title: "Success!",
         description: "Checklist successfully deprecated!",
         action: (
-          <Button size="sm" onClick={() => mutationUndoDeprecatedChecklist.mutateAsync()} >
+          <Button
+            size="sm"
+            onClick={() => mutationEnableChecklist.mutateAsync()}
+          >
             Undo
           </Button>
         ),
@@ -114,6 +119,11 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
       }
     },
   });
+
+  const handleViewItems = () => {
+    const uuid = row.getValue("uuid");
+    navigate(`/checklist/${uuid}/items`);
+  };
 
   return (
     <>
@@ -137,7 +147,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
             Copy checklist code
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="cursor-pointer">
+          <DropdownMenuItem className="cursor-pointer" onClick={handleViewItems}>
             View items
           </DropdownMenuItem>
 
@@ -145,6 +155,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
             Update
           </DropdownMenuItem>
 
+          {/*Render if checklist is active*/}
           {(row.getValue("active") === 1 ||
             row.getValue("active") === true) && ( // Checklist = 1 (Checklist active)
             <DropdownMenuItem
@@ -152,6 +163,17 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
               onClick={() => mutationDeprecatedChecklist.mutateAsync()}
             >
               Deprecate checklist
+            </DropdownMenuItem>
+          )}
+
+          {/*Render if checklist is not active*/}
+          {(row.getValue("active") === 0 ||
+            row.getValue("active") === false) && ( // Checklist = 1 (Checklist active)
+            <DropdownMenuItem
+              className="cursor-pointer bg-success text-white hover:bg-success/90 dark:hover:bg-success/90"
+              onClick={() => mutationEnableChecklist.mutateAsync()}
+            >
+              Enable checklist
             </DropdownMenuItem>
           )}
         </DropdownMenuContent>

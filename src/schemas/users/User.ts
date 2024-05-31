@@ -2,7 +2,6 @@ import { z } from "zod";
 
 export const UserSchema = z.object({
   uuid: z.string().uuid(),
-  isAdmin: z.boolean(),
   name: z
     .string()
     .min(1, "The name is required")
@@ -17,6 +16,7 @@ export const UserSchema = z.object({
     .min(1, "Email is required")
     .max(60, "The email must contain a maximum of 60 characters"),
   token: z.string(),
+  type_id: z.number(),
   createdAt: z.date(),
   updatedAt: z.date(),
   deletedAt: z.date().nullable(),

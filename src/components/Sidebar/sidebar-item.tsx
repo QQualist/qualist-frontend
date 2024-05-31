@@ -30,18 +30,20 @@ const SidebarItem = ({ text, icon: Icon, to }: ISidebarItem) => {
   return (
     <Link
       to={to}
-      className={`flex w-full h-10 px-2 py-1 gap-2 items-center ${
-        isOpen ? "justify-start" : "justify-center"
+      className={`flex w-full h-12 px-2 py-1 items-center my-3 ${
+        isOpen ? "justify-start gap-2" : "justify-center"
       } rounded-md transition-all duration-200 text-white ${
-        isActive && "bg-light-blue"
-      } hover:bg-light-blue`}
+        isActive
+          ? "bg-light-blue hover:bg-light-blue"
+          : "hover:bg-light-gray hover:bg-opacity-30"
+      }`}
       onClick={handleExitClick}
     >
       <Icon size={24} className="transition-transform duration-200" />
       <span
         className={`transition-opacity duration-200 ${
           isOpen ? "opacity-100" : "opacity-0"
-        } ${isOpen ? "w-auto" : "w-0"} overflow-hidden`}
+        } ${isOpen ? "w-auto" : "hidden"} overflow-hidden`}
       >
         {t(text)}
       </span>
