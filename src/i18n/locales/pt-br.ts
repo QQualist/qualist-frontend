@@ -167,19 +167,27 @@ export default {
     "Number must be greater than 0": "Número deve ser maior que 0",
     "The checklist version must be longer than the previous one":
       "A versão do checklist deve ser maior do que a anterior",
+    Items: "Items",
+    "Access and manage items": "Acesse e gerencie seus items",
     "Create item": "Criar item",
     "Create your item here. Click save when you're finished.":
       "Crie seu item aqui. Clique em salvar quando terminar.",
     Description: "Descrição",
     "Eg: The document has a timeline section?":
       "Ex: O documento possui uma seção de cronograma?",
+    "The description is required": "A descrição é obrigatória",
     Risk: "Risco",
     Optional: "Opcional",
     "Eg: The lack of a schedule can compromise organization and deadlines.":
       "Ex: A falta de um cronograma pode comprometer a organização e os prazos.",
     Priority: "Prioridade",
     "Select a item priority": "Selecione a prioridade do item",
+    "Priority is required": "A prioridade é obrigatória",
     "Risk type": "Tipo do risco",
     "Select a risk type": "Selecione um tipo de risco",
+    "Copy item code": "Copiar código do item",
+    "Copied text!": "Texto copiado!",
+    "Text copied to the clipboard!":
+      "Texto copiado para a área de transferência!",
   },
 };
