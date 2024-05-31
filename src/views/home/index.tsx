@@ -7,10 +7,10 @@ const Home = () => {
     return (
         <>
 
-        <Navbar Homenavbar={true} />
+            <Navbar Homenavbar={true} />
 
-        <div className="ml-24 p-0"><Main /></div>
-        <Clients/>
+            <Main />
+            <Clients />
 
         </>
     )
