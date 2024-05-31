@@ -43,7 +43,7 @@ const SidebarItem = ({ text, icon: Icon, to }: ISidebarItem) => {
       <span
         className={`transition-opacity duration-200 ${
           isOpen ? "opacity-100" : "opacity-0"
-        } ${isOpen ? "w-auto" : "w-0"} overflow-hidden`}
+        } ${isOpen ? "w-auto" : "hidden"} overflow-hidden`}
       >
         {t(text)}
       </span>

@@ -1,13 +1,13 @@
-import { ChecklistData } from "@/types/Checklist";
 import { Row } from "@tanstack/react-table";
 import DropdownAction from "@/components/DataTable/DropdownActions";
 import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { copyToClipboard } from "@/utils/copyToClipboard";
+import { ItemData } from "@/types/item";
 
 interface IDropdownActions {
-  row: Row<ChecklistData>;
+  row: Row<ItemData>;
   onOpen: () => void;
 }
 

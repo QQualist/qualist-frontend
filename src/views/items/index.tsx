@@ -5,6 +5,7 @@ import { columns } from "./TableItems/columns";
 import { getItems } from "@/utils/getItems";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const Items = () => {
   const { checklistUuid } = useParams();
