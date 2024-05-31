@@ -14,11 +14,11 @@ const Main = () => {
         <main className='ml-24 p-0 flex justify-center items-center'>
 
             <div className="left-side w-1/2">
-                <h1 className='font-bold text-6xl text-dark-blue leading-tight dark:text-white'><span className='text-light-blue'>Qualist</span> - {t("Elevando o Padrão de Qualidade de Software")}</h1>
+                <h1 className='font-bold text-6xl text-dark-blue leading-tight dark:text-white'><span className='text-light-blue'>Qualist</span> - {t("Elevating the Standard of Software Quality")}</h1>
                 <p className='text-dark-gray font-normal text-lg mt-2.5 mr-0 mb-12 ml-0 dark:text-light-gray'>
-                    {t("Qualist é a ferramenta essencial para profissionais de QA que desejam transformar a gestão da qualidade de software. Com uma interface amigável e recursos avançados, o Qualist facilita a criação de checklists, a realização de auditorias e o gerenciamento de não conformidades, proporcionando uma experiência mais eficiente e precisa.")}
+                    {t("Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.")}
                 </p>
-                <Button className='h-12 px-10 text-lg font-normal dark:shadow-externo' type='submit'><Link to={"/signup"}>{t("Torne um cliente")}</Link></Button>
+                <Button className='h-12 px-10 text-lg font-normal dark:shadow-externo' type='submit'><Link to={"/signup"}>{t("Become a customer")}</Link></Button>
             </div>
 
             <div className="right-side w-1/2">

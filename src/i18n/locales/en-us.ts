@@ -190,5 +190,8 @@ export default {
     "Become a customer":"Become a customer",
     "Become a customer and enjoy all the benefits of Qualist": "Become a customer and enjoy all the benefits of Qualist",
     "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.": "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.",
+    "professionals are already simplifying": "professionals are already simplifying",
+    "their audits with Qualist.": 'their audits with Qualist.',
+    "Some of our clients": "Some of our clients",
   },
 };
