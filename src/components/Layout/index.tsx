@@ -10,8 +10,8 @@ const Layout = ({ children }: ILayout) => {
     <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col flex-1">
-        <Navbar />
-        <main className="flex-1 p-12 overflow-y-scroll">
+        <Navbar Homenavbar={false} />
+        <main className="flex-1 p-12 overflow-y-auto">
           {children}
         </main>
       </div>

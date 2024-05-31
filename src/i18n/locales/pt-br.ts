@@ -189,5 +189,10 @@ export default {
     "Copied text!": "Texto copiado!",
     "Text copied to the clipboard!":
       "Texto copiado para a área de transferência!",
+    Home: "Início",
+    "I'm already a client": "Já sou cliente",
+    "Become a customer": "Torne-se um cliente",
+    "Elevating the Standard of Software Quality": "Elevando o Padrão de Qualidade de Software",
+    "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.": "Qualist é a ferramenta essencial para profissionais de QA que desejam transformar a gestão da qualidade de software. Com uma interface amigável e recursos avançados, o Qualist facilita a criação de checklists, a realização de auditorias e o gerenciamento de não conformidades, proporcionando uma experiência mais eficiente e precisa."
   },
 };

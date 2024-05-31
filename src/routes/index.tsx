@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Checklists, Dashboard, SignIn, SignUp, Items } from "../views";
 import { BrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./privateRoutes";
+import Home from "@/views/home";
 
 const RouteNavigators = () => {
   return (
@@ -9,6 +10,7 @@ const RouteNavigators = () => {
       <Routes>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/home" element={<Home />} />
 
         <Route path="/" element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
