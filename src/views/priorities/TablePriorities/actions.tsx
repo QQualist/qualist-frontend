@@ -2,6 +2,7 @@ import { Row } from "@tanstack/react-table";
 import { useState } from "react";
 import DropdownActions from "./dropdown-actions";
 import { PriorityData } from "@/types/priority";
+import UpdatePriorityForm from "./update-priority-form";
 
 interface IActions {
   row: Row<PriorityData>;
@@ -16,6 +17,7 @@ const Actions = ({ row }: IActions) => {
   return (
     <>
       <DropdownActions row={row} onOpen={onOpen} />
+      <UpdatePriorityForm row={row} open={openSheet} onClose={onClose} />
     </>
   );
 };

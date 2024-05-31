@@ -9,12 +9,16 @@ import {
 import { colors } from "./colors";
 
 interface ISelectColor {
-    onSelect: (color: string) => void
+  defaultValue?: string;
+  onSelect: (color: string) => void;
 }
 
-const SelectColor = ({ onSelect }: ISelectColor) => {
+const SelectColor = ({ defaultValue, onSelect }: ISelectColor) => {
   return (
-    <Select defaultValue={`${colors[0].value}`} onValueChange={(color) => onSelect(color)}>
+    <Select
+      defaultValue={defaultValue ? defaultValue : `${colors[0].value}`}
+      onValueChange={(color) => onSelect(color)}
+    >
       <div className="w-20 h-max">
         <SelectTrigger className="w-full h-10">
           <SelectValue id="color" />
