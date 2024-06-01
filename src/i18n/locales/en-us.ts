@@ -132,6 +132,7 @@ export default {
     "User created successfully!": "User created successfully!",
     Dashboard: "Dashboard",
     Checklists: "Checklists",
+    Checklist: "Checklist",
     Audits: "Audits",
     Unconformities: "Unconformities",
     Departaments: "Departments",

@@ -133,6 +133,7 @@ export default {
     "User created successfully!": "Usuário criado com sucesso!",
     Dashboard: "Painel",
     Checklists: "Checklists",
+    Checklist: "Checklist",
     Audits: "Auditorias",
     Unconformities: "Não Conformidades",
     Departaments: "Departamentos",
