@@ -108,13 +108,23 @@ DialogTitle.displayName = DialogPrimitive.Title.displayName;
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  const { t } = useTranslation();
+
+  // Translate the children text if it is a string
+  const translatedChildren =
+    typeof props.children === "string" ? t(props.children) : props.children;
+
+  return (
+    <DialogPrimitive.Description
+      ref={ref}
+      className={cn("text-sm text-muted-foreground", className)}
+      {...props}
+    >
+      {translatedChildren}
+    </DialogPrimitive.Description>
+  );
+});
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 export {

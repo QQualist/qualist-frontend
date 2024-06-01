@@ -195,5 +195,19 @@ export default {
     "Copy item code": "Copy item code",
     "Copied text!": "Copied text!",
     "Text copied to the clipboard!": "Text copied to the clipboard!",
+    "Access and manage the possible priorities of your items":
+      "Access and manage the possible priorities of your items",
+    "Create priority": "Create priority",
+    Deadline: "Deadline",
+    Color: "Color",
+    "Copy priority code": "Copy priority code",
+    "Create your priority here. Click save when you're finished.":
+      "Create your priority here. Click save when you're finished.",
+    "Deadline (in days)": "Deadline (in days)",
+    "Update priority": "Update priority",
+    "Update your priority here. Click save when you're finished.":
+      "Update your priority here. Click save when you're finished.",
+      "Priority successfully created": "Priority successfully created",
+      "Priority successfully updated": "Priority successfully updated",
   },
 };

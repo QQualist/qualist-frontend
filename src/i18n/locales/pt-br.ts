@@ -199,5 +199,17 @@ export default {
     "Copied text!": "Texto copiado!",
     "Text copied to the clipboard!":
       "Texto copiado para a área de transferência!",
+    "Access and manage the possible priorities of your items":
+      "Acesse e gerencie as possíveis prioridades dos seus itens",
+    "Create priority": "Criar prioridade",
+    Deadline: "Prazo",
+    Color: "Cor",
+    "Copy priority code": "Copiar código da prioridade",
+    "Create your priority here. Click save when you're finished.": "Crie sua prioridade aqui. Clique em salvar quando finalizar.",
+    "Deadline (in days)": "Prazo (em dias)",
+    "Update priority": "Atualizar prioridade",
+    "Update your priority here. Click save when you're finished.": "Atualize sua prioridade aqui. Clique em salvar quando finalizar.",
+    "Priority successfully created": "Prioridade criada com sucesso",
+    "Priority successfully updated": "Prioridade atualizada com sucesso"
   },
 };
