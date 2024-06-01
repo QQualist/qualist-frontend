@@ -145,6 +145,7 @@ export default {
     "Eg: Project plan": "Eg: Project plan",
     Save: "Save",
     "Checklist successfully created": "Checklist successfully created",
+    "Checklist successfully updated": "Checklist successfully updated",
     Active: "Active",
     Deprecated: "Deprecated",
     Version: "Version",

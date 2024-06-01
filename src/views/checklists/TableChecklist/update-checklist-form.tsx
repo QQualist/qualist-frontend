@@ -44,7 +44,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
     resolver: zodResolver(UpdateChecklistSchema),
     defaultValues: {
       name: row.getValue("name"),
-      version: row.getValue("version"),
     },
   });
 
@@ -53,7 +52,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
       `/checklists/${row.getValue("uuid")}`,
       {
         name: data.name,
-        version: data.version,
       },
       {
         headers: {
@@ -95,7 +93,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
   useEffect(() => {
     if (row) {
       setValue("name", row.getValue("name"));
-      setValue("version", row.getValue("version"));
     }
   }, [row, setValue]);
 
@@ -127,18 +124,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
                 placeholder={"Eg: Project plan"}
                 type="text"
                 register={register("name")}
-              />
-            </TextField.Content>
-          </TextField.Root>
-
-          <TextField.Root error={errors.version && errors.version.message}>
-            <Label htmlFor="checklist-version">Version</Label>
-            <TextField.Content>
-              <TextField.Input
-                id="checklist-version"
-                placeholder={"Eg: 2"}
-                type="number"
-                register={register("version")}
               />
             </TextField.Content>
           </TextField.Root>
