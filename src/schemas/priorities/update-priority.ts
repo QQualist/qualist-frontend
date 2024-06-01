@@ -6,7 +6,7 @@ export const updatePrioritySchema = z.object({
   name: z
     .string()
     .min(1, "Priority name is required")
-    .max(20, "Priority name is too long"),
+    .max(20, "The name of the priority must contain a maximum of 20 characters"),
   deadline: z.coerce.number().positive().int(),
   color: z
     .string()

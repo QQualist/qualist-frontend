@@ -209,7 +209,9 @@ export default {
     "Update priority": "Update priority",
     "Update your priority here. Click save when you're finished.":
       "Update your priority here. Click save when you're finished.",
-      "Priority successfully created": "Priority successfully created",
-      "Priority successfully updated": "Priority successfully updated",
+    "Priority successfully created": "Priority successfully created",
+    "Priority successfully updated": "Priority successfully updated",
+    "The priority cannot be updated because it is currently in use by one or more items.":
+      "The priority cannot be updated because it is currently in use by one or more items.",
   },
 };

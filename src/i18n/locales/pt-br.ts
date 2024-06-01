@@ -207,11 +207,15 @@ export default {
     Deadline: "Prazo",
     Color: "Cor",
     "Copy priority code": "Copiar código da prioridade",
-    "Create your priority here. Click save when you're finished.": "Crie sua prioridade aqui. Clique em salvar quando finalizar.",
+    "Create your priority here. Click save when you're finished.":
+      "Crie sua prioridade aqui. Clique em salvar quando finalizar.",
     "Deadline (in days)": "Prazo (em dias)",
     "Update priority": "Atualizar prioridade",
-    "Update your priority here. Click save when you're finished.": "Atualize sua prioridade aqui. Clique em salvar quando finalizar.",
+    "Update your priority here. Click save when you're finished.":
+      "Atualize sua prioridade aqui. Clique em salvar quando finalizar.",
     "Priority successfully created": "Prioridade criada com sucesso",
-    "Priority successfully updated": "Prioridade atualizada com sucesso"
+    "Priority successfully updated": "Prioridade atualizada com sucesso",
+    "The priority cannot be updated because it is currently in use by one or more items.":
+      "A prioridade não pode ser atualizada, pois está em uso por um ou mais itens.",
   },
 };

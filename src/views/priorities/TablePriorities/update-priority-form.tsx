@@ -100,10 +100,9 @@ const UpdatePriorityForm = ({ row, open, onClose }: IUpdatePriority) => {
   useEffect(() => {
     if (row) {
       setValue("name", row.getValue("name"));
-      setValue(
-        "deadline",
-        convertSecondsInDay(parseInt(row.getValue("deadline")))
-      );
+      const deadlineInSeconds = parseInt(row.getValue("deadline"));
+      const deadlineInDays = convertSecondsInDay(deadlineInSeconds);
+      setValue("deadline", deadlineInDays);
       setValue("color", row.getValue("color"));
     }
   }, [row, setValue]);
@@ -141,7 +140,7 @@ const UpdatePriorityForm = ({ row, open, onClose }: IUpdatePriority) => {
               </TextField.Content>
             </TextField.Root>
             <SelectColor
-            defaultValue={row.getValue('color')}
+              defaultValue={row.getValue("color")}
               onSelect={(color) => {
                 setValue("color", color);
               }}
