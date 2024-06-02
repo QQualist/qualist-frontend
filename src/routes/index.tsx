@@ -6,10 +6,10 @@ import {
   SignUp,
   Items,
   Priorities,
+  Home
 } from "../views";
 import { BrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./privateRoutes";
-import Home from "@/views/home";
 
 const RouteNavigators = () => {
   return (
