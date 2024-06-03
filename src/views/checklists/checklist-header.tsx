@@ -1,14 +1,14 @@
 import { Header } from "@/components/Layout/Header";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import CreateChecklistForm from "./create-checklist-form";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 const ChecklistHeader = () => {
-  const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false);
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
-  const openSheet = () => setIsSheetOpen(true);
-  const closeSheet = () => setIsSheetOpen(false);
+  const openDialog = () => setIsDialogOpen(true);
+  const closeDialog = () => setIsDialogOpen(false);
 
   return (
     <Header.Root>
@@ -16,12 +16,12 @@ const ChecklistHeader = () => {
         title="Checklists"
         subtitle="Access and manage checklists"
       />
-      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetTrigger asChild>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogTrigger asChild>
           <Button variant="default">Create checklist</Button>
-        </SheetTrigger>
-        <CreateChecklistForm onClose={closeSheet} />
-      </Sheet>
+        </DialogTrigger>
+        <CreateChecklistForm onClose={closeDialog} />
+      </Dialog>
     </Header.Root>
   );
 };

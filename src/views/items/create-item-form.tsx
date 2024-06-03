@@ -1,14 +1,14 @@
 import { Combobox } from "@/components/Inputs/Combobox";
 import { TextArea } from "@/components/Inputs/TextArea";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import {
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
 import { UserContext } from "@/contexts/user";
 import { createItemSchema } from "@/schemas/items/create-item";
@@ -31,7 +31,7 @@ interface ICreateItemForm {
 const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  const { user, SignOut } = useContext(UserContext) as ContextUser
+  const { user, SignOut } = useContext(UserContext) as ContextUser;
   const { checklistUuid } = useParams();
   const navigate = useNavigate();
 
@@ -45,18 +45,18 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   } = useForm<CreateItemData>({
     resolver: zodResolver(createItemSchema),
     defaultValues: {
-      checklist_uuid: checklistUuid
-    }
+      checklist_uuid: checklistUuid,
+    },
   });
 
   const mutation = useMutation({
     mutationKey: ["items", checklistUuid],
     mutationFn: createItem,
     onSuccess: ({ data }) => {
-      queryClient.setQueryData<CreateItemData[]>(
-        ["items"],
-        (oldData = []) => [data, ...oldData]
-      );
+      queryClient.setQueryData<CreateItemData[]>(["items"], (oldData = []) => [
+        data,
+        ...oldData,
+      ]);
       toast({
         variant: "success",
         title: "Success!",
@@ -81,7 +81,8 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   });
 
   const sendForm = (data: CreateItemData) => {
-    if (user) { // If you don't have a user, sign out
+    if (user) {
+      // If you don't have a user, sign out
       mutation.mutateAsync(data);
     } else {
       SignOut();
@@ -120,13 +121,13 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
   }
 
   return (
-    <SheetContent className="overflow-y-auto">
-      <SheetHeader>
-        <SheetTitle>Create item</SheetTitle>
-        <SheetDescription>
+    <DialogContent className="overflow-y-auto max-h-screen">
+      <DialogHeader>
+        <DialogTitle>Create item</DialogTitle>
+        <DialogDescription>
           Create your item here. Click save when you're finished.
-        </SheetDescription>
-      </SheetHeader>
+        </DialogDescription>
+      </DialogHeader>
       <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
         <TextArea.Root error={errors.description && errors.description.message}>
           <Label htmlFor="description">Description</Label>
@@ -176,11 +177,11 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
           />
         </Combobox.Root>
 
-        <SheetFooter>
+        <DialogFooter>
           <Button type="submit">Save</Button>
-        </SheetFooter>
+        </DialogFooter>
       </form>
-    </SheetContent>
+    </DialogContent>
   );
 };
 

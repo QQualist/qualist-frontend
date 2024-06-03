@@ -19,6 +19,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { api } from "@/api/api";
 import { useNavigate } from "react-router-dom";
+import { copyToClipboard } from "@/utils/copyToClipboard";
 
 interface IDropdownActions {
   row: Row<ChecklistData>;
@@ -142,7 +143,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
           </DropdownMenuLabel>
           <DropdownMenuItem
             className="cursor-pointer"
-            onClick={() => navigator.clipboard.writeText(row.getValue("uuid"))}
+            onClick={() => copyToClipboard(row.getValue("uuid"))}
           >
             Copy checklist code
           </DropdownMenuItem>

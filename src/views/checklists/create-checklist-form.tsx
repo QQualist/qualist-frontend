@@ -1,14 +1,8 @@
 import { api } from "@/api/api";
 import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
+import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import {
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
 import { useToast } from "@/components/ui/use-toast";
 import { UserContext } from "@/contexts/user";
 import { CreateChecklistSchema } from "@/schemas/checklists/create-checklist";
@@ -98,14 +92,14 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
   };
 
   return (
-    <SheetContent>
-      <SheetHeader>
-        <SheetTitle>Create checklist</SheetTitle>
-        <SheetDescription>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Create checklist</DialogTitle>
+        <DialogDescription>
           Create your checklist here. Click save when you're finished.
-        </SheetDescription>
-      </SheetHeader>
-      <form className="grid gap-4 py-8" onSubmit={handleSubmit(sendForm)}>
+        </DialogDescription>
+      </DialogHeader>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(sendForm)}>
         <TextField.Root error={errors.name && errors.name.message}>
           <Label htmlFor="checklist-name">Name</Label>
           <TextField.Content>
@@ -118,11 +112,11 @@ const CreateChecklistForm = ({ onClose }: ICreateChecklistForm) => {
           </TextField.Content>
         </TextField.Root>
 
-        <SheetFooter>
+        <DialogFooter>
           <Button type="submit">Save</Button>
-        </SheetFooter>
+        </DialogFooter>
       </form>
-    </SheetContent>
+    </DialogContent>
   );
 };
 
