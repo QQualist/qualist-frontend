@@ -32,8 +32,8 @@ const Clients = () => {
     return (
         <section className='bg-layout h-96 flex items-center justify-center px-24'>
             <div className="content w-full">
-                <h1 className='font-bold text-3xl text-white leading-tight text-center'><span className='text-light-blue'>+1000</span> {t("professionals are already simplifying")} <br /> {t("their audits with Qualist.")}</h1>
-                <p className='text-white text-center mt-16'>{t("Some of our clients")}</p>
+                <h1 className='font-bold text-white leading-tight text-center text-lg md:text-2xl lg:text-3xl'><span className='text-light-blue'>+1000</span> {t("professionals are already simplifying")} <br /> {t("their audits with Qualist.")}</h1>
+                <p className='text-white text-center mt-8 lg:mt-16'>{t("Some of our clients")}</p>
 
                 <Carousel
                     className="flex justify-center mt-14"
@@ -45,7 +45,7 @@ const Clients = () => {
                 >
                     <CarouselContent>
                         {carouselItems.map((item, index) => (
-                            <CarouselItem key={index} className="pl-52 md:basis-1/2 lg:basis-1/3">
+                            <CarouselItem key={index} className=" md:basis-1/2 lg:basis-1/3 px-16 md:px-10 lg:pl-52">
                                 <img className="w-48 flex items-center justify-center" src={item.src} alt={item.alt} />
                             </CarouselItem>
                         ))}

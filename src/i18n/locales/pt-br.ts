@@ -239,6 +239,7 @@ export default {
     "Identify, assess, and manage risks associated with the software quality process.": "Identifique, avalie e gerencie riscos associados ao processo de qualidade de software.",
     "Notifications": "Notificações",
     "Receive real-time notifications about the status of audits and nonconformities.": "Receba notificações em tempo real sobre o status das auditorias e não conformidades.",
+    "Track audit performance and view complete and intuitive reports.": "Acompanhe o desempenho das auditorias e visualize relatórios completos e intuitivos.",
     
   },
 };
