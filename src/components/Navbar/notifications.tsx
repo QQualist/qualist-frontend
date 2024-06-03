@@ -6,8 +6,10 @@ import {
 } from "../ui/dropdown-menu";
 import Notification from "../Notification";
 import { MdWarning } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const Notifications = () => {
+  const { t } = useTranslation();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="relative">
@@ -18,9 +20,9 @@ const Notifications = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-96 p-0 border-none">
         <div className="flex w-full p-3 justify-between dark:bg-dark-gray border-b border-light-blue/40">
-          <span className="text-sm font-bold">Notifications</span>
+          <span className="text-sm font-bold">{t("Notifications")}</span>
           <button type="button" className="text-xs font-bold text-light-blue">
-            Mark all as read
+            {t("Mark all as read")}
           </button>
         </div>
         <div className="flex flex-col">

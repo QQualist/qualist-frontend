@@ -235,6 +235,7 @@ export default {
     "Risk Management": "Risk Management",
     "Identify, assess, and manage risks associated with the software quality process.": "Identify, assess, and manage risks associated with the software quality process.",
     "Notifications": "Notifications",
+    "Mark all as read": "Mark all as read",
     "Receive real-time notifications about the status of audits and nonconformities.": "Receive real-time notifications about the status of audits and nonconformities.",
   },
 };
