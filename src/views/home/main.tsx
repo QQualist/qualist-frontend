@@ -22,7 +22,7 @@ const Main = () => {
             </div>
 
             <div className="right-side w-0 lg:w-1/2">
-                <img className='hidden lg:block lg:w-[45%] 2xl:w-2/5 absolute bottom-0' src={MainImage} alt="Woman using a Notebook" />
+                <img className='hidden lg:block lg:w-[42%] 2xl:w-2/5 absolute' src={MainImage} alt="Woman using a Notebook" />
             </div>
         </main>
     )

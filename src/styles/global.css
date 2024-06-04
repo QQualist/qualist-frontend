@@ -69,3 +69,8 @@
 main {
   height: calc(100vh - 80px);
 }
+
+main img
+{
+  bottom: calc(0px - 80px);
+}
