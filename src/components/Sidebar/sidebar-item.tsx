@@ -32,9 +32,9 @@ const SidebarItem = ({ text, icon: Icon, to }: ISidebarItem) => {
       to={to}
       className={`flex w-full h-12 px-2 py-1 items-center my-3 lg:my-2 ${
         isOpen ? "justify-start gap-2" : "justify-center"
-      } rounded-md transition-all duration-200 text-white ${
+      } rounded-md transition-all duration-200 text-dark-blue dark:text-white ${
         isActive
-          ? "bg-light-blue hover:bg-light-blue"
+          ? "bg-light-blue hover:bg-light-blue text-white"
           : "hover:bg-light-gray hover:bg-opacity-30"
       }`}
       onClick={handleExitClick}

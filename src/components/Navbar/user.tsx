@@ -21,10 +21,10 @@ const User = () => {
         </AvatarFallback>
       </Avatar>
       <div className="flex flex-col w-40">
-        <span className="text-white text-base truncate">
+        <span className="text-dark-blue dark:text-white text-base truncate">
           {user?.name} {user?.surname.split(" ")[0]}
         </span>
-        <span className="text-white text-xs truncate">{user?.email}</span>
+        <span className="text-dark-gray dark:text-white text-xs truncate">{user?.email}</span>
       </div>
     </div>
   );

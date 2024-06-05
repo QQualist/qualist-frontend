@@ -8,7 +8,7 @@ const Functionalities = () => {
 
     return (
         <section className='px-5 md:px-10 lg:px-24'>
-            <div className='mt-32'>
+            <div className='mt-52'>
                 <h1 className='font-bold text-3xl text-dark-blue leading-tight text-center dark:text-white'>{t("Discover Qualist’s")} <span className='text-light-blue'>{t("Features")}</span></h1>
                 <p className='text-dark-gray text-center mt-5 dark:text-light-gray'>{t("Below, we present the main features that make Qualist the")} <br /> {t("ideal choice for simplifying and optimizing your software quality audits.")}</p>
             </div>

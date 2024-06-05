@@ -15,7 +15,7 @@ const Navbar = ({ Homenavbar }: { Homenavbar: boolean }) => {
     return (
         <div>
             {Homenavbar === false && (
-                <div className="flex w-full items-center justify-end bg-layout py-3 pr-9 h-20 lg:h-16">
+                <div className="flex w-full items-center justify-end bg-white dark:bg-layout py-3 pr-9 h-20 lg:h-16 shadow-menu-shadow dark:shadow-none">
                     <div className="flex items-center gap-12">
                         <div className="flex items-center gap-10">
                             <ToggleLanguage />
@@ -31,7 +31,7 @@ const Navbar = ({ Homenavbar }: { Homenavbar: boolean }) => {
                     <img className='w-16' src={LogoImage} alt="Qualist logo made up of the letters Q and A" />
                     <div className="btn-container flex items-center">
                         <ToggleLanguage />
-                        <div className='px-10 flex items-center'><ToggleTheme /></div>
+                        <div className='px-10 flex items-center'><ToggleTheme isHomeNavbar={Homenavbar} /></div>
                         <Button
                             variant="link"
                             className="font-bold text-white no-underline transition ease-out duration-500 hover:bg-light-gray hover:bg-opacity-5 hover:no-underline p-5"

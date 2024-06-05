@@ -13,7 +13,7 @@ const Notifications = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="relative">
-        <MdNotifications className="text-white" size={24} />
+        <MdNotifications className="text-dark-blue dark:text-white" size={24} />
         <span className="absolute w-max h-max p-1 flex -top-1 -right-1 items-center justify-center text-[8px] font-bold leading-none text-white bg-light-blue rounded-full">
           10
         </span>
