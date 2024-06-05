@@ -3,7 +3,7 @@ import { ListMenuItems } from "./list-menu-items";
 
 const SidebarBody = () => {
   return (
-    <div className="w-full h-full flex flex-col overflow-y-auto px-6 ">
+    <div className="w-full h-full flex flex-col overflow-hidden px-6 ">
       {ListMenuItems.map((item) => (
         <SidebarItem
           key={item.text}

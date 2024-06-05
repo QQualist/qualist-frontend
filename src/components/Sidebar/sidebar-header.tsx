@@ -7,8 +7,8 @@ const SidebarHeader = () => {
   const { isOpen, toggleIsOpen } = useContext(SidebarContext) as ContextSidebar;
 
   return (
-    <div className="flex h-20 p-6 justify-between items-center">
-      <img src={LogoImage} alt="Qualist logo made up of the letters Q and A" />
+    <div className="flex h-20 p-6 justify-between items-center lg:py-0 lg:px-6 lg:h-16">
+      <img className="lg:w-16" src={LogoImage} alt="Qualist logo made up of the letters Q and A" />
       <button
         onClick={toggleIsOpen}
         className={`text-white duration-300 relative left-2.5 ${isOpen && "rotate-180"}`}

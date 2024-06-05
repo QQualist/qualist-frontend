@@ -15,7 +15,7 @@ const Navbar = ({ Homenavbar }: { Homenavbar: boolean }) => {
     return (
         <div>
             {Homenavbar === false && (
-                <div className="flex w-full h-20 items-center justify-end bg-layout py-3 pr-9">
+                <div className="flex w-full items-center justify-end bg-layout py-3 pr-9 h-20 lg:h-16">
                     <div className="flex items-center gap-12">
                         <div className="flex items-center gap-10">
                             <ToggleLanguage />
