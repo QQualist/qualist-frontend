@@ -45,7 +45,7 @@ const Clients = () => {
                 >
                     <CarouselContent>
                         {carouselItems.map((item, index) => (
-                            <CarouselItem key={index} className=" md:basis-1/2 lg:basis-1/3 px-16 md:px-10 lg:pl-52">
+                            <CarouselItem key={index} className=" md:basis-1/2 lg:basis-1/2 px-16 md:px-10 lg:pl-52">
                                 <img className="w-48 flex items-center justify-center" src={item.src} alt={item.alt} />
                             </CarouselItem>
                         ))}

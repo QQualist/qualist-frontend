@@ -122,42 +122,44 @@ const Form = () => {
             </TextField.Content>
           </TextField.Root>
 
-          <TextField.Root error={errors.password && errors.password.message}>
-            <Label htmlFor="password">Password</Label>
-            <TextField.Content>
-              <TextField.Input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-                register={register("password")}
-              />
-              <TextField.Icon
-                icon={showPassword ? FiEye : FiEyeOff}
-                onClick={togglePassword}
-              />
-            </TextField.Content>
-          </TextField.Root>
-          <TextField.Root
-            error={errors.confirmPassword && errors.confirmPassword.message}
-          >
-            <Label htmlFor="confirm-password">Confirm password</Label>
-            <TextField.Content>
-              <TextField.Input
-                id="confirm-password"
-                type={showConfirmPassword ? "text" : "password"}
-                placeholder="Confirm your password"
-                register={register("confirmPassword")}
-              />
-              <TextField.Icon
-                icon={showConfirmPassword ? FiEye : FiEyeOff}
-                onClick={toggleConfirmPassword}
-              />
-            </TextField.Content>
-          </TextField.Root>
+        <div className="lg:flex lg:w-full lg:gap-2">
+            <TextField.Root error={errors.password && errors.password.message}>
+                <Label htmlFor="password">Password</Label>
+                <TextField.Content>
+                <TextField.Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    register={register("password")}
+                />
+                <TextField.Icon
+                    icon={showPassword ? FiEye : FiEyeOff}
+                    onClick={togglePassword}
+                />
+                </TextField.Content>
+            </TextField.Root>
+            <TextField.Root
+                error={errors.confirmPassword && errors.confirmPassword.message}
+            >
+                <Label htmlFor="confirm-password">Confirm password</Label>
+                <TextField.Content>
+                <TextField.Input
+                    id="confirm-password"
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Confirm your password"
+                    register={register("confirmPassword")}
+                />
+                <TextField.Icon
+                    icon={showConfirmPassword ? FiEye : FiEyeOff}
+                    onClick={toggleConfirmPassword}
+                />
+                </TextField.Content>
+            </TextField.Root>
+        </div>
 
           <Button
             type="submit"
-            size='lg'
+            size="lg"
             variant={mutation.isPending ? "disabled" : "default"}
             isPanding={mutation.isPending}
           >
