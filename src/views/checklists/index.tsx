@@ -13,7 +13,7 @@ const Checklists = () => {
   const { user } = useContext(UserContext) as ContextUser;
 
   const getChecklists = async (): Promise<ChecklistData[]> => {
-    const checklists = await api.get(`/checklists/user/${user?.uuid}`, {
+    const checklists = await api.get('/checklists', {
       headers: {
         Authorization: `Bearer ${user?.token}`,
       },

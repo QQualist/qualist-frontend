@@ -19,7 +19,7 @@ import { useTranslation } from "react-i18next";
 
 interface Option {
   value: string | number;
-  label: React.ReactNode;
+  label: string;
 }
 
 interface Props {
@@ -50,7 +50,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
           className="w-full justify-between"
         >
           {value
-            ? data.find((item) => item.value === value)?.label
+            ? t(data.find((item) => item.value === value)?.label || '')
             : `${t(placeholder)}...`}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -68,7 +68,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
                   onSelect={() => handleSelect(item.value)}
                   disabled={item.value === value}
                 >
-                  {item.label}
+                  {t(item.label)}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",

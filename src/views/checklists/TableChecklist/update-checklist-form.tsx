@@ -5,14 +5,6 @@ import { useForm } from "react-hook-form";
 import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
 import { ChecklistData } from "@/types/Checklist";
 import { Row } from "@tanstack/react-table";
 import { api } from "@/api/api";
@@ -22,6 +14,14 @@ import { ContextUser } from "@/types/ContextUser";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { isAxiosError } from "axios";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface IUpdateChecklist {
   row: Row<ChecklistData>;
@@ -44,7 +44,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
     resolver: zodResolver(UpdateChecklistSchema),
     defaultValues: {
       name: row.getValue("name"),
-      version: row.getValue("version"),
     },
   });
 
@@ -53,7 +52,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
       `/checklists/${row.getValue("uuid")}`,
       {
         name: data.name,
-        version: data.version,
       },
       {
         headers: {
@@ -95,7 +93,6 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
   useEffect(() => {
     if (row) {
       setValue("name", row.getValue("name"));
-      setValue("version", row.getValue("version"));
     }
   }, [row, setValue]);
 
@@ -110,14 +107,14 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
   };
 
   return (
-    <Sheet open={open}>
-      <SheetContent onClose={onClose}>
-        <SheetHeader>
-          <SheetTitle>Update checklist</SheetTitle>
-          <SheetDescription>
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Update checklist</DialogTitle>
+          <DialogDescription>
             Update your checklist here. Click save when you're finished.
-          </SheetDescription>
-        </SheetHeader>
+          </DialogDescription>
+        </DialogHeader>
         <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
           <TextField.Root error={errors.name && errors.name.message}>
             <Label htmlFor="checklist-name">Name</Label>
@@ -131,24 +128,12 @@ const UpdateChecklistForm = ({ row, open, onClose }: IUpdateChecklist) => {
             </TextField.Content>
           </TextField.Root>
 
-          <TextField.Root error={errors.version && errors.version.message}>
-            <Label htmlFor="checklist-version">Version</Label>
-            <TextField.Content>
-              <TextField.Input
-                id="checklist-version"
-                placeholder={"Eg: 2"}
-                type="number"
-                register={register("version")}
-              />
-            </TextField.Content>
-          </TextField.Root>
-
-          <SheetFooter>
+          <DialogFooter>
             <Button type="submit">Save</Button>
-          </SheetFooter>
+          </DialogFooter>
         </form>
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   );
 };
 

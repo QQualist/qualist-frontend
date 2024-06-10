@@ -1,7 +1,7 @@
 import { useTheme } from "@/hooks/useTheme";
 import { MdLightMode, MdDarkMode } from "react-icons/md";
 
-const ToggleTheme = () => {
+const ToggleTheme = ({ isHomeNavbar }: { isHomeNavbar?: boolean }) => {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = (): void => {
@@ -13,7 +13,7 @@ const ToggleTheme = () => {
       {theme === "dark" ? (
         <MdLightMode className="text-white" size={24} />
       ) : (
-        <MdDarkMode className="text-white" size={24} />
+        <MdDarkMode className={isHomeNavbar ? "text-white" : "text-dark-blue"} size={24} />
       )}
     </button>
   );

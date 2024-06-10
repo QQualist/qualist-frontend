@@ -10,7 +10,7 @@ const Sidebar = () => {
   const { isOpen } = useContext(SidebarContext) as ContextSidebar;
 
   return (
-    <div className={`${isOpen ? 'w-72': 'w-24'} h-screen flex flex-col bg-layout transition-all duration-300`}>
+    <div className={`${isOpen ? 'w-72': 'w-24'} h-screen flex flex-col bg-white dark:bg-layout transition-all duration-300`}>
       <SidebarHeader />
       <SidebarDivider />
       <div className="flex-1 overflow-y-auto pt-5">

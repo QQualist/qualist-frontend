@@ -6,7 +6,7 @@ import { Navigate, Outlet } from "react-router-dom";
 const PrivateRoutes = () => {
   const { signed } = useContext(UserContext) as ContextUser;
 
-  return signed ? <Outlet /> : <Navigate to="/signin" />;
+  return signed ? <Outlet /> : <Navigate to="/home" />;
 };
 
 export default PrivateRoutes;

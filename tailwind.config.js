@@ -18,10 +18,12 @@ module.exports = {
     },
     colors: {
       transparent: 'transparent',
+      'black': '#000000',
       'dark-blue': '#0E0E2C',
       'light-blue': '#0088F1',
       'layout': '#1D1D24',
       'dark-gray': '#34343f',
+      'medium-gray': '#A1A1A1',
       'light-gray': '#A1A1AA',
       'white': '#FFFFFF',
       'red': '#9D0208',
@@ -30,6 +32,7 @@ module.exports = {
     extend: {
       boxShadow: {
         'externo': '0px 0px 6px 0px #3c84f9a6',
+        'menu-shadow': 'rgb(149 157 165 / 5%) 0px 20px 20px 0px;',
       },
       backgroundImage: {
         'waves-pattern': "url('./src/assets/images/waves.png')"
