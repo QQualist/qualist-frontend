@@ -11,5 +11,7 @@ export const getItems = async (checklist_uuid: string): Promise<ItemData[]> => {
     },
   });
 
+  console.log(items.data);
+
   return items.data;
 };
