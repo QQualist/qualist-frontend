@@ -15,4 +15,12 @@ export const createItemSchema = z.object({
     required_error: "Checklist is required"
   }).uuid().min(1, "Checklist is required"),
   risk_type_id: z.number().optional()
-});
+}).refine((data) => {
+  if (data.risk && !data.risk_type_id) {
+    return false;
+  }
+  return true;
+}, {
+  message: "Risk type is required when risk is provided",
+  path: ["risk_type_id"]
+})

@@ -197,6 +197,7 @@ export default {
     Technology: "Tecnológico",
     Timetable: "Cronograma",
     "Select a risk type": "Selecione um tipo de risco",
+    "Risk type is required when risk is provided": "Tipo de risco é obrigatório quando o risco é fornecido",
     "Copy item code": "Copiar código do item",
     "Copied text!": "Texto copiado!",
     "Text copied to the clipboard!":

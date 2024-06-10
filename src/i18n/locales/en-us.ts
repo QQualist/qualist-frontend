@@ -194,6 +194,7 @@ export default {
     Technology: "Technology",
     Timetable: "Timetable",
     "Select a risk type": "Select a risk type",
+    "Risk type is required when risk is provided": "Risk type is required when risk is provided",
     "Copy item code": "Copy item code",
     "Copied text!": "Copied text!",
     "Text copied to the clipboard!": "Text copied to the clipboard!",
