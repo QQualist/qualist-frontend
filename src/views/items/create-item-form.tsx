@@ -152,17 +152,6 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
           />
         </Combobox.Root>
 
-        <TextArea.Root error={errors.risk && errors.risk.message}>
-          <Label htmlFor="risk" isOptional>
-            Risk
-          </Label>
-          <TextArea.Input
-            id="risk"
-            placeholder="Eg: The lack of a schedule can compromise organization and deadlines."
-            register={register("risk")}
-          />
-        </TextArea.Root>
-
         <Combobox.Root
           error={errors.risk_type_id && errors.risk_type_id.message}
         >
@@ -176,6 +165,19 @@ const CreateItemForm = ({ onClose }: ICreateItemForm) => {
             placeholder="Select a risk type"
           />
         </Combobox.Root>
+
+        <TextArea.Root error={errors.risk && errors.risk.message}>
+          <Label htmlFor="risk" isOptional>
+            Risk
+          </Label>
+          <TextArea.Input
+            id="risk"
+            placeholder="Eg: The lack of a schedule can compromise organization and deadlines."
+            register={register("risk")}
+          />
+        </TextArea.Root>
+
+        
 
         <DialogFooter>
           <Button type="submit">Save</Button>
