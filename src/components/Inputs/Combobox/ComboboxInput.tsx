@@ -50,7 +50,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
           className="w-full justify-between"
         >
           {value
-            ? data.find((item) => item.value === value)?.label
+            ? t(data.find((item) => item.value === value)?.label || '')
             : `${t(placeholder)}...`}
           <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
