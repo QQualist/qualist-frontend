@@ -242,6 +242,8 @@ export default {
     "Mark all as read": "Marcar todas como lida",
     "Receive real-time notifications about the status of audits and nonconformities.": "Receba notificações em tempo real sobre o status das auditorias e não conformidades.",
     "Track audit performance and view complete and intuitive reports.": "Acompanhe o desempenho das auditorias e visualize relatórios completos e intuitivos.",
-    
+    "Access and manage departaments": "Acesse e gerencie departamentos",
+    "Create departament": "Criar departamento",
+    "Create your departament here. Click save when you're finished.": "Create your departament here. Click save when you're finished."
   },
 };

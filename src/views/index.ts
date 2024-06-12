@@ -5,6 +5,7 @@ import Checklists from './checklists'
 import Items from './items'
 import Priorities from './priorities'
 import Home from './home'
+import Departaments from './departaments'
 
 export {
     SignUp,
@@ -13,5 +14,6 @@ export {
     Checklists,
     Items,
     Priorities,
-    Home
+    Home,
+    Departaments
 }
