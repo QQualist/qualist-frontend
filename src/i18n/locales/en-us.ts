@@ -238,5 +238,11 @@ export default {
     "Notifications": "Notifications",
     "Mark all as read": "Mark all as read",
     "Receive real-time notifications about the status of audits and nonconformities.": "Receive real-time notifications about the status of audits and nonconformities.",
+    "Access and manage departaments": "Access and manage departaments",
+    "Create departament": "Create departament",
+    "Create your departament here. Click save when you're finished.": "Create your departament here. Click save when you're finished.",
+    "Eg: Quality Assurance": "Eg: Quality Assurance",
+    "Departament successfully created": "Departament successfully created",
+    "The departament name must contain a maximum of 35 characters": "The departament name must contain a maximum of 35 characters",
   },
 };
