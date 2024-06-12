@@ -34,7 +34,11 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
   const navigate = useNavigate();
 
   const deprecateChecklist = async () => {
-    return await api.delete(`/checklists/${row.getValue("uuid")}`, {
+    return await api.patch(`/checklists/${row.getValue("uuid")}`, 
+    {
+      active: false
+    },
+    {
       headers: {
         Authorization: `Bearer ${user?.token}`,
       },
