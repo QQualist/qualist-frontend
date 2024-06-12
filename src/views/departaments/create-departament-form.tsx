@@ -8,9 +8,16 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/components/ui/use-toast";
+import { UserContext } from "@/contexts/user";
 import { createDepartamentSchema } from "@/schemas/departaments/create-departament";
+import { ContextUser } from "@/types/ContextUser";
 import { CreateDepartamentData } from "@/types/create-departament";
+import { createDepartament } from "@/utils/createDepartament";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { isAxiosError } from "axios";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 interface ICreateDepartamentForm {
@@ -18,6 +25,10 @@ interface ICreateDepartamentForm {
 }
 
 const CreateDepartamentForm = ({ onClose }: ICreateDepartamentForm) => {
+  const { user, SignOut } = useContext(UserContext) as ContextUser
+  const queryClient = useQueryClient();
+  const { toast } = useToast()
+
   const {
     register,
     handleSubmit,
@@ -27,8 +38,43 @@ const CreateDepartamentForm = ({ onClose }: ICreateDepartamentForm) => {
     resolver: zodResolver(createDepartamentSchema),
   });
 
+  const mutation = useMutation({
+    mutationFn: createDepartament,
+    mutationKey: ['create-departament'],
+    onSuccess: ({data}) => {
+      queryClient.setQueryData<CreateDepartamentData[]>(
+        ["departaments"],
+        (oldData = []) => [data, ...oldData]
+      );
+      toast({
+        variant: "success",
+        title: "Success!",
+        description: "Departament successfully created",
+      });
+    },
+    onError: (error) => {
+      if (isAxiosError(error) && error.response) {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: error.response.data.message,
+        });
+      } else {
+        toast({
+          variant: "destructive",
+          title: `Ops!`,
+          description: `An error occurred: ${error.message}`,
+        });
+      }
+    },
+  });
+
   const sendForm = (data: CreateDepartamentData) => {
-    alert(data.name);
+    if (user && user.uuid) {
+      mutation.mutateAsync(data);
+    } else {
+      SignOut();
+    }
     reset();
     onClose();
   };
@@ -47,7 +93,7 @@ const CreateDepartamentForm = ({ onClose }: ICreateDepartamentForm) => {
           <TextField.Content>
             <TextField.Input
               id="departament-name"
-              placeholder={"Eg: Quality assurance"}
+              placeholder={"Eg: Quality Assurance"}
               type="text"
               register={register("name")}
             />

@@ -244,6 +244,10 @@ export default {
     "Track audit performance and view complete and intuitive reports.": "Acompanhe o desempenho das auditorias e visualize relatórios completos e intuitivos.",
     "Access and manage departaments": "Acesse e gerencie departamentos",
     "Create departament": "Criar departamento",
-    "Create your departament here. Click save when you're finished.": "Create your departament here. Click save when you're finished."
+    "Create your departament here. Click save when you're finished.": "Crie seu departamento aqui. Clique em salvar quando terminar.",
+    "Eg: Quality Assurance": "Ex: Garantia da Qualidade",
+    "Departament successfully created": "Departamento criado com sucesso",
+    "The departament name must contain a maximum of 35 characters": "O nome do departamento deve conter no máximo 35 caractéres",
   },
 };
+ 
