@@ -249,6 +249,7 @@ export default {
     "Departament successfully updated": "Departament successfully updated",
     "Copy departament code": "Copy departament code",
     "View departament": "View departament",
-    
+    "Access and manage responsibles": "Access and manage responsibles",
+    "Create responsible": "Create responsible",
   },
 };

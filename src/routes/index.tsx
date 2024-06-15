@@ -7,7 +7,8 @@ import {
   Items,
   Priorities,
   Home,
-  Departaments
+  Departaments,
+  Responsibles
 } from "../views";
 import { BrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./privateRoutes";
@@ -26,6 +27,7 @@ const RouteNavigators = () => {
           <Route path="/checklist/:checklistUuid/items" element={<Items />} />
           <Route path="/priorities" element={<Priorities />} />
           <Route path="/departaments" element={<Departaments />} />
+          <Route path="/departaments/:departamentUuid/responsibles" element={<Responsibles />} />
         </Route>
 
         {/* <Route path='*' element={<NotFound />} /> */}

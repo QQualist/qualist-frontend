@@ -252,7 +252,9 @@ export default {
     "Update your departament here. Click save when you're finished.": "Atualize o seu departamento aqui. Clique em salvar quando terminar.",
     "Departament successfully updated": "Departamento atualizado com sucesso",
     "Copy departament code": 'Copiar código do departamento',
-    "View departament": "Ver departamento"
+    "View departament": "Ver departamento",
+    "Access and manage responsibles": "Acesse e gerencie seus responsáveis",
+    "Create responsible": "Criar responsável",
   },
 };
  

@@ -6,6 +6,7 @@ import Items from './items'
 import Priorities from './priorities'
 import Home from './home'
 import Departaments from './departaments'
+import Responsibles from './responsibles'
 
 export {
     SignUp,
@@ -15,5 +16,6 @@ export {
     Items,
     Priorities,
     Home,
-    Departaments
+    Departaments,
+    Responsibles
 }

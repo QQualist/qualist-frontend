@@ -25,7 +25,7 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
 
   const handleViewDepartament = () => {
     const uuid = row.getValue("uuid");
-    navigate(`/departaments/${uuid}/persons`);
+    navigate(`/departaments/${uuid}/responsibles`);
   };
 
   return (
