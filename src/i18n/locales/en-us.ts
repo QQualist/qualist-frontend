@@ -244,5 +244,11 @@ export default {
     "Eg: Quality Assurance": "Eg: Quality Assurance",
     "Departament successfully created": "Departament successfully created",
     "The departament name must contain a maximum of 35 characters": "The departament name must contain a maximum of 35 characters",
+    "Update departament": "Update departament",
+    "Update your departament here. Click save when you're finished.": "Update your departament here. Click save when you're finished.",
+    "Departament successfully updated": "Departament successfully updated",
+    "Copy departament code": "Copy departament code",
+    "View departament": "View departament",
+    
   },
 };

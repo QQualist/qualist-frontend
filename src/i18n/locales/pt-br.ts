@@ -248,6 +248,11 @@ export default {
     "Eg: Quality Assurance": "Ex: Garantia da Qualidade",
     "Departament successfully created": "Departamento criado com sucesso",
     "The departament name must contain a maximum of 35 characters": "O nome do departamento deve conter no máximo 35 caractéres",
+    "Update departament": "Atualizar departamento",
+    "Update your departament here. Click save when you're finished.": "Atualize o seu departamento aqui. Clique em salvar quando terminar.",
+    "Departament successfully updated": "Departamento atualizado com sucesso",
+    "Copy departament code": 'Copiar código do departamento',
+    "View departament": "Ver departamento"
   },
 };
  
