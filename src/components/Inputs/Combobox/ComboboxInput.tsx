@@ -57,7 +57,7 @@ export const ComboboxInput = ({ data = [], placeholder, onSelect }: Props) => {
       </PopoverTrigger>
       <PopoverContent className="min-w-full p-0" align="start">
         <Command className="w-full">
-          <CommandInput placeholder="Search..." className="h-9" />
+          <CommandInput placeholder={`${t('Search')}...`} className="h-9" />
           <CommandEmpty>No item found.</CommandEmpty>
           <CommandList>
             <CommandGroup>
