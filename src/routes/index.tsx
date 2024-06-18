@@ -8,7 +8,8 @@ import {
   Priorities,
   Home,
   Departaments,
-  Responsibles
+  Responsibles,
+  Roles
 } from "../views";
 import { BrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./privateRoutes";
@@ -28,6 +29,7 @@ const RouteNavigators = () => {
           <Route path="/priorities" element={<Priorities />} />
           <Route path="/departaments" element={<Departaments />} />
           <Route path="/departaments/:departamentUuid/responsibles" element={<Responsibles />} />
+          <Route path="/roles" element={<Roles />} />
         </Route>
 
         {/* <Route path='*' element={<NotFound />} /> */}

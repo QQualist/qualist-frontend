@@ -281,5 +281,7 @@ export default {
     "Search": "Buscar",
     "Select a superior": "Selecione um superior",
     "User successfully created": "Usuário criado com sucesso",
+    "Access and manage roles": "Acesse e gerencie os cargos",
+    "Create role": "Criar cargo"
   },
 };

@@ -277,5 +277,8 @@ export default {
     "Search": "Search",
     "Select a superior": "Select a superior",
     "User successfully created": "User successfully created",
+    "Access and manage roles": "Access and manage roles",
+    "Create role": "Create role",
+    
   },
 };
