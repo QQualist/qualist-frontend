@@ -4,13 +4,12 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { getDepartament } from "@/utils/getDepartament";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
+import CreateResponsibleForm from "./create-responsible-form";
 
 const ResponsibleHeader = () => {
-    const { departamentUuid } = useParams();
+  const { departamentUuid } = useParams();
   const navigate = useNavigate();
-  const { t } = useTranslation()
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   const openDialog = () => setIsDialogOpen(true);
@@ -30,20 +29,21 @@ const ResponsibleHeader = () => {
     return null;
   }
 
-  console.log(data)
-
   return (
     <Header.Root>
-      <Header.Texts title={`${data?.name}`} subtitle="Access and manage responsibles" />
+      <Header.Texts
+        title={`${data?.name}`}
+        subtitle="Access and manage responsibles"
+      />
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogTrigger asChild>
           <Button variant="default">Create responsible</Button>
         </DialogTrigger>
-        {/* <CreateItemForm onClose={closeDialog} /> */}
+        <CreateResponsibleForm onClose={closeDialog} />
       </Dialog>
     </Header.Root>
-  )
-}
+  );
+};
 
-export default ResponsibleHeader
+export default ResponsibleHeader;

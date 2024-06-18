@@ -194,7 +194,8 @@ export default {
     Technology: "Technology",
     Timetable: "Timetable",
     "Select a risk type": "Select a risk type",
-    "Risk type is required when risk is provided": "Risk type is required when risk is provided",
+    "Risk type is required when risk is provided":
+      "Risk type is required when risk is provided",
     "Copy item code": "Copy item code",
     "Copied text!": "Copied text!",
     "Text copied to the clipboard!": "Text copied to the clipboard!",
@@ -216,40 +217,65 @@ export default {
       "The priority cannot be updated because it is currently in use by one or more items.",
     Home: "Home",
     "I'm already a client": "I'm already a client",
-    "Become a customer":"Become a customer",
-    "Become a customer and enjoy all the benefits of Qualist": "Become a customer and enjoy all the benefits of Qualist",
-    "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.": "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.",
-    "professionals are already simplifying": "professionals are already simplifying",
-    "their audits with Qualist.": 'their audits with Qualist.',
+    "Become a customer": "Become a customer",
+    "Become a customer and enjoy all the benefits of Qualist":
+      "Become a customer and enjoy all the benefits of Qualist",
+    "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.":
+      "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.",
+    "professionals are already simplifying":
+      "professionals are already simplifying",
+    "their audits with Qualist.": "their audits with Qualist.",
     "Some of our clients": "Some of our clients",
     "Discover Qualist’s": "Discover Qualist’s",
-    "Features": "Features",
-    "Below, we present the main features that make Qualist the": "Below, we present the main features that make Qualist the",
-    "ideal choice for simplifying and optimizing your software quality audits.": "ideal choice for simplifying and optimizing your software quality audits.",
+    Features: "Features",
+    "Below, we present the main features that make Qualist the":
+      "Below, we present the main features that make Qualist the",
+    "ideal choice for simplifying and optimizing your software quality audits.":
+      "ideal choice for simplifying and optimizing your software quality audits.",
     "Custom Checklists": "Custom Checklists",
-    "Create custom checklists for each type of audit.": "Create custom checklists for each type of audit.",
+    "Create custom checklists for each type of audit.":
+      "Create custom checklists for each type of audit.",
     "Team Management": "Team Management",
-    "Create departments, roles, assign permissions, and manage each member's access.": "Create departments, roles, assign permissions, and manage each member's access.",
-    "Realize software quality audits simply and efficiently.": "Realize software quality audits simply and efficiently.",
-    "Register and manage nonconformities identified during audits.": "Register and manage nonconformities identified during audits.",
-    "Track audit performance and view complete and intuitive reports.": "Track audit performance and view complete and intuitive reports.",
+    "Create departments, roles, assign permissions, and manage each member's access.":
+      "Create departments, roles, assign permissions, and manage each member's access.",
+    "Realize software quality audits simply and efficiently.":
+      "Realize software quality audits simply and efficiently.",
+    "Register and manage nonconformities identified during audits.":
+      "Register and manage nonconformities identified during audits.",
+    "Track audit performance and view complete and intuitive reports.":
+      "Track audit performance and view complete and intuitive reports.",
     "Risk Management": "Risk Management",
-    "Identify, assess, and manage risks associated with the software quality process.": "Identify, assess, and manage risks associated with the software quality process.",
-    "Notifications": "Notifications",
+    "Identify, assess, and manage risks associated with the software quality process.":
+      "Identify, assess, and manage risks associated with the software quality process.",
+    Notifications: "Notifications",
     "Mark all as read": "Mark all as read",
-    "Receive real-time notifications about the status of audits and nonconformities.": "Receive real-time notifications about the status of audits and nonconformities.",
+    "Receive real-time notifications about the status of audits and nonconformities.":
+      "Receive real-time notifications about the status of audits and nonconformities.",
     "Access and manage departaments": "Access and manage departaments",
     "Create departament": "Create departament",
-    "Create your departament here. Click save when you're finished.": "Create your departament here. Click save when you're finished.",
+    "Create your departament here. Click save when you're finished.":
+      "Create your departament here. Click save when you're finished.",
     "Eg: Quality Assurance": "Eg: Quality Assurance",
     "Departament successfully created": "Departament successfully created",
-    "The departament name must contain a maximum of 35 characters": "The departament name must contain a maximum of 35 characters",
+    "The departament name must contain a maximum of 35 characters":
+      "The departament name must contain a maximum of 35 characters",
     "Update departament": "Update departament",
-    "Update your departament here. Click save when you're finished.": "Update your departament here. Click save when you're finished.",
+    "Update your departament here. Click save when you're finished.":
+      "Update your departament here. Click save when you're finished.",
     "Departament successfully updated": "Departament successfully updated",
     "Copy departament code": "Copy departament code",
     "View departament": "View departament",
     "Access and manage responsibles": "Access and manage responsibles",
     "Create responsible": "Create responsible",
+    "Create your responsible here. Click save when you're finished.":
+      "Create your responsible here. Click save when you're finished.",
+    Type: "Type",
+    Administrator: "Administrator",
+    "Quality Assurance": "Quality Assurance",
+    Responsible: "Responsible",
+    "Select a user type": "Select a user type",
+    "Search": "Search",
+    "Select a superior": "Select a superior",
+    "User successfully created": "User successfully created",
   },
 };
