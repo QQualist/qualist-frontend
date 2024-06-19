@@ -274,16 +274,22 @@ export default {
     "Quality Assurance": "Quality Assurance",
     Responsible: "Responsible",
     "Select a user type": "Select a user type",
-    "Search": "Search",
+    Search: "Search",
     "Select a superior": "Select a superior",
     "User successfully created": "User successfully created",
     "Access and manage roles": "Access and manage roles",
     "Create role": "Create role",
-    "Create your role here. Click save when you're finished.": "Create your role here. Click save when you're finished.",
+    "Create your role here. Click save when you're finished.":
+      "Create your role here. Click save when you're finished.",
     "Eg: Analyst": "Eg: Analyst",
     "Can dispense a non-conformity?": "Can dispense a non-conformity?",
-    "This role has permission to waive a non-conformity": "This role has permission to waive a non-conformity",
+    "This role has permission to waive a non-conformity":
+      "This role has permission to waive a non-conformity",
     "Role successfully created": "Role successfully created",
-    
+    "Can dispense NC?": "Can dispense NC?",
+    "Informs whether the role has permission to dispense a non-conformity":
+      "Informs whether the role has permission to dispense a non-conformity",
+    Yes: "Yes",
+    No: "No",
   },
 };

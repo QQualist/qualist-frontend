@@ -34,6 +34,8 @@ const CreateRoleForm = ({ onClose }: ICreateRoleForm) => {
     handleSubmit,
     reset,
     register,
+    watch,
+    setValue,
     formState: { errors },
   } = useForm<CreateRoleData>({
     resolver: zodResolver(createRoleSchema),
@@ -83,6 +85,12 @@ const CreateRoleForm = ({ onClose }: ICreateRoleForm) => {
     onClose();
   };
 
+  const handleCheckedChange = (value: boolean) => {
+    setValue("canDispenseNonConformities", value);
+  };
+
+  const canDispenseNonConformities = watch("canDispenseNonConformities");
+
   return (
     <DialogContent className="overflow-y-auto">
       <DialogHeader>
@@ -111,6 +119,8 @@ const CreateRoleForm = ({ onClose }: ICreateRoleForm) => {
         >
           <Checkbox.Input
             id="canDispenseNonConformities"
+            checked={canDispenseNonConformities}
+            onCheckedChange={handleCheckedChange}
             register={register("canDispenseNonConformities")}
           />
           <Checkbox.Label

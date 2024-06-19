@@ -278,16 +278,22 @@ export default {
     "Quality Assurance": "Garantia da Qualidade",
     Responsible: "Responsável",
     "Select a user type": "Selecione o tipo de usuário",
-    "Search": "Buscar",
+    Search: "Buscar",
     "Select a superior": "Selecione um superior",
     "User successfully created": "Usuário criado com sucesso",
     "Access and manage roles": "Acesse e gerencie os cargos",
     "Create role": "Criar cargo",
-    "Create your role here. Click save when you're finished.": "Crie seu cargo aqui. Clique em salvar quando finalizar.",
+    "Create your role here. Click save when you're finished.":
+      "Crie seu cargo aqui. Clique em salvar quando finalizar.",
     "Eg: Analyst": "Ex: Analista",
     "Can dispense a non-conformity?": "Pode dispensar uma não-conformidade?",
-    "This role has permission to waive a non-conformity": "Este cargo tem permissão para dispensar uma não-conformidade",
+    "This role has permission to waive a non-conformity":
+      "Este cargo tem permissão para dispensar uma não-conformidade",
     "Role successfully created": "Cargo criado com sucesso",
-    
+    "Can dispense NC?": "Pode dispensar NC?",
+    "Informs whether the role has permission to dispense a non-conformity":
+      "Informa se o cargo tem permissão para dispensar uma não conformidade",
+    Yes: "Sim",
+    No: "Não",
   },
 };
