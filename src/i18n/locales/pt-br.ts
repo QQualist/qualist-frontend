@@ -282,6 +282,12 @@ export default {
     "Select a superior": "Selecione um superior",
     "User successfully created": "Usuário criado com sucesso",
     "Access and manage roles": "Acesse e gerencie os cargos",
-    "Create role": "Criar cargo"
+    "Create role": "Criar cargo",
+    "Create your role here. Click save when you're finished.": "Crie seu cargo aqui. Clique em salvar quando finalizar.",
+    "Eg: Analyst": "Ex: Analista",
+    "Can dispense a non-conformity?": "Pode dispensar uma não-conformidade?",
+    "This role has permission to waive a non-conformity": "Este cargo tem permissão para dispensar uma não-conformidade",
+    "Role successfully created": "Cargo criado com sucesso",
+    
   },
 };

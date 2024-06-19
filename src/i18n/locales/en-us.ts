@@ -279,6 +279,11 @@ export default {
     "User successfully created": "User successfully created",
     "Access and manage roles": "Access and manage roles",
     "Create role": "Create role",
+    "Create your role here. Click save when you're finished.": "Create your role here. Click save when you're finished.",
+    "Eg: Analyst": "Eg: Analyst",
+    "Can dispense a non-conformity?": "Can dispense a non-conformity?",
+    "This role has permission to waive a non-conformity": "This role has permission to waive a non-conformity",
+    "Role successfully created": "Role successfully created",
     
   },
 };

@@ -2,6 +2,7 @@ import { Header } from "@/components/Layout/Header";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
+import CreateRoleForm from "./create-role-form";
 
 const RoleHeader = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -19,7 +20,7 @@ const RoleHeader = () => {
         <DialogTrigger asChild>
           <Button variant="default">Create role</Button>
         </DialogTrigger>
-        {/* <CreatePriorityForm onClose={closeDialog} /> */}
+        <CreateRoleForm onClose={closeDialog} />
       </Dialog>
     </Header.Root>
   );

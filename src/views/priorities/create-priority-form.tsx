@@ -92,8 +92,6 @@ const CreatePriorityForm = ({ onClose }: ICreatePriorityForm) => {
         <DialogDescription>
           Create your priority here. Click save when you're finished.
         </DialogDescription>
-        <span>{errors.deadline?.message}</span>
-        <span>{errors.color?.message}</span>
       </DialogHeader>
       <form className="grid gap-4 py-4" onSubmit={handleSubmit(sendForm)}>
         <div className="w-full flex gap-2 items-end">
