@@ -295,5 +295,10 @@ export default {
       "Informa se o cargo tem permissão para dispensar uma não conformidade",
     Yes: "Sim",
     No: "Não",
+    "Copy role code": "Copiar código do cargo",
+    "Role successfully updated": "Cargo atualizado com sucesso",
+    "Update role": "Atualizar cargo",
+    "Update your role here. Click save when you're finished.":
+      "Atualize o seu cargo aqui. Clique em salvar quando terminar.",
   },
 };

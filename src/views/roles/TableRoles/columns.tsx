@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { t } from "i18next";
+import Actions from "./actions";
 
 export const columns: ColumnDef<RolesData>[] = [
   {
@@ -70,6 +71,13 @@ export const columns: ColumnDef<RolesData>[] = [
           <span>{formatDate(date)}</span>
         </div>
       );
+    },
+  },
+  {
+    id: "Actions",
+    header: () => <div className="text-center">{i18n.t("Actions")}</div>,
+    cell: ({ row }) => {
+      return <Actions row={row} />;
     },
   },
 ];

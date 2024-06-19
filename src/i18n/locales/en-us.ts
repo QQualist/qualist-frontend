@@ -291,5 +291,9 @@ export default {
       "Informs whether the role has permission to dispense a non-conformity",
     Yes: "Yes",
     No: "No",
+    "Copy role code": "Copy role code",
+    "Role successfully updated": "Role successfully updated",
+    "Update role": "Update role",
+    "Update your role here. Click save when you're finished.": "Update your role here. Click save when you're finished."
   },
 };
