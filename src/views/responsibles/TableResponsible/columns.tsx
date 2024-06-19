@@ -41,6 +41,14 @@ export const columns: ColumnDef<ResponsibleData>[] = [
     },
   },
   {
+    accessorKey: "role",
+    header: "Role",
+    cell: ({ row }) => {
+      const role = row.original.role;
+      return <div className="whitespace-normal break-words">{role.name}</div>;
+    },
+  },
+  {
     accessorKey: "superior",
     header: "Superior",
     cell: ({ row }) => {

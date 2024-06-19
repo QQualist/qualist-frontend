@@ -4,7 +4,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MdOutlineMoreHoriz } from "react-icons/md";
@@ -58,7 +57,6 @@ const DropdownActions = ({ row, onOpen }: IDropdownActions) => {
           <DropdownMenuItem className="cursor-pointer" onClick={onOpen}>
             Update
           </DropdownMenuItem>
-          <DropdownMenuSeparator />
         </DropdownMenuContent>
       </DropdownMenu>
     </>

@@ -12,6 +12,7 @@ export const createResponsible = async (data: CreateResponsibleData) => {
         email: data.email,
         type_id: data.type_id,
         superior_uuid: data.superior_uuid,
+        role_uuid: data.role_uuid,
         departament_uuid: data.departament_uuid
        },
         {

@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { UserSchema } from "../users/User";
 import { userTypesSchema } from "../user-types/user-types";
+import { roleSchema } from "../roles/roles";
 
 export const responsibleSchema = z.object({
   name: z
@@ -22,7 +23,7 @@ export const responsibleSchema = z.object({
   canChangeQA: z.boolean(),
   sendNonConformitiesToEmail: z.boolean(),
   departament_uuid: z.string().uuid(),
-  role_uuid: z.string().uuid().nullable(),
+  role: roleSchema,
   type: userTypesSchema,
   superior: UserSchema,
 });

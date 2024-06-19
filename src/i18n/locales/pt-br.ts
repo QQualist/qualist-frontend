@@ -278,9 +278,12 @@ export default {
     "Quality Assurance": "Garantia da Qualidade",
     Responsible: "Responsável",
     "Select a user type": "Selecione o tipo de usuário",
+    "Select a role": "Selecione um cargo",
     Search: "Buscar",
     "Select a superior": "Selecione um superior",
+    You: "Você",
     "User successfully created": "Usuário criado com sucesso",
+    Role: "Cargo",
     "Access and manage roles": "Acesse e gerencie os cargos",
     "Create role": "Criar cargo",
     "Create your role here. Click save when you're finished.":

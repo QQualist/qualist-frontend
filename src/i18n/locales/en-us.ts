@@ -274,9 +274,12 @@ export default {
     "Quality Assurance": "Quality Assurance",
     Responsible: "Responsible",
     "Select a user type": "Select a user type",
+    "Select a role": "Select a role",
     Search: "Search",
     "Select a superior": "Select a superior",
+    You: "You",
     "User successfully created": "User successfully created",
+    Role: "Role",
     "Access and manage roles": "Access and manage roles",
     "Create role": "Create role",
     "Create your role here. Click save when you're finished.":
@@ -294,6 +297,7 @@ export default {
     "Copy role code": "Copy role code",
     "Role successfully updated": "Role successfully updated",
     "Update role": "Update role",
-    "Update your role here. Click save when you're finished.": "Update your role here. Click save when you're finished."
+    "Update your role here. Click save when you're finished.":
+      "Update your role here. Click save when you're finished.",
   },
 };

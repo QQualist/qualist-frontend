@@ -15,6 +15,7 @@ import { createResponsibleSchema } from "@/schemas/responsible/create-responsibl
 import { ContextUser } from "@/types/ContextUser";
 import { CreateResponsibleData } from "@/types/create-responsible";
 import { createResponsible } from "@/utils/create-responsible";
+import { getRoles } from "@/utils/getRoles";
 import { getUserTypes } from "@/utils/getUserTypes";
 import { getUsers } from "@/utils/getUsers";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -57,6 +58,9 @@ const CreateResponsibleForm = ({ onClose }: ICreateResponsibleForm) => {
     onSuccess: () => {
       // Refetch the responsibles query to ensure data is up-to-date
       queryClient.invalidateQueries({ queryKey: ["responsibles"] });
+
+      // Refetch the roles query to ensure data is up-to-date
+      queryClient.invalidateQueries({ queryKey: ["roles"] });
 
       // Invalidates the "users" query to update the list of users
       queryClient.invalidateQueries({ queryKey: ["users"] });
@@ -108,6 +112,16 @@ const CreateResponsibleForm = ({ onClose }: ICreateResponsibleForm) => {
       })),
   });
 
+  const { data: roles = [] } = useQuery({
+    queryKey: ["roles"],
+    queryFn: getRoles,
+    select: (data) =>
+      data.map((role) => ({
+        value: role.uuid,
+        label: role.name,
+      })),
+  });
+
   const sendForm = (data: CreateResponsibleData) => {
     if (user) {
       // If you don't have a user, sign out
@@ -125,7 +139,7 @@ const CreateResponsibleForm = ({ onClose }: ICreateResponsibleForm) => {
   }
 
   return (
-    <DialogContent className="overflow-y-auto max-h-screen">
+    <DialogContent className="overflow-y-auto max-h-[80%]">
       <DialogHeader>
         <DialogTitle>Create responsible</DialogTitle>
         <DialogDescription>
@@ -178,6 +192,20 @@ const CreateResponsibleForm = ({ onClose }: ICreateResponsibleForm) => {
               trigger("type_id");
             }}
             placeholder="Select a user type"
+          />
+        </Combobox.Root>
+
+        <Combobox.Root
+          error={errors.role_uuid && errors.role_uuid.message}
+        >
+          <Label>Role</Label>
+          <Combobox.Input
+            data={roles}
+            onSelect={(e) => {
+              setValue("role_uuid", e as string);
+              trigger("role_uuid");
+            }}
+            placeholder="Select a role"
           />
         </Combobox.Root>
 

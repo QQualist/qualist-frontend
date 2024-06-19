@@ -16,6 +16,6 @@ export const createResponsibleSchema = z.object({
     .max(60, "The email must contain a maximum of 60 characters"),
   departament_uuid: z.string().uuid(),
   type_id: z.number().int().positive(),
-  // role_uuid: z.string().uuid().optional(), Temporary optional
+  role_uuid: z.string().uuid(),
   superior_uuid: z.string().uuid().optional()
 })
