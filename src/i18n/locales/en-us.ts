@@ -279,6 +279,11 @@ export default {
     "Select a superior": "Select a superior",
     You: "You",
     "User successfully created": "User successfully created",
+    "Copy responsible code": "Copy responsible code",
+    "Update responsible": "Update responsible",
+    "Update your responsible here. Click save when you're finished.":
+      "Update your responsible here. Click save when you're finished.",
+      "Responsible successfully updated": "Responsible successfully updated",
     Role: "Role",
     "Access and manage roles": "Access and manage roles",
     "Create role": "Create role",

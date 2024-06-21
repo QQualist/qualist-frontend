@@ -2,6 +2,7 @@ import { formatDate } from "@/utils/formatDate";
 import { ColumnDef } from "@tanstack/react-table";
 import i18n from "@/i18n";
 import { ResponsibleData } from "@/types/responsible";
+import Actions from "./actions";
 
 export const columns: ColumnDef<ResponsibleData>[] = [
   {
@@ -89,6 +90,13 @@ export const columns: ColumnDef<ResponsibleData>[] = [
           <span>{formatDate(date)}</span>
         </div>
       );
+    },
+  },
+  {
+    id: "Actions",
+    header: () => <div className="text-center">{i18n.t("Actions")}</div>,
+    cell: ({ row }) => {
+      return <Actions row={row} />;
     },
   },
 ];

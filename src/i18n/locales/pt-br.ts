@@ -283,6 +283,11 @@ export default {
     "Select a superior": "Selecione um superior",
     You: "Você",
     "User successfully created": "Usuário criado com sucesso",
+    "Copy responsible code": "Copiar código do responsável",
+    "Update responsible": "Atualizar responsável",
+    "Update your responsible here. Click save when you're finished.":
+      "Atualize seu responsável aqui. Clique em salvar quando finalizar.",
+    "Responsible successfully updated": "Responsável atualizado com sucesso",
     Role: "Cargo",
     "Access and manage roles": "Acesse e gerencie os cargos",
     "Create role": "Criar cargo",

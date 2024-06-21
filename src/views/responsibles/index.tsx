@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout"
+import Layout from "@/components/Layout";
 import { useNavigate, useParams } from "react-router-dom";
 import ResponsibleHeader from "./responsible-header";
 import DataTable from "@/components/DataTable";
@@ -7,13 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getResponsibles } from "@/utils/getResponsibles";
 
 const Responsibles = () => {
-    const { departamentUuid } = useParams();
-    const navigate = useNavigate();
-
-  if (!departamentUuid) {
-    navigate("/departaments");
-    return null;
-  }
+  const { departamentUuid } = useParams();
+  const navigate = useNavigate();
 
   const {
     data = [],
@@ -22,19 +17,24 @@ const Responsibles = () => {
   } = useQuery({
     queryKey: ["responsibles"],
     queryFn: () => {
-      return getResponsibles(departamentUuid);
+      if (departamentUuid) {
+        return getResponsibles(departamentUuid);
+      }
     },
     enabled: !!departamentUuid,
   });
 
-  console.log(data)
+  if (!departamentUuid) {
+    navigate("/departaments");
+    return null;
+  }
 
   return (
     <Layout>
-        <ResponsibleHeader />
-        <DataTable columns={columns} data={data} />
+      <ResponsibleHeader />
+      <DataTable columns={columns} data={data} />
     </Layout>
-  )
-}
+  );
+};
 
-export default Responsibles
+export default Responsibles;
