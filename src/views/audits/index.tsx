@@ -1,8 +1,11 @@
-import React from 'react'
+import Layout from '@/components/Layout'
+import AuditHeader from './audit-header'
 
 const Audits = () => {
   return (
-    <div>Audits</div>
+    <Layout>
+        <AuditHeader />
+    </Layout>
   )
 }
 

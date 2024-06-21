@@ -308,5 +308,7 @@ export default {
     "Update role": "Atualizar cargo",
     "Update your role here. Click save when you're finished.":
       "Atualize o seu cargo aqui. Clique em salvar quando terminar.",
+      "Access and manage audits": "Acesse e gerencie auditorias",
+      "Schedule audit": "Agendar auditoria",
   },
 };
