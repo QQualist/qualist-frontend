@@ -310,5 +310,6 @@ export default {
       "Atualize o seu cargo aqui. Clique em salvar quando terminar.",
       "Access and manage audits": "Acesse e gerencie auditorias",
       "Schedule audit": "Agendar auditoria",
+      
   },
 };
