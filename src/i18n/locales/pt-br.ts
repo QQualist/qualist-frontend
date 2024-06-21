@@ -197,7 +197,8 @@ export default {
     Technology: "Tecnológico",
     Timetable: "Cronograma",
     "Select a risk type": "Selecione um tipo de risco",
-    "Risk type is required when risk is provided": "Tipo de risco é obrigatório quando o risco é fornecido",
+    "Risk type is required when risk is provided":
+      "Tipo de risco é obrigatório quando o risco é fornecido",
     "Copy item code": "Copiar código do item",
     "Copied text!": "Texto copiado!",
     "Text copied to the clipboard!":
@@ -221,33 +222,91 @@ export default {
     Home: "Início",
     "I'm already a client": "Já sou cliente",
     "Become a customer": "Torne-se um cliente",
-    "Elevating the Standard of Software Quality": "Elevando o Padrão de Qualidade de Software",
-    "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.": "Qualist é a ferramenta essencial para profissionais de QA que desejam transformar a gestão da qualidade de software. Com uma interface amigável e recursos avançados, o Qualist facilita a criação de checklists, a realização de auditorias e o gerenciamento de não conformidades, proporcionando uma experiência mais eficiente e precisa.",
-    "professionals are already simplifying": "profissionais já estão simplificando",
-    "their audits with Qualist.": 'suas auditorias com o Qualist.',
+    "Elevating the Standard of Software Quality":
+      "Elevando o Padrão de Qualidade de Software",
+    "Qualist is the essential tool for QA professionals who want to transform software quality management. With a user-friendly interface and advanced features, Qualist makes it easy to create checklists, conduct audits, and manage nonconformities, providing a more efficient and accurate experience.":
+      "Qualist é a ferramenta essencial para profissionais de QA que desejam transformar a gestão da qualidade de software. Com uma interface amigável e recursos avançados, o Qualist facilita a criação de checklists, a realização de auditorias e o gerenciamento de não conformidades, proporcionando uma experiência mais eficiente e precisa.",
+    "professionals are already simplifying":
+      "profissionais já estão simplificando",
+    "their audits with Qualist.": "suas auditorias com o Qualist.",
     "Some of our clients": "Alguns dos nossos clientes",
     "Discover Qualist’s": "Descubra as",
-    "Features": "Funcionalidades",
-    "Below, we present the main features that make Qualist the": "Abaixo, apresentamos as principais funcionalidades que tornam o Qualist a",
-    "ideal choice for simplifying and optimizing your software quality audits.": "escolha ideal para simplificar e otimizar suas auditorias de qualidade de software.",
+    Features: "Funcionalidades",
+    "Below, we present the main features that make Qualist the":
+      "Abaixo, apresentamos as principais funcionalidades que tornam o Qualist a",
+    "ideal choice for simplifying and optimizing your software quality audits.":
+      "escolha ideal para simplificar e otimizar suas auditorias de qualidade de software.",
     "Custom Checklists": "Checklists Personalizados",
-    "Create custom checklists for each type of audit.": "Crie checklists personalizados para cada tipo de auditoria.",
+    "Create custom checklists for each type of audit.":
+      "Crie checklists personalizados para cada tipo de auditoria.",
     "Team Management": "Gestão de Equipes",
-    "Create departments, roles, assign permissions, and manage each member's access.": "Crie departamentos, cargos, atribua permissões e gerencie o acesso de cada membro.",
-    "Realize software quality audits simply and efficiently.": "Realize auditorias de qualidade de software de forma simples e eficiente.",
-    "Register and manage nonconformities identified during audits.": "Registre e gerencie não conformidades identificadas durante as auditorias.",
+    "Create departments, roles, assign permissions, and manage each member's access.":
+      "Crie departamentos, cargos, atribua permissões e gerencie o acesso de cada membro.",
+    "Realize software quality audits simply and efficiently.":
+      "Realize auditorias de qualidade de software de forma simples e eficiente.",
+    "Register and manage nonconformities identified during audits.":
+      "Registre e gerencie não conformidades identificadas durante as auditorias.",
     "Risk Management": "Gestão de Riscos",
-    "Identify, assess, and manage risks associated with the software quality process.": "Identifique, avalie e gerencie riscos associados ao processo de qualidade de software.",
-    "Notifications": "Notificações",
+    "Identify, assess, and manage risks associated with the software quality process.":
+      "Identifique, avalie e gerencie riscos associados ao processo de qualidade de software.",
+    Notifications: "Notificações",
     "Mark all as read": "Marcar todas como lida",
-    "Receive real-time notifications about the status of audits and nonconformities.": "Receba notificações em tempo real sobre o status das auditorias e não conformidades.",
-    "Track audit performance and view complete and intuitive reports.": "Acompanhe o desempenho das auditorias e visualize relatórios completos e intuitivos.",
+    "Receive real-time notifications about the status of audits and nonconformities.":
+      "Receba notificações em tempo real sobre o status das auditorias e não conformidades.",
+    "Track audit performance and view complete and intuitive reports.":
+      "Acompanhe o desempenho das auditorias e visualize relatórios completos e intuitivos.",
     "Access and manage departaments": "Acesse e gerencie departamentos",
     "Create departament": "Criar departamento",
-    "Create your departament here. Click save when you're finished.": "Crie seu departamento aqui. Clique em salvar quando terminar.",
+    "Create your departament here. Click save when you're finished.":
+      "Crie seu departamento aqui. Clique em salvar quando terminar.",
     "Eg: Quality Assurance": "Ex: Garantia da Qualidade",
     "Departament successfully created": "Departamento criado com sucesso",
-    "The departament name must contain a maximum of 35 characters": "O nome do departamento deve conter no máximo 35 caractéres",
+    "The departament name must contain a maximum of 35 characters":
+      "O nome do departamento deve conter no máximo 35 caractéres",
+    "Update departament": "Atualizar departamento",
+    "Update your departament here. Click save when you're finished.":
+      "Atualize o seu departamento aqui. Clique em salvar quando terminar.",
+    "Departament successfully updated": "Departamento atualizado com sucesso",
+    "Copy departament code": "Copiar código do departamento",
+    "View departament": "Ver departamento",
+    "Access and manage responsibles": "Acesse e gerencie seus responsáveis",
+    "Create responsible": "Criar responsável",
+    "Create your responsible here. Click save when you're finished.":
+      "Crie o seu responsável aqui. Clique em salvar quando terminar.",
+    Type: "Tipo",
+    Administrator: "Administrador",
+    "Quality Assurance": "Garantia da Qualidade",
+    Responsible: "Responsável",
+    "Select a user type": "Selecione o tipo de usuário",
+    "Select a role": "Selecione um cargo",
+    Search: "Buscar",
+    "Select a superior": "Selecione um superior",
+    You: "Você",
+    "User successfully created": "Usuário criado com sucesso",
+    "Copy responsible code": "Copiar código do responsável",
+    "Update responsible": "Atualizar responsável",
+    "Update your responsible here. Click save when you're finished.":
+      "Atualize seu responsável aqui. Clique em salvar quando finalizar.",
+    "Responsible successfully updated": "Responsável atualizado com sucesso",
+    Role: "Cargo",
+    "Access and manage roles": "Acesse e gerencie os cargos",
+    "Create role": "Criar cargo",
+    "Create your role here. Click save when you're finished.":
+      "Crie seu cargo aqui. Clique em salvar quando finalizar.",
+    "Eg: Analyst": "Ex: Analista",
+    "Can dispense a non-conformity?": "Pode dispensar uma não-conformidade?",
+    "This role has permission to waive a non-conformity":
+      "Este cargo tem permissão para dispensar uma não-conformidade",
+    "Role successfully created": "Cargo criado com sucesso",
+    "Can dispense NC?": "Pode dispensar NC?",
+    "Informs whether the role has permission to dispense a non-conformity":
+      "Informa se o cargo tem permissão para dispensar uma não conformidade",
+    Yes: "Sim",
+    No: "Não",
+    "Copy role code": "Copiar código do cargo",
+    "Role successfully updated": "Cargo atualizado com sucesso",
+    "Update role": "Atualizar cargo",
+    "Update your role here. Click save when you're finished.":
+      "Atualize o seu cargo aqui. Clique em salvar quando terminar.",
   },
 };
- 
