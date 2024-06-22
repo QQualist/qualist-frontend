@@ -11,14 +11,10 @@ import { useState } from "react";
 import DaysWeek from "./days-week";
 import BoxDay from "./box-day";
 import Header from "./header";
+import { IAppointment } from "@/types/Appointments";
 
-interface Appointment {
-  date: Date;
-  description: string;
-  [key: string]: unknown;
-}
 
-const Calendar = ({ appointments }: { appointments: Appointment[] }) => {
+const Calendar = ({ appointments }: { appointments: IAppointment[] }) => {
   const currentDate = new Date();
   const [year, setYear] = useState<number>(currentDate.getFullYear());
   const [month, setMonth] = useState<number>(currentDate.getMonth() + 1);

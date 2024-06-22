@@ -311,5 +311,7 @@ export default {
     "Audit successfully scheduled": "Audit successfully scheduled",
     "Eg: Process management - Phase 1": "Eg: Process management - Phase 1",
     Today: "Today",
+    "Audit successfully canceled!": "Audit successfully canceled!",
+    "Audit successfully restored!": "Audit successfully restored!",
   },
 };

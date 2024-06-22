@@ -1,17 +1,12 @@
 import { format, isSameDay, isSameMonth } from "date-fns";
 import { useTranslation } from "react-i18next";
-import Appointment from "./appointement";
 import ListAppointments from "./list-appointments";
+import { IAppointment } from "@/types/Appointments";
 
-interface Appointment {
-  date: Date;
-  description: string;
-  [key: string]: unknown;
-}
 
 interface IBoxDay {
   date: Date;
-  appointments: Appointment[];
+  appointments: IAppointment[];
 }
 
 const BoxDay = ({ date, appointments }: IBoxDay) => {

@@ -12,18 +12,18 @@ const Audits = () => {
   } = useQuery({
     queryKey: ["audits"],
     queryFn: getAudits,
+    select: (data) =>
+      data.map((appointment) => ({
+        ...appointment,
+        date: new Date(appointment.date),
+        description: appointment.name,
+      })),
   });
-
-  const appointments = data.map((audit) => ({
-    ...audit, 
-    date: new Date(audit.date),
-    description: audit.name,
-  }));
 
   return (
     <Layout>
       <AuditHeader />
-      <Calendar appointments={appointments} />
+      <Calendar appointments={data} />
     </Layout>
   );
 };
