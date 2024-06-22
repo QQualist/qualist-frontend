@@ -7,6 +7,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { format, isSameDay } from "date-fns";
+import { LuPlus } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 const MoreAppoinments = ({
   appointments, //Only appointments of the day
@@ -14,13 +16,12 @@ const MoreAppoinments = ({
   appointments: IAppointment[];
 }) => {
   const isToday = isSameDay(appointments[0].date, new Date());
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-1">
       {/* Render first appointement of day */}
-      <Appointment
-       appointment={appointments[0]}
-      />
+      <Appointment appointment={appointments[0]} />
 
       <Popover>
         <PopoverTrigger asChild>
@@ -28,7 +29,7 @@ const MoreAppoinments = ({
             variant="default"
             className="flex w-full h-6 justify-start px-2.5 py-0.5 text-xs dark:bg-secondary"
           >
-            More {appointments.length - 1} items
+            <LuPlus size={12} /> {appointments.length - 1} {t("items")}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="flex flex-col w-80 gap-2" align="start">
@@ -46,11 +47,7 @@ const MoreAppoinments = ({
             {appointments.map((appointment, index) => (
               <>
                 {/* The first one has already been rendered in the calendar */}
-                {index !== 0 && (
-                  <Appointment
-                    appointment={appointment}
-                  />
-                )}
+                {index !== 0 && <Appointment appointment={appointment} />}
               </>
             ))}
           </div>

@@ -313,5 +313,7 @@ export default {
     Today: "Today",
     "Audit successfully canceled!": "Audit successfully canceled!",
     "Audit successfully restored!": "Audit successfully restored!",
+    items: "items",
+    Reminders: "Reminders",
   },
 };

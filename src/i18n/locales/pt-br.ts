@@ -317,6 +317,7 @@ export default {
     Today: "Hoje",
     "Audit successfully canceled!": "Auditoria cancelada com sucesso!",
     "Audit successfully restored!": "Auditoria restaurada com sucesso!",
-    
+    items: "itens",
+    Reminders: "Lembretes",
   },
 };
