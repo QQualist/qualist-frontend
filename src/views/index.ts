@@ -8,6 +8,7 @@ import Home from './home'
 import Departaments from './departaments'
 import Responsibles from './responsibles'
 import Roles from './roles'
+import Audits from './audits'
 
 export {
     SignUp,
@@ -19,5 +20,6 @@ export {
     Home,
     Departaments,
     Responsibles,
-    Roles
+    Roles,
+    Audits
 }

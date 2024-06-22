@@ -283,7 +283,7 @@ export default {
     "Update responsible": "Update responsible",
     "Update your responsible here. Click save when you're finished.":
       "Update your responsible here. Click save when you're finished.",
-      "Responsible successfully updated": "Responsible successfully updated",
+    "Responsible successfully updated": "Responsible successfully updated",
     Role: "Role",
     "Access and manage roles": "Access and manage roles",
     "Create role": "Create role",
@@ -304,5 +304,16 @@ export default {
     "Update role": "Update role",
     "Update your role here. Click save when you're finished.":
       "Update your role here. Click save when you're finished.",
+    "Access and manage audits": "Access and manage audits",
+    "Schedule audit": "Schedule audit",
+    "Schedule your audit here. Click save when you're finished.":
+      "Schedule your audit here. Click save when you're finished.",
+    "Audit successfully scheduled": "Audit successfully scheduled",
+    "Eg: Process management - Phase 1": "Eg: Process management - Phase 1",
+    Today: "Today",
+    "Audit successfully canceled!": "Audit successfully canceled!",
+    "Audit successfully restored!": "Audit successfully restored!",
+    items: "items",
+    Reminders: "Reminders",
   },
 };
