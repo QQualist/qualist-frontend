@@ -306,5 +306,10 @@ export default {
       "Update your role here. Click save when you're finished.",
     "Access and manage audits": "Access and manage audits",
     "Schedule audit": "Schedule audit",
+    "Schedule your audit here. Click save when you're finished.":
+      "Schedule your audit here. Click save when you're finished.",
+    "Audit successfully scheduled": "Audit successfully scheduled",
+    "Eg: Process management - Phase 1": "Eg: Process management - Phase 1",
+    Today: "Today",
   },
 };

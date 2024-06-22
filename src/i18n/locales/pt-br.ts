@@ -308,8 +308,12 @@ export default {
     "Update role": "Atualizar cargo",
     "Update your role here. Click save when you're finished.":
       "Atualize o seu cargo aqui. Clique em salvar quando terminar.",
-      "Access and manage audits": "Acesse e gerencie auditorias",
-      "Schedule audit": "Agendar auditoria",
-      
+    "Access and manage audits": "Acesse e gerencie auditorias",
+    "Schedule audit": "Agendar auditoria",
+    "Schedule your audit here. Click save when you're finished.":
+      "Agende sua auditoria aqui. Clique em salvar quando terminar. ",
+    "Audit successfully scheduled": "Auditoria agendada com sucesso",
+    "Eg: Process management - Phase 1": "Ex: Gerência de processos - Fase 1",
+    Today: "Hoje",
   },
 };

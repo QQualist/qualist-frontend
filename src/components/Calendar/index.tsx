@@ -12,7 +12,13 @@ import DaysWeek from "./days-week";
 import BoxDay from "./box-day";
 import Header from "./header";
 
-const Calendar = () => {
+interface Appointment {
+  date: Date;
+  description: string;
+  [key: string]: unknown;
+}
+
+const Calendar = ({ appointments }: { appointments: Appointment[] }) => {
   const currentDate = new Date();
   const [year, setYear] = useState<number>(currentDate.getFullYear());
   const [month, setMonth] = useState<number>(currentDate.getMonth() + 1);
@@ -40,6 +46,8 @@ const Calendar = () => {
     setMonth(previousMonthDate.getMonth() + 1);
   };
 
+  appointments.sort((a, b) => a.date.getTime() - b.date.getTime());
+
   return (
     <div>
       <Header
@@ -50,7 +58,14 @@ const Calendar = () => {
       <div className="grid grid-cols-7">
         <DaysWeek year={year} month={month} />
         {daysOfMonth.map((date, index) => (
-          <BoxDay key={index} date={date} />
+          <BoxDay
+            key={index}
+            date={date}
+            appointments={appointments.filter(
+              (appointment) =>
+                appointment.date.toDateString() === date.toDateString()
+            )}
+          />
         ))}
       </div>
     </div>

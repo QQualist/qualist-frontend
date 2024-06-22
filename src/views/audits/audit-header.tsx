@@ -2,6 +2,7 @@ import { Header } from "@/components/Layout/Header";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import CreateAuditForm from "./create-audit-form";
 
 const AuditHeader = () => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -19,7 +20,7 @@ const AuditHeader = () => {
         <DialogTrigger asChild>
           <Button variant="default">Schedule audit</Button>
         </DialogTrigger>
-        {/* <CreateChecklistForm onClose={closeDialog} /> */}
+        <CreateAuditForm onClose={closeDialog} />
       </Dialog>
     </Header.Root>
   );
