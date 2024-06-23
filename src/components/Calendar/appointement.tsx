@@ -20,7 +20,7 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
-import { LuCalendar, LuCalendarDays, LuCalendarX } from "react-icons/lu";
+import { LuCalendarDays } from "react-icons/lu";
 
 const checklists = [
   {

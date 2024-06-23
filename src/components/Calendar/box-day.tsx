@@ -16,9 +16,9 @@ const BoxDay = ({ date, appointments }: IBoxDay) => {
 
   return (
     <div
-      className={`w-full h-32 border border-light-gray/10 p-2
+      className={`w-full h-32  p-2 ${isToday ? 'border-2 border-light-blue': 'border border-light-gray/10'}
         ${!isCurrentMonth && "bg-light-gray/15"}
-        ${isToday && "border-light-blue border"}
+        
       `}
     >
       <div className="flex items-center justify-between gap-1">
