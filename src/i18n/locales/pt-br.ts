@@ -319,5 +319,17 @@ export default {
     "Audit successfully restored!": "Auditoria restaurada com sucesso!",
     items: "itens",
     Reminders: "Lembretes",
+    "You have reached your reminder limit":
+      "Você alcançou seu limite de lembretes",
+    "I want to be notified at": "Quero ser notificado em",
+    "AT THE TIME OF THE AUDIT": "NO MOMENTO DA AUDITORIA",
+    "5 MINUTES BEFORE": "5 MINUTOS ANTES",
+    "10 MINUTES BEFORE": "10 MINUTOS ANTES",
+    "15 MINUTES BEFORE": "15 MINUTOS ANTES",
+    "30 MINUTES BEFORE": "30 MINUTOS ANTES",
+    "1 HOUR BEFORE": "1 HORA ANTES",
+    "2 HOURS BEFORE": "2 HORAS ANTES",
+    "1 DAY BEFORE": "1 DIA ANTES",
+    "2 DAYS BEFORE": "2 DIAS ANTES",
   },
 };
