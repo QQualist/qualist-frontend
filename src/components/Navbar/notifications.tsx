@@ -9,7 +9,6 @@ import { useTranslation } from "react-i18next";
 import { renderNotification } from "@/utils/render-notification";
 import { NotificationContext } from "@/contexts/notifications";
 import { ContextNotifications } from "@/types/ContextNotifications";
-import Notification from "../Notification";
 
 const Notifications = () => {
   const { t } = useTranslation();
