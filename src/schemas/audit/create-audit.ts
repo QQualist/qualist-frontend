@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { optionSchema } from "./option";
 
 const isFutureDate = (date: Date) => {
   const now = new Date();
@@ -10,6 +11,7 @@ export const createAuditSchema = z.object({
     .string()
     .min(1, "The name is required")
     .max(50, "The audit name must contain a maximum of 50 characters"),
+  reminders: z.array(optionSchema).optional(),
   date: z.preprocess((arg) => {
     if (typeof arg === "string" || arg instanceof Date) {
       return new Date(arg);

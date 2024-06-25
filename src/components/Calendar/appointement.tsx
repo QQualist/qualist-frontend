@@ -1,5 +1,12 @@
 import { format } from "date-fns";
-import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 import { IAppointment } from "@/types/Appointments";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Button } from "../ui/button";
@@ -13,6 +20,7 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
+import { LuCalendarDays } from "react-icons/lu";
 
 const checklists = [
   {
@@ -147,18 +155,20 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
           </Button>
         </div>
 
-        <div className="flex flex-col gap-6">
-          <div className="flex items-baseline gap-3 p-1">
-            <div className="w-3 h-3 rounded-full bg-light-blue" />
-            <div className="flex flex-col">
-              <span className="text-2xl font-medium">
+        <div className="flex flex-col gap-6 overflow-hidden">
+          <DialogHeader>
+            <div className="flex items-center gap-1">
+              <DialogTitle className="text-2xl truncate">
                 {appointment.description}
-              </span>
-              <span className="text-sm leading-5">
-                {formatDate(appointment.date)}
-              </span>
+              </DialogTitle>
             </div>
-          </div>
+            <div className="flex items-center text-light-gray gap-1">
+              <LuCalendarDays className="text-sm" />
+              <DialogDescription>
+                {formatDate(appointment.date)}
+              </DialogDescription>
+            </div>
+          </DialogHeader>
 
           <div className="flex flex-col items-stretch gap-3">
             <Separator />
@@ -184,7 +194,10 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
 
             <div className="flex gap-1 flex-wrap">
               {checklists.map((checklist) => (
-                <Link to={`/checklist/${checklist.uuid}/items`} key={checklist.uuid}>
+                <Link
+                  to={`/checklist/${checklist.uuid}/items`}
+                  key={checklist.uuid}
+                >
                   <Badge variant="default" className="dark:text-white">
                     {checklist.name}
                   </Badge>

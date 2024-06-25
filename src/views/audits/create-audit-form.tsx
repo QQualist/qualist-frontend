@@ -1,4 +1,5 @@
 import DateTimeInput from "@/components/Inputs/DateTime";
+import { MultiSelector } from "@/components/Inputs/MultiSelector";
 import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,11 +16,13 @@ import { createAuditSchema } from "@/schemas/audit/create-audit";
 import { ContextUser } from "@/types/ContextUser";
 import { CreateAuditData } from "@/types/create-audit";
 import { createAudit } from "@/utils/create-audit";
+import { getReminders } from "@/utils/getReminders";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface ICreateAuditForm {
   onClose: () => void;
@@ -29,6 +32,7 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
   const { user, SignOut } = useContext(UserContext) as ContextUser;
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const {
     register,
@@ -75,6 +79,20 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
     },
   });
 
+  const {
+    data = [],
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["reminders"],
+    queryFn: getReminders,
+    select: (data) =>
+      data.map((reminder) => ({
+        value: String(reminder.id),
+        label: reminder.name,
+      })),
+  });
+
   const sendForm = (date: CreateAuditData) => {
     if (user && user.uuid) {
       mutation.mutateAsync(date);
@@ -86,7 +104,7 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
   };
 
   const handleDateChange = (date: Date) => {
-    setValue('date', date);
+    setValue("date", date);
   };
 
   return (
@@ -109,6 +127,30 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
             />
           </TextField.Content>
         </TextField.Root>
+
+        <MultiSelector.Root error={undefined}>
+          <Label htmlFor="reminders">Reminders</Label>
+          <MultiSelector.Input
+            onChange={(e) => {
+              setValue('reminders', e);
+            }}
+            maxSelected={3}
+            onMaxSelected={(maxLimit) => {
+              toast({
+                title: `${t(
+                  "You have reached your reminder limit"
+                )}: ${maxLimit}`,
+              });
+            }}
+            defaultOptions={data}
+            placeholder="I want to be notified at"
+            emptyIndicator={
+              <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
+                no results found.
+              </p>
+            }
+          />
+        </MultiSelector.Root>
 
         <DateTimeInput
           id="audit-date"
