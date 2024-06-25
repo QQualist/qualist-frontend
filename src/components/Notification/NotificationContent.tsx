@@ -1,6 +1,7 @@
+import { ReactNode } from "react"
 
 interface INotificationContent {
-    children: string
+    children: ReactNode
 }
 
 const NotificationContent = ({children}: INotificationContent) => {

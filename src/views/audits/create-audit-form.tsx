@@ -131,6 +131,9 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
         <MultiSelector.Root error={undefined}>
           <Label htmlFor="reminders">Reminders</Label>
           <MultiSelector.Input
+            onChange={(e) => {
+              setValue('reminders', e);
+            }}
             maxSelected={3}
             onMaxSelected={(maxLimit) => {
               toast({
