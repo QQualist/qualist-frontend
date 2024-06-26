@@ -10,7 +10,7 @@ import {
 import { IAppointment } from "@/types/Appointments";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { Button } from "../ui/button";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { deleteAudit } from "@/utils/delete-audit";
 import { useToast } from "../ui/use-toast";
 import { isAxiosError } from "axios";
@@ -21,6 +21,7 @@ import { Badge } from "../ui/badge";
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
 import { LuCalendarDays } from "react-icons/lu";
+import { getRemindersByAudit } from "@/utils/getRemindersByAudit";
 
 const checklists = [
   {
@@ -107,6 +108,19 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
     },
   });
 
+  const {
+    data: reminders = [],
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["audit-reminders"],
+    queryFn: () => {
+      return getRemindersByAudit(appointment.uuid);
+    },
+  });
+
+  console.log(reminders);
+
   const handleDeleteAppointment = () => {
     mutation.mutateAsync(appointment.uuid);
   };
@@ -175,15 +189,16 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
             <span className="font-semibold">{t("Reminders")}</span>
             <div className="flex gap-1 flex-wrap">
               <div className="flex gap-1 flex-wrap">
-                <Badge variant="default" className="dark:text-white">
-                  10 minutos antes
-                </Badge>
-                <Badge variant="default" className="dark:text-white">
-                  20 minutos antes
-                </Badge>
-                <Badge variant="default" className="dark:text-white">
-                  01 hora antes
-                </Badge>
+                {Array.isArray(reminders) &&
+                  reminders.map((reminder) => (
+                    <Badge
+                      key={reminder.id}
+                      variant="default"
+                      className="dark:text-white"
+                    >
+                      {reminder.reminder.name}
+                    </Badge>
+                  ))}
               </div>
             </div>
           </div>
