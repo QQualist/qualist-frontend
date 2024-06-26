@@ -10,6 +10,5 @@ export const getRemindersByAudit = async (audit_uuid: string): Promise<AuditRemi
       Authorization: `Bearer ${userToken}`,
     },
   });
-    console.log(audit_reminders.data)
   return audit_reminders.data;
 };
