@@ -113,13 +113,11 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["audit-reminders"],
+    queryKey: ["audit-reminders", appointment.uuid],
     queryFn: () => {
       return getRemindersByAudit(appointment.uuid);
     },
   });
-
-  console.log(reminders);
 
   const handleDeleteAppointment = () => {
     mutation.mutateAsync(appointment.uuid);
@@ -189,6 +187,9 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
             <span className="font-semibold">{t("Reminders")}</span>
             <div className="flex gap-1 flex-wrap">
               <div className="flex gap-1 flex-wrap">
+                {reminders.length === 0 && (
+                  <span className="text-light-gray/70">No reminders.</span>
+                )}
                 {Array.isArray(reminders) &&
                   reminders.map((reminder) => (
                     <Badge

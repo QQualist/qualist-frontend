@@ -336,5 +336,6 @@ export default {
     "Less than 1 minute": "Less than 1 minute",
     "to run the audit": 'to run the audit',
     "There are no notifications at the moment.": "There are no notifications at the moment.",
+    "No reminders.": "No reminders."
   },
 };
