@@ -66,26 +66,17 @@
   }
 }
 
-/* Customiza a barra de rolagem */
+/* Customize the scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Customiza o fundo da trilha da barra de rolagem */
+/* Customize the background of the scroll bar track */
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
 
-/* Customiza o manipulador da barra de rolagem */
+/* Customize the scrollbar manipulator */
 ::-webkit-scrollbar-thumb {
   background-color: #0088f1;
-}
-
-main {
-  height: calc(100vh - 80px);
-}
-
-main img
-{
-  bottom: calc(0px - 80px);
 }

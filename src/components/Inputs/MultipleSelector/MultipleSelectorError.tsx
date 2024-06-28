@@ -1,13 +1,13 @@
 import { useTranslation } from "react-i18next";
 
-interface IMultiSelectorError {
+interface IMultipleSelectorError {
   children: string;
 }
 
-const MultiSelectorError = ({ children }: IMultiSelectorError) => {
+const MultipleSelectorError = ({ children }: IMultipleSelectorError) => {
   const { t } = useTranslation();
 
   return <span className="text-sm px-2 text-red">{t(children)}</span>;
 };
 
-export default MultiSelectorError;
+export default MultipleSelectorError;
