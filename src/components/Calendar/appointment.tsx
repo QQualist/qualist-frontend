@@ -223,7 +223,9 @@ const Appointment = ({ appointment }: { appointment: IAppointment }) => {
           </div>
           <Separator />
           <div className="flex items-center justify-end">
-            <Button>{t("Do audit")}</Button>
+            <Button type="button" asChild>
+              <Link to={`/audits/${appointment.uuid}`}>{t("Run audit")}</Link>
+            </Button>
           </div>
         </div>
       </DialogContent>
