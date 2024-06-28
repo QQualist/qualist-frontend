@@ -1,6 +1,6 @@
 import { IAppointment } from "@/types/Appointments";
 import { Button } from "../ui/button";
-import Appointment from "./appointement";
+import Appointment from "./appointment";
 import {
   Popover,
   PopoverContent,

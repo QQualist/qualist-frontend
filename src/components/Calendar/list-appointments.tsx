@@ -1,5 +1,5 @@
 import { IAppointment } from "@/types/Appointments";
-import Appointment from "./appointement";
+import Appointment from "./appointment";
 import MoreAppoinments from "./more-appointements";
 
 const ListAppointments = ({

@@ -340,5 +340,9 @@ export default {
     "Less than 1 minute": "Menos de 1 minuto",
     "to run the audit": "para iniciar a auditoria",
     "There are no notifications at the moment.": "Não há notificações no momento.",
+    "No reminders.": "Sem lembretes",
+    "No results found.": "Nenhum resultado encontrado",
+    "No items": "Sem items",
+    "Run audit": "Executar auditoria"
   },
 };

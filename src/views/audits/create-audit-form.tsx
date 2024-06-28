@@ -1,5 +1,5 @@
 import DateTimeInput from "@/components/Inputs/DateTime";
-import { MultiSelector } from "@/components/Inputs/MultiSelector";
+import { MultipleSelector } from "@/components/Inputs/MultipleSelector";
 import TextField from "@/components/Inputs/TextField";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +14,10 @@ import { useToast } from "@/components/ui/use-toast";
 import { UserContext } from "@/contexts/user";
 import { createAuditSchema } from "@/schemas/audit/create-audit";
 import { ContextUser } from "@/types/ContextUser";
+import { Option } from "@/types/Option";
 import { CreateAuditData } from "@/types/create-audit";
 import { createAudit } from "@/utils/create-audit";
+import { getChecklists } from "@/utils/getChecklists";
 import { getReminders } from "@/utils/getReminders";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -43,9 +45,6 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
     formState: { errors },
   } = useForm<CreateAuditData>({
     resolver: zodResolver(createAuditSchema),
-    defaultValues: {
-      date: new Date(),
-    },
   });
 
   const mutation = useMutation({
@@ -80,7 +79,7 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
   });
 
   const {
-    data = [],
+    data: reminders = [],
     error,
     isLoading,
   } = useQuery({
@@ -91,6 +90,46 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
         value: String(reminder.id),
         label: reminder.name,
       })),
+  });
+
+  const {
+    data: checklists = [],
+    error: checklistError,
+    isLoading: checklistsIsLoading,
+  } = useQuery({
+    queryKey: ["checklists"],
+    queryFn: getChecklists,
+    select: (data) => {
+      // Filter checklists with and without items and only active ones
+      const checklistsWithItems = data.filter(
+        (checklist) => checklist.items.length > 0 && checklist.active
+      );
+      const checklistsWithoutItems = data.filter(
+        (checklist) => checklist.items.length === 0 && checklist.active
+      );
+
+      // Sort each group alphabetically
+      checklistsWithItems.sort((a, b) => a.name.localeCompare(b.name));
+      checklistsWithoutItems.sort((a, b) => a.name.localeCompare(b.name));
+
+      // Map and structure the array as desired
+      const mappedChecklists = [
+        ...checklistsWithItems.map((checklist) => ({
+          value: String(checklist.uuid),
+          label: `${checklist.name}`,
+          badge: undefined,
+          disable: false,
+        })),
+        ...checklistsWithoutItems.map((checklist) => ({
+          value: String(checklist.uuid),
+          label: `${checklist.name}`,
+          badge: "No items",
+          disable: true,
+        })),
+      ];
+
+      return mappedChecklists;
+    },
   });
 
   const sendForm = (date: CreateAuditData) => {
@@ -105,6 +144,10 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
 
   const handleDateChange = (date: Date) => {
     setValue("date", date);
+  };
+
+  const handleChecklistsSelect = (selectedOptions: Option[]) => {
+    setValue("checklists", selectedOptions);
   };
 
   return (
@@ -128,30 +171,6 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
           </TextField.Content>
         </TextField.Root>
 
-        <MultiSelector.Root error={undefined}>
-          <Label htmlFor="reminders">Reminders</Label>
-          <MultiSelector.Input
-            onChange={(e) => {
-              setValue('reminders', e);
-            }}
-            maxSelected={3}
-            onMaxSelected={(maxLimit) => {
-              toast({
-                title: `${t(
-                  "You have reached your reminder limit"
-                )}: ${maxLimit}`,
-              });
-            }}
-            defaultOptions={data}
-            placeholder="I want to be notified at"
-            emptyIndicator={
-              <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">
-                no results found.
-              </p>
-            }
-          />
-        </MultiSelector.Root>
-
         <DateTimeInput
           id="audit-date"
           label="Date"
@@ -159,6 +178,38 @@ const CreateAuditForm = ({ onClose }: ICreateAuditForm) => {
           onChange={handleDateChange}
           error={errors.date && errors.date.message}
         />
+
+        <MultipleSelector.Root
+          error={errors.checklists && errors.checklists.message}
+        >
+          <Label htmlFor="checklists">Checklists</Label>
+          <MultipleSelector.Input
+            options={checklists}
+            placeholder="Chose the checklists"
+            emptyText="No checklist found"
+            onSelect={handleChecklistsSelect}
+          />
+        </MultipleSelector.Root>
+
+        <MultipleSelector.Root error={undefined}>
+          <Label htmlFor="reminders" isOptional>Reminders</Label>
+          <MultipleSelector.Input
+            options={reminders}
+            onSelect={(e) => {
+              setValue("reminders", e);
+            }}
+            maxSelections={3}
+            onMaxSelectionReached={(maxLimit) => {
+              toast({
+                title: `${t(
+                  "You have reached your reminder limit"
+                )}: ${maxLimit}`,
+              });
+            }}
+            placeholder="I want to be notified at"
+            emptyText="No reminders found."
+          />
+        </MultipleSelector.Root>
 
         <DialogFooter>
           <Button type="submit">Save</Button>
