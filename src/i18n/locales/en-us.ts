@@ -138,6 +138,7 @@ export default {
     Departaments: "Departments",
     Roles: "Roles",
     Priorities: "Priorities",
+    Priority: "Priority",
     Settings: "Settings",
     "Access and manage checklists": "Access and manage checklists",
     "Create checklist": "Create checklist",
@@ -179,7 +180,6 @@ export default {
     Optional: "Optional",
     "Eg: The lack of a schedule can compromise organization and deadlines.":
       "Eg: The lack of a schedule can compromise organization and deadlines.",
-    Priority: "Priority",
     "Select a item priority": "Select a item priority",
     "Priority is required": "Priority is required",
     "Risk type": "Risk type",
@@ -341,5 +341,9 @@ export default {
     "No results found.": "No results found.",
     "No items": "No items",
     "Run audit": "Run audit",
+    "Run your audit here": "Run your audit here",
+    Compliant: "Compliant",
+    "Non-compliant": "Non-compliant",
+    "Not applicable": "Not applicable",
   },
 };

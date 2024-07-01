@@ -9,6 +9,7 @@ import Departaments from './departaments'
 import Responsibles from './responsibles'
 import Roles from './roles'
 import Audits from './audits'
+import AuditedItems from './auditedItems'
 
 export {
     SignUp,
@@ -21,5 +22,6 @@ export {
     Departaments,
     Responsibles,
     Roles,
-    Audits
+    Audits,
+    AuditedItems
 }

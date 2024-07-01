@@ -10,7 +10,8 @@ import {
   Departaments,
   Responsibles,
   Roles,
-  Audits
+  Audits,
+  AuditedItems
 } from "../views";
 import { BrowserRouter } from "react-router-dom";
 import PrivateRoutes from "./privateRoutes";
@@ -32,6 +33,7 @@ const RouteNavigators = () => {
           <Route path="/departaments/:departamentUuid/responsibles" element={<Responsibles />} />
           <Route path="/roles" element={<Roles />} />
           <Route path="/audits" element={<Audits />} />
+          <Route path="/audits/:audit_uuid" element={<AuditedItems />} />
         </Route>
 
         {/* <Route path='*' element={<NotFound />} /> */}
