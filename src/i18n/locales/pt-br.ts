@@ -139,6 +139,7 @@ export default {
     Departaments: "Departamentos",
     Roles: "Cargos",
     Priorities: "Prioridades",
+    Priority: "Prioridade",
     Settings: "Configurações",
     "Access and manage checklists": "Acesse e gerencie seus checklists",
     "Create checklist": "Criar checklist",
@@ -182,7 +183,6 @@ export default {
     Optional: "Opcional",
     "Eg: The lack of a schedule can compromise organization and deadlines.":
       "Ex: A falta de um cronograma pode comprometer a organização e os prazos.",
-    Priority: "Prioridade",
     "Select a item priority": "Selecione a prioridade do item",
     "Priority is required": "A prioridade é obrigatória",
     "Risk type": "Tipo do risco",
@@ -339,10 +339,15 @@ export default {
     minutes: "minutos",
     "Less than 1 minute": "Menos de 1 minuto",
     "to run the audit": "para iniciar a auditoria",
-    "There are no notifications at the moment.": "Não há notificações no momento.",
+    "There are no notifications at the moment.":
+      "Não há notificações no momento.",
     "No reminders.": "Sem lembretes",
     "No results found.": "Nenhum resultado encontrado",
     "No items": "Sem items",
-    "Run audit": "Executar auditoria"
+    "Run audit": "Executar auditoria",
+    "Run your audit here": "Execute sua auditoria aqui",
+    Compliant: "Em conformidade",
+    "Non-compliant": "Não conforme",
+    "Not applicable": "Não aplicável",
   },
 };
